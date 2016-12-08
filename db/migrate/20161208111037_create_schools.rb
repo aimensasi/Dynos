@@ -8,6 +8,7 @@ class CreateSchools < ActiveRecord::Migration
       t.string :category
       t.string :avatar
       t.string :password_digest
+      t.string :email
       t.timestamps null: false
     end
   end

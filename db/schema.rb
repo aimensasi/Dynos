@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20161208111037) do
     t.string   "category"
     t.string   "avatar"
     t.string   "password_digest"
+    t.string   "email"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
