@@ -1,0 +1,27 @@
+== README
+
+Dynos is Web app build by Ruby On Rails 
+
+The porpuse of the the app is to help people 
+find out about schools that located in the surrounding area
+
+The app allow a school rep to create an account for the school
+which will allow the rep to post detailed information about the school
+includes: location, address, description, the level that the school teach
+
+The app also allow the school to post an event and recieve a payment if required by the school
+
+The app allow vistors to search schools by location, level, name, catogarey => {private, cov and international}
+
+a vistor is able to sign up which allow him/her to purchase events tickets
+
+Ruby version : 2.3.1p112
+Rails version : 4.2.6
+bundle version : 1.13.5
+
+
+App Url: ......
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
