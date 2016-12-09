@@ -1,6 +1,7 @@
 class SchoolsController < ApplicationController
   before_action :set_school, only: [:show, :edit, :update, :destroy]
   attr_accessor :count
+
   # GET /schools
   # GET /schools.json
   def index

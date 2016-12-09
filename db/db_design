@@ -60,7 +60,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="128" y="368" name="schools">
+<table x="129" y="368" name="schools">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -70,14 +70,11 @@
 <row name="description" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="year" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
 <row name="location" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
-<row name="level" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
+<row name="min_age" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="category" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
@@ -86,11 +83,17 @@
 <row name="avatar" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
+<row name="view_counts" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="max_age" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="638" y="206" name="events">
+<table x="1016" y="170" name="events">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users_events" row="event_id" />
@@ -149,4 +152,3 @@
 </key>
 </table>
 </sql>
-
