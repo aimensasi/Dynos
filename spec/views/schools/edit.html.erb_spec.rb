@@ -3,12 +3,15 @@ require 'rails_helper'
 RSpec.describe "schools/edit", type: :view do
   before(:each) do
     @school = assign(:school, School.create!(
-      :name => "MyString",
+      :name => "Wells High School",
       :description => "MyString",
-      :location => "MyString",
-      :level => "MyString",
-      :category => "MyString",
-      :avatar => "MyString"
+      :location => "Finland",
+      :level => "High School",
+      :category => "International",
+      :avatar => "MyString",
+      :password => "123456",
+      :password_confirmation => "123456",
+      :email => "whs@hotmail.com"
     ))
   end
 
