@@ -30,11 +30,11 @@ RSpec.describe "schools/index", type: :view do
 
   it "renders a list of schools" do
     render
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => "Description".to_s, :count => 2
-    assert_select "tr>td", :text => "Location".to_s, :count => 2
-    assert_select "tr>td", :text => "Level".to_s, :count => 2
-    assert_select "tr>td", :text => "Category".to_s, :count => 2
-    assert_select "tr>td", :text => "Avatar".to_s, :count => 2
+    assert_select "tr>td", :text => "name".to_s, :count => 2
+    assert_select "tr>td", :text => "description".to_s, :count => 2
+    assert_select "tr>td", :text => "location".to_s, :count => 2
+    assert_select "tr>td", :text => "level".to_s, :count => 2
+    assert_select "tr>td", :text => "category".to_s, :count => 2
+    assert_select "tr>td", :text => "avatar".to_s, :count => 2
   end
 end
