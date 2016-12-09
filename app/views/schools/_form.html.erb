@@ -24,17 +24,36 @@
     <%= f.text_field :location %>
   </div>
   <div class="field">
-    <%= f.label :level %><br>
-    <%= f.text_field :level %>
+    <%= f.label :min_age %><br>
+    <%= f.number_field :min_age %>
+  </div>
+  <div class="field">
+    <%= f.label :max_age %><br>
+    <%= f.number_field :max_age %>
   </div>
   <div class="field">
     <%= f.label :category %><br>
     <%= f.text_field :category %>
   </div>
   <div class="field">
-    <%= f.label :avatar %><br>
-    <%= f.text_field :avatar %>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
   </div>
+
+  <div class="field">
+    <%= f.label :avatar %><br>
+    <%= f.file_field :avatar%>
+
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

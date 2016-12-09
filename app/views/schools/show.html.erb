@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @school.name %>
@@ -16,8 +15,8 @@
 </p>
 
 <p>
-  <strong>Level:</strong>
-  <%= @school.level %>
+  <strong>Email:</strong>
+  <%= @school.email %>
 </p>
 
 <p>
@@ -27,7 +26,23 @@
 
 <p>
   <strong>Avatar:</strong>
-  <%= @school.avatar %>
+  <img src="<%= @school.avatar %>">
+
+</p>
+
+<p>
+  <strong>Minimum Age:</strong>
+  <%= @school.min_age %>
+</p>
+
+<p>
+  <strong>Maximum Age:</strong>
+  <%= @school.max_age %>
+</p>
+
+<p>
+  <strong>Visited:</strong>
+  <%= @school.reviews %>
 </p>
 
 <%= link_to 'Edit', edit_school_path(@school) %> |

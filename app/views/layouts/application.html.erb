@@ -8,6 +8,26 @@
 </head>
 <body>
 
+     <div>
+      <% if logged_in? %>
+        <ul class="nav navbar-nav navbar-right">
+         <li class="navbar-btn"><%= button_to 'Sign out', sign_out_path, method: :delete %></li>
+        </ul>
+
+    <% else%>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Sign in', sign_in_path %></li>
+      </ul>
+     <% end %>
+
+  </div>
+
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
 <%= yield %>
 
 </body>

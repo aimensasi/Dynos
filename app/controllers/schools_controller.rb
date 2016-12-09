@@ -13,6 +13,10 @@ class SchoolsController < ApplicationController
   # GET /schools/1.json
   def show
 
+    school = School.find(params[:id])
+    school.reviews += 1
+    school.save(validate: false)
+
   end
 
   # GET /schools/new
@@ -88,6 +92,6 @@ class SchoolsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def school_params
-      params.require(:school).permit(:name, :email,:description, :location, :level, :category, :avatar)
+      params.require(:school).permit(:name, :email,:description, :location, :category, :avatar,:min_age,:max_age)
     end
 end
