@@ -11,22 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208111037) do
+ActiveRecord::Schema.define(version: 20161209015700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "location"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "min_age"
+    t.integer  "max_age"
+    t.integer  "school_id"
+    t.integer  "price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "events", ["school_id"], name: "index_events_on_school_id", using: :btree
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.string   "location"
-    t.string   "level"
     t.string   "category"
     t.string   "avatar"
     t.string   "password_digest"
     t.string   "email"
+    t.integer  "reviews"
+    t.integer  "min_age"
+    t.integer  "max_age"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "events", "schools"
 end
