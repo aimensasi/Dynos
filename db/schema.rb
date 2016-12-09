@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20161209015700) do
     t.integer  "min_age"
     t.integer  "max_age"
     t.integer  "school_id"
+    t.integer  "price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -37,11 +38,13 @@ ActiveRecord::Schema.define(version: 20161209015700) do
     t.string   "name"
     t.string   "description"
     t.string   "location"
-    t.string   "level"
     t.string   "category"
     t.string   "avatar"
     t.string   "password_digest"
     t.string   "email"
+    t.integer  "reviews"
+    t.integer  "min_age"
+    t.integer  "max_age"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

@@ -24,11 +24,11 @@ RSpec.describe SchoolsController, type: :controller do
   # School. As you add validations to School, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    {name: "Elemental high school",email:"ehs@gmail.com", password: "1234567",password_confirmation:"1234567",description:"riuytrewqrtyuiyertwetuioetrwqrtuioytrefdbfanjkgsahjfkhdsjklfhasdjkfhajsdlhfjdshflkahsfjkhsdklfadsj",location:"Finland",level:"secondary_school",category:"International"}
+    {name: "Elemental high school",email:"ehs@gmail.com", password: "1234567",password_confirmation:"1234567",description:"riuytrewqrtyuiyertwetuioetrwqrtuioytrefdbfanjkgsahjfkhdsjklfhasdjkfhajsdlhfjdshflkahsfjkhsdklfadsj",location:"Finland",min_age:0,max_age: 10,category:"International"}
   }
 
   let(:invalid_attributes) {
-    {name:"Elemental high school",email: "ehsgmail.com", password: "123456",password_confirmation:"1234567",description:"riuytrewqrtyuiyertwetuioetrwqrtuioytrefdbfanjkgsahjfkhdsjklfhasdjkfhajsdlhfjdshflkahsfjkhsdklfadsj",location:"Finland",level:"secondary_school",category:"International"}
+    {name:"Elemental high school",email: "ehsgmail.com", password: "123456",password_confirmation:"1234567",description:"riuytrewqrtyuiyertwetuioetrwqrtuioytrefdbfanjkgsahjfkhdsjklfhasdjkfhajsdlhfjdshflkahsfjkhsdklfadsj",location:"Finland",min_age:0,max_age: 10,category:"International"}
   }
 
   # This should return the minimal set of values that should be in the session

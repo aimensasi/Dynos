@@ -4,11 +4,13 @@ class CreateSchools < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :location
-      t.string :level
       t.string :category
       t.string :avatar
       t.string :password_digest
       t.string :email
+      t.integer :reviews
+      t.integer :min_age
+      t.integer :max_age
       t.timestamps null: false
     end
   end

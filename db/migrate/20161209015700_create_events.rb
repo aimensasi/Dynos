@@ -11,6 +11,7 @@ class CreateEvents < ActiveRecord::Migration
       t.integer :min_age
       t.integer :max_age
       t.references :school, index: true, foreign_key: true
+      t.integer :price
 
       t.timestamps null: false
     end
