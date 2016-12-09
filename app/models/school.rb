@@ -11,4 +11,5 @@ class School < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true,confirmation: { case_sensitive: false }
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, message: "email wrong"}
 
+  mount_uploader :avatar, SchoolAvatarUploader
 end
