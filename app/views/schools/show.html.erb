@@ -40,5 +40,10 @@
   <%= @school.max_age %>
 </p>
 
+<p>
+  <strong>Visited:</strong>
+  <%= @school.reviews %>
+</p>
+
 <%= link_to 'Edit', edit_school_path(@school) %> |
 <%= link_to 'Back', schools_path %>

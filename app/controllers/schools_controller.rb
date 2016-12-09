@@ -13,6 +13,10 @@ class SchoolsController < ApplicationController
   # GET /schools/1.json
   def show
 
+    school = School.find(params[:id])
+    school.reviews += 1
+    school.save(validate: false)
+
   end
 
   # GET /schools/new
