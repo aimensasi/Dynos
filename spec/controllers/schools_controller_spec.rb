@@ -74,7 +74,7 @@ RSpec.describe SchoolsController, type: :controller do
         expect {
           post :create, school: valid_attributes, session: valid_session
         }.to change(School, :count).by(1)
-      end
+      endx
 
       it "assigns a newly created school as @school" do
         post :create, school: valid_attributes, session: valid_session
