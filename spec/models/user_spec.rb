@@ -43,39 +43,44 @@ RSpec.describe User, type: :model do
       Then { user.valid? == true }
     end
 
-    # # unhappy_path
-    # describe "cannot be created without a name" do
-    #   When(:school) { School.create(email: "rafiaHs@nextacademy.com", password: "123456", password_confirmation: "123456") }
-    #   Then { school.valid? == false }
-    # end
+    # unhappy_path
+    describe "cannot be created without a first_name" do
+      When(:user) { User.create( last_name: "Lim" ,email: "rafiaHs@nextacademy.com", password: "123456", password_confirmation: "123456") }
+      Then { user.valid? == false }
+    end
 
-    # describe "cannot be created without a email" do
-    #   When(:school) { School.create(name: "Rafia High School", password: "123456", password_confirmation: "123456") }
-    #   Then { school.valid? == false }
-    # end
+     describe "cannot be created without a last_name" do
+      When(:user) { User.create( first_name: "Chicken" ,email: "rafiaHs@nextacademy.com", password: "123456", password_confirmation: "123456") }
+      Then { user.valid? == false }
+    end
 
-
-    # describe "cannot be created without a password" do
-    #   When(:school) { School.create(name: "Rafia High School", email: "rafiaHs@nextacademy.com") }
-    #   Then { school.valid? == false }
-    # end
-
+    describe "cannot be created without a email" do
+      When(:user) { User.create(first_name: "Chicken",last_name: "Lim", password: "123456", password_confirmation: "123456") }
+      Then { user.valid? == false }
+    end
 
 
-    # describe "should permit valid email only" do
-    #   let(:school1) { School.create(name: "Rafia High School", email: "rafiaHs@nextacademy.com", password: "123456", password_confirmation: "123456")}
-    #   let(:school2) { School.create(name: "DD High School",email: "dd.com", password: "123456", password_confirmation: "123456") }
+    describe "cannot be created without a password" do
+      When(:user) { User.create(first_name: "Chicken",last_name: "Lim", email: "rafiaHs@nextacademy.com") }
+      Then { user.valid? == false }
+    end
 
-    #   # happy_path
-    #   it "sign up with valid email" do
-    #     expect(school1).to be_valid
-    #   end
 
-    #   # unhappy_path
-    #   it "sign up with invalid email" do
-    #     expect(school2).to be_invalid
-    #   end
-    # end
+
+    describe "should permit valid email only" do
+      let(:user1) { User.create(first_name: "Chicken",last_name:"Lim", email: "rafiaHs@nextacademy.com", password: "123456", password_confirmation: "123456")}
+      let(:user2) { User.create(first_name: "Monkeu",last_name: "Lim",email: "dd.com", password: "123456", password_confirmation: "123456") }
+
+      # happy_path
+      it "sign up with valid email" do
+        expect(user1).to be_valid
+      end
+
+      # unhappy_path
+      it "sign up with invalid email" do
+        expect(user2).to be_invalid
+      end
+    end
 
   end
 end
