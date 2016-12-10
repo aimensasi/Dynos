@@ -6,7 +6,10 @@ module SessionsHelper
   end
 
   # Returns the current logged-in user (if any).
+
   def current_user
+
+
     if params[:controller] == "schools"
     @current_user ||= School.find_by(id: session[:user_id])
     elsif params[:controller] == "users"
