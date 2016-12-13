@@ -26,8 +26,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    @user.password = params[:user][:password]
-    @user.password_confirmation = params[:user][:password_confirmation]
+
 
     respond_to do |format|
       if @user.save
@@ -45,8 +44,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
 
-    @user.password = params[:user][:password]
-    @user.password_confirmation = params[:user][:password_confirmation]
+
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
@@ -75,6 +73,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :location, :avatar)
+      params.require(:user).permit(:first_name, :last_name, :email, :location, :avatar, :password , :password_confirmation)
     end
 end
