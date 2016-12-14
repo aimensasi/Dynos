@@ -3,10 +3,17 @@
   <%= form_tag transactions_path do%>
     <p>Please enter your payment details:</p>
     <div id="dropin"></div>
-    <%total_price = 0 %>
     <input type="hidden" name="event_id" value="<%= @event.id  %>">
     <input type="hidden" name="user_id" value="<%=current_user.id%>">
-    <input type="hidden" name="total_price" value="<%= total_price%>">
+    <label>Number of tickets</label>
+    <input class="tickets_count" type="number" name="tickets_count" value="0" min="0"><br>
+    <p>Example price. PLease edit it with real value</p>
+    <p>Price:</p>
+    <p >1.25</p>
+    <input class="price" type="hidden" name="price" value="1.25">
+    <input class="total_price" type="text" name="total_price" value="0" min="0">
     <%=submit_tag "Pay RM" + total_price.to_s, class: "button mt1"  %>
   <%end%>
 </div>
+
+
