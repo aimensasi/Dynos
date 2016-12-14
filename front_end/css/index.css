@@ -1,0 +1,220 @@
+/*Lato*/
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+/*Cinzel Decorative*/
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700');
+
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:600');
+
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+/*$Dark-Green: #00848b;*/
+/*$light-green: #00848b;*/
+html, body{
+	height: 100%;
+}
+
+body{
+	font-family: 'Lato', sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+.container-fluid{
+	height: 100%;
+}
+
+.flex{
+	display: flex;
+	flex-direction: row;
+}
+
+.flex-col{
+	flex-direction: column;
+}
+
+.header{
+	background: url(../images/header-img.png) no-repeat center center fixed;
+	background-size: cover;
+	height: 600px;
+}
+.home-nav{
+	background-color: transparent;
+}
+
+.navbar-brand{
+	margin-right: auto;
+	color: #fff !important;
+	margin-top: 10px;
+	font-family: 'Cinzel Decorative', serif;
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+
+.home-nav .nav .nav-link{
+	color: #fff;
+	font-size: 1.2rem;
+	padding-right: 20px;
+}
+
+.nav-link:hover{
+	color: #00848b !important;
+}
+
+.home-nav .nav .nav-link:not(.navbar-brand){
+	font-weight: 300;
+}
+
+.dropdown-menu .dropdown-item{
+	color: #222 !important;
+	font-weight: 300;
+}
+
+.header-content{
+	margin-top: 80px;
+}
+
+.slogen .title{
+	color: #fff;
+	font-family: 'Lato', serif;
+	font-weight: 400;
+	font-size: 1.9rem;
+	letter-spacing: 3px;
+	line-height: 28px;
+}
+
+.slogen .banner{
+	color: #fff;
+  font-size: 1.9rem;
+  margin-top: 55px;
+  font-weight: 200;
+}
+
+.sign-up-btns .btn{
+	background-color: #00848b;
+	color: #fff;
+	margin-top: 25px;
+	margin-right: 20px;
+	width: 150px
+}
+
+.login-form form{
+	background: #fff;
+	width: 350px;
+	height: 370px;
+	border-radius: 25px;
+	margin-bottom: 40px;
+}
+
+.login-form h2.title {
+    text-align: center;
+    padding-top: 32px;
+    font-size: 1.7rem;
+    margin-bottom: 25px;
+}
+
+.login-form .form-control{
+	width: 90%;
+	margin-left: 5%;
+	border-radius: 20px;
+	border-color: #00848b;
+	margin-top: 30px;
+}
+
+.login-form .btn-signin{
+	margin-top: 50px;
+	width: 90%;
+	margin-left: 5%;
+	border-radius: 20px;
+	background: #00848b;
+	color: #fff;
+	font-weight: 100;
+	font-size: 18px;
+	padding: 0;
+	transition: background-color .5s;
+	height: 35px;
+}
+
+/* #04484c */
+.login-form .btn-signin:hover, .sign-up-btns .btn:hover{
+	background-color: #04484c;
+}
+
+.contant .title{
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: 50px;
+}
+
+.contant .school-row{
+  border: 1px solid #d7d7d7;
+  padding: 25px 15px;
+  box-shadow: 2px 4px 10px #d7d7d7;
+  margin-bottom: 40px;
+}
+
+.school-row .school-desc{
+	height: 183px;
+}
+
+.school-desc .title{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 20px;
+	margin-left: -40px;
+}
+
+.school-desc .age h4{
+	font-size: 20px;
+	margin-bottom: 5px;
+	font-weight: 100;
+}
+
+.school-desc .age i{
+	font-size: 25px;
+  padding-right: 15px;
+}
+
+.school-desc .btn-view {
+    margin-top: auto;
+    margin-right: 27px;
+    width: 155px;
+    margin-left: auto;
+    background: #00848b;
+    color: #fff;
+    font-weight: 100;
+}
+
+
+
+/*Footer */
+
+.footer{
+	height: 57px;
+	margin-top: auto;
+	background: #232526; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #232526 , #414345); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #232526 , #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.footer h2{
+	color: #fff;
+  font-family: 'Libre Baskerville', serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

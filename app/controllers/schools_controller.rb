@@ -1,6 +1,7 @@
 class SchoolsController < ApplicationController
   before_action :set_school, only: [:show, :edit, :update, :destroy]
   attr_accessor :count
+
   # GET /schools
   # GET /schools.json
   def index
@@ -34,8 +35,6 @@ class SchoolsController < ApplicationController
   # POST /schools.json
   def create
     @school = School.new(school_params)
-    @school.password = params[:school][:password]
-    @school.password_confirmation = params[:school][:password_confirmation]
 
     respond_to do |format|
       if @school.save
@@ -56,8 +55,6 @@ class SchoolsController < ApplicationController
   # PATCH/PUT /schools/1.json
   def update
     respond_to do |format|
-      @school.password = params[:school][:password]
-      @school.password_confirmation = params[:school][:password_confirmation]
 
       if @school.update(school_params)
         format.html { redirect_to @school, notice: 'School was successfully updated.' }
@@ -92,6 +89,6 @@ class SchoolsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def school_params
-      params.require(:school).permit(:name, :email,:description, :location, :category, :avatar,:min_age,:max_age)
+      params.require(:school).permit(:name, :email,:description, :location, :category, :avatar,:min_age,:max_age, :password, :reviews)
     end
 end
