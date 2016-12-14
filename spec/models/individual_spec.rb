@@ -23,7 +23,16 @@ RSpec.describe Individual, type: :model do
 			it { is_expected.to belong_to :user}
 			it { is_expected.to have_and_belong_to_many :events}
 		end
+	end
 
+	describe "Createing Individuals" do 
+		it "creates Individual when valid params" do 
+			individual = Individual.create!(valid_attributes)
+			expect(individual).to be_valid
+		end
+		# it "dose not create individual when invalid params" do 
+		# 	expect{ Individual.create!(invalid_attributes) }.not_to be_valid
+		# end
 	end
 
 
