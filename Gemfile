@@ -41,6 +41,7 @@ gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 
 #Use braintree for payment
 gem 'braintree'
+gem 'gon'
 
 #figaro
 gem "figaro"
