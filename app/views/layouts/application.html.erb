@@ -16,19 +16,19 @@
       <div class="row header">
         <nav class="navbar navbar-light home-nav container">
           <ul class="nav navbar-nav flex">
-            <a class="navbar-brand" href="#">DYNOS</a>
+            <%= link_to("DYNOS", root_url , :class => "navbar-brand") %>
             <li class="nav-item ">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <%= link_to("Home", root_url , :class => "nav-link") %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Schools</a>
+              <%= link_to("Schools", schools_url , :class => "nav-link") %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Events</a>
+              <%= link_to("Events", events_url , :class => "nav-link") %>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Username</a>
-              <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
+              <a class="nav-link dropdown-toggle" href="" id="user-option" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Username</a>
+              <div class="dropdown-menu" aria-labelledby="user-option">
                 <a class="dropdown-item" href="#">Profile</a>
                 <a class="dropdown-item" href="#">Your Events</a>
                 <a class="dropdown-item" href="#">Sign Out</a>
