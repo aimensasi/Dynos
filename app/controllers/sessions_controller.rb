@@ -8,38 +8,41 @@ class SessionsController < ApplicationController
   end
 
    def create
+    if session_params[:account_type] == "school"
+      school = School.find_by(email: session_params[:email].downcase)
 
-
-    if params[:session][:account_type] == "school"
-
-      school = School.find_by(email: params[:session][:email].downcase)
-
-      if school && school.authenticate(params[:session][:password])
+      if school && school.authenticate(session_params[:password])
         log_in school
         redirect_to school
-        # Log the user in and redirect to the user's show page.
+        # Log the parent in and redirect to the parent's show page.
       else
-        flash[:danger] = 'Invalid email/password combination' # Not quite right!
-        render 'new'
+        flash.alert = 'Invalid email/password combination' # Not quite right!
+        redirect_to root_path
       end
 
-    elsif params[:session][:account_type] == "user"
-
-      user = User.find_by(email: params[:session][:email].downcase)
-        if user && user.authenticate(params[:session][:password])
-        log_in user
-        redirect_to user
-        # Log the user in and redirect to the user's show page.
+    elsif session_params[:account_type] == "parent"
+      parent = User.find_by(email: session_params[:email].downcase)
+      if parent && parent.authenticate(session_params[:password])
+        log_in parent
+        redirect_to user_path parent
+        # Log the parent in and redirect to the parent's show page.
       else
-        flash[:danger] = 'Invalid email/password combination' # Not quite right!
-        render 'new'
+        flash.alert = 'Invalid email/password combination' # Not quite right!
+        redirect_to root_path
       end
+    else 
+      flash.alert = "Wrong Email Or Password"
+      redirect_to root_path
     end
-
   end
 
   def destroy
     log_out
     redirect_to root_path
+  end
+
+  private 
+  def session_params
+    params.require(:session).permit(:email, :password, :account_type)
   end
 end
