@@ -17,7 +17,7 @@ class SchoolsController < ApplicationController
     school = School.find(params[:id])
     school.reviews += 1
     school.save(validate: false)
-
+    @events = school.events
   end
 
   # GET /schools/new

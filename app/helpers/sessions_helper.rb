@@ -9,18 +9,18 @@ module SessionsHelper
 
   def current_user
     byebug
-
+    
     if session[:user_id]
       if params[:controller] == "schools"
-        @current_user ||= School.find_by(id: session[:user_id])
+        @current_user ||= School.find_by(params[:id])
       elsif params[:controller] == "users"
-        @current_user ||= User.find_by(id: session[:user_id])
+        @current_user ||= User.find_by(params[:id])
       else
         @current_user = nil
       end
-    end
 
-    
+    end
+  byebug    
   end
 
    # Returns true if the user is logged in, false otherwise.
