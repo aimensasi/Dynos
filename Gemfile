@@ -39,6 +39,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use carrierwave for photo uploading
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 
+#Use braintree for payment
+gem 'braintree'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
