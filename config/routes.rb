@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'individuals/show'
+
+  get 'individuals/new'
+
+  get 'individuals/create'
+
+  get 'individuals/destroy'
+
+  get 'individuals/update'
+
   resources :users
   get "/sign_in" => "sessions#new", as: "sign_in"
   delete "/sign_out" => "sessions#destroy", as: "sign_out"

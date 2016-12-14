@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: individuals
+#
+#  id         :integer          not null, primary key
+#  first_name :string
+#  last_name  :string
+#  location   :string
+#  avatar     :string
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Individual, type: :model do
@@ -30,12 +44,8 @@ RSpec.describe Individual, type: :model do
 			individual = Individual.create!(valid_attributes)
 			expect(individual).to be_valid
 		end
-		# it "dose not create individual when invalid params" do 
-		# 	expect{ Individual.create!(invalid_attributes) }.not_to be_valid
-		# end
+		it "dose not create individual when invalid params" do 
+			expect(Individual.create(invalid_attributes)).not_to be_valid
+		end
 	end
-
-
-
-
 end
