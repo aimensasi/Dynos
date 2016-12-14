@@ -11,4 +11,5 @@ class School < ActiveRecord::Base
   								  format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, message: "email wrong"}
 
   mount_uploader :avatar, SchoolAvatarUploader
+  mount_uploader :cover, SchoolCoverUploader
 end

@@ -10,6 +10,9 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+
+    # @user = current_user
+    # @event =
   end
 
   # GET /events/new
@@ -73,4 +76,6 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:name, :description, :start_date, :end_date, :location, :start_time, :end_time, :min_age, :max_age, :school_id, :price)
     end
+
+
 end
