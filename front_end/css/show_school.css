@@ -1,0 +1,233 @@
+/*Lato*/
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+/*Cinzel Decorative*/
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700');
+
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:600');
+
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+/*$Dark-Green: #00848b;*/
+/*$light-green: #00848b;*/
+html, body{
+	height: 100%;
+}
+
+body{
+	font-family: 'Lato', sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+
+.container-fluid{
+	height: 100%;
+}
+
+.flex{
+	display: flex;
+	flex-direction: row;
+}
+
+.flex-col{
+	flex-direction: column;
+}
+
+.home-nav{
+	background-color: transparent;
+}
+
+.navbar-brand{
+	margin-right: auto;
+	color: #000 !important;
+	margin-top: 10px;
+	font-family: 'Cinzel Decorative', serif;
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+
+.home-nav .nav .nav-link{
+	color: #000;
+	font-size: 1.2rem;
+	padding-right: 20px;
+}
+
+.nav-link:hover{
+	color: #00848b !important;
+}
+
+.home-nav .nav .nav-link:not(.navbar-brand){
+	font-weight: 300;
+}
+
+.dropdown-menu .dropdown-item{
+	color: #222 !important;
+	font-weight: 300;
+}
+
+.event-row,
+.school-details{
+	border: 1px solid #d7d7d7;
+	box-shadow: 2px 4px 10px #d7d7d7;
+}
+
+h2.title.center {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 30px;
+}
+
+
+/*School header info*/
+
+.school-header{
+	background: url(http://placehold.it/1100x450);
+	height: 450px;
+	width: 1110px;
+	margin-bottom: 180px;
+	position: relative;
+}
+
+.school-logo {
+    margin-top: 15px;
+}
+
+.school-info{
+	background: #000;
+	opacity: .6;
+	position: absolute;
+	top: 63%;
+	min-height: 260px;
+}
+
+.school-info  h2.school-name {
+	color: #fff;
+	margin-top: 11px;
+	font-family: 'Lato', sans-serif;
+	font-size: 21px;
+	font-style: normal;
+	font-variant: small-caps;
+	font-weight: 500;
+	margin-bottom: 16px;
+}
+
+.school-info p.leads {
+	color: #fff;
+	font-weight: 100;
+	padding-left: 17px;
+	padding-right: 85px;
+	margin-bottom: 25px;
+	font-size: 15px;
+}
+
+.school-details {
+	padding: 15px 35px;
+}
+
+.school-details .title-col{
+
+}
+
+.school-details .details-row{
+	margin-bottom: 12px;
+}
+
+.school-details h2.contact.row {
+  font-size: 18px;
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+
+
+/*School row*/
+.event-date{
+	color: #00848b;
+}
+.event-date h3.day {
+    font-size: 22px;
+    font-weight: 500;
+    margin-left: 7px;
+}
+.event-date h2.month {
+    font-size: 20px;
+}
+
+.contant .event-row{
+  padding: 25px 15px;
+  margin-bottom: 40px;
+}
+
+.event-row .event-desc{
+	min-height: 150px;
+}
+
+
+
+.event-desc .title{
+	margin-top: 20px;
+	font-size: 18px;
+}
+
+.event-desc .leads strong{
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.event-desc .leads{
+	font-size: 15px;
+  padding-right: 15px;
+}
+
+.event-desc a.hosted-by {
+  color: #222;
+  font-weight: 200;
+}
+
+.event-desc a.hosted-by:hover {
+  color: #00848b;
+	text-decoration: none;
+}
+
+.event-desc p.time-leads {
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: auto;
+  margin-bottom: 0px;
+}
+
+.event-desc .event-footer{
+  margin-top: 30px;
+}
+
+.event-desc .btn-view {
+  height: 30px;
+  width: 130px;
+  margin-top: auto;
+  margin-right: 27px;
+  margin-left: auto;
+  padding: 0;
+  background: #00848b;
+  color: #fff;
+  font-weight: 100;  
+}
+
+
+
+
+/*Footer */
+
+.footer{
+	height: 57px;
+	margin-top: auto;
+	background: #232526; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #232526 , #414345); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #232526 , #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.footer h2{
+	color: #fff;
+	font-family: 'Libre Baskerville', serif;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 16px;
+}
