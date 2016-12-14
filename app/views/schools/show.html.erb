@@ -1,49 +1,49 @@
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Name:</strong>
-  <%= @school.name %>
+  <%= school.name %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @school.description %>
+  <%= school.description %>
 </p>
 
 <p>
   <strong>Location:</strong>
-  <%= @school.location %>
+  <%= school.location %>
 </p>
 
 <p>
   <strong>Email:</strong>
-  <%= @school.email %>
+  <%= school.email %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @school.category %>
+  <%= school.category %>
 </p>
 
 <p>
   <strong>Avatar:</strong>
-  <img src="<%= @school.avatar %>">
+  <img src="<%= school.avatar %>">
 
 </p>
 
 <p>
   <strong>Minimum Age:</strong>
-  <%= @school.min_age %>
+  <%= school.min_age %>
 </p>
 
 <p>
   <strong>Maximum Age:</strong>
-  <%= @school.max_age %>
+  <%= school.max_age %>
 </p>
 
 <p>
   <strong>Visited:</strong>
-  <%= @school.reviews %>
+  <%= school.reviews %>
 </p>
 
-<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Edit', edit_school_path(school) %> 
 <%= link_to 'Back', schools_path %>
