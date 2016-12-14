@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20161210065340) do
     t.integer  "reviews"
     t.integer  "min_age"
     t.integer  "max_age"
+    t.string   "cover"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
