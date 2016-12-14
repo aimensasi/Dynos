@@ -1,0 +1,87 @@
+.search-bar{
+	height: 50px;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 45px;
+	margin-top: 33px;
+}
+
+.search-bar .search-field{
+	border: none;
+}
+.search-bar .search-icon{
+	margin-top: 6px;
+	color: #00848b;
+	opacity: 0.6;
+	font-size: 1.2em;
+}
+
+/*Filters Row*/
+.filters{
+	padding: 20px;
+	margin-bottom: 70px;
+}
+
+.filters .title{
+	font-size: 22px;
+}
+
+.filters .age-filter,
+.filters .type-filter{
+	padding: 18px;
+}
+
+.filters .age-filter{
+	margin-top: 15px;
+	margin-bottom: 30px;
+	height: 80px;
+	padding: 10px;
+	padding-bottom: 85px;
+}
+
+.filters .age-filter .title,
+.filters .type-filter .title{
+	font-size: 19px;
+	margin-bottom: 20px;
+}
+
+.age-filter .slider-container{
+	margin-left: 50px;
+}
+
+.filters .type-filter{
+	    
+}
+.type-filter .choice {
+    padding-left: 40px;
+}
+
+.type-filter label.custom-control.custom-checkbox {
+    background: #ccc;
+    width: 150px;
+    padding: 5px 45px;
+    border-radius: 3px;
+		margin-right: 30px;
+}
+
+.type-filter .custom-checkbox .custom-control-indicator {
+    border-radius: 2px;
+    margin-left: 8px;
+    margin-top: 5px;
+    width: 21px;
+    height: 17px;
+    
+}
+
+.custom-checkbox 
+.custom-control-input:indeterminate~.custom-control-indicator {
+	background-color: #ddd !important;
+	background-image: none !important;
+}
+
+.custom-checkbox 
+.custom-control-input:checked~.custom-control-indicator {
+  background-color: #00848b !important;  
+}
+

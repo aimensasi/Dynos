@@ -8,15 +8,19 @@ module SessionsHelper
   # Returns the current logged-in user (if any).
 
   def current_user
+    byebug
 
-
-    if params[:controller] == "schools"
-    @current_user ||= School.find_by(id: session[:user_id])
-    elsif params[:controller] == "users"
-    @current_user ||= User.find_by(id: session[:user_id])
-    else
-    @current_user = nil
+    if session[:user_id]
+      if params[:controller] == "schools"
+        @current_user ||= School.find_by(id: session[:user_id])
+      elsif params[:controller] == "users"
+        @current_user ||= User.find_by(id: session[:user_id])
+      else
+        @current_user = nil
+      end
     end
+
+    
   end
 
    # Returns true if the user is logged in, false otherwise.

@@ -1,34 +1,55 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Dynos</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-     <div>
-      <% if logged_in? %>
-        <ul class="nav navbar-nav navbar-right">
-         <li class="navbar-btn"><%= button_to 'Sign out', sign_out_path, method: :delete %></li>
-        </ul>
-
-    <% else%>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Sign in', sign_in_path %></li>
-      </ul>
-     <% end %>
-
-  </div>
-
-    <div id="flash">
-      <% flash.each do |key, value| %>
-        <div class="flash <%= key %>"><%= value %></div>
-      <% end %>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>DYNOS</title>
+    <!-- Bootstrap CSS -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    
+    <div class="container-fluid flex flex-col">
+      <div class="row header">
+        <nav class="navbar navbar-light home-nav container">
+          <ul class="nav navbar-nav flex">
+            <%= link_to("DYNOS", root_url , :class => "navbar-brand") %>
+            <li class="nav-item ">
+              <%= link_to("Home", root_url , :class => "nav-link") %>
+            </li>
+            <li class="nav-item">
+              <%= link_to("Schools", schools_url , :class => "nav-link") %>
+            </li>
+            <li class="nav-item">
+              <%= link_to("Events", events_url , :class => "nav-link") %>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" id="user-option" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Username</a>
+              <div class="dropdown-menu" aria-labelledby="user-option">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Your Events</a>
+                <a class="dropdown-item" href="#">Sign Out</a>
+              </div>
+            </li>
+          </ul>
+        </nav> <!-- Navbar -->
+      </div> <!-- Header --> 
+      <div class="row contant">
+        <div class="container">
+          <%= yield %>
+        </div>
+      </div> <!-- School -->
+      <div class="row footer">
+        <div class="container">
+          <h2 class="made-at">Created At Next Academy</h2>  
+        </div>
+      </div> <!-- Footer -->
     </div>
-
-<%= yield %>
-
-</body>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'https://use.fontawesome.com/0b77101dd2.js'%>
+  </body>
 </html>
