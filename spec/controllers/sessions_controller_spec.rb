@@ -19,15 +19,27 @@ RSpec.describe SessionsController, type: :controller do
       get :create, {:session => {:email => user.email, :password => "AsW12345"} }
       expect(session[:user_id]).to eq user.id
     end
-    xit "login school" do
-    	school = create(:school)
-      get :create, {:session => valid_attributes_school}
-      expect(session[:user_id]).to eq school.id
+    it "login school" do
+    	user = create(:school).user
+      get :create, {:session => {:email => user.email, :password => "AsW12345"} }
+      expect(session[:user_id]).to eq user.id
     end
-    xit "display flash alert on invalid attributes" do
-    	school = create(:user)
-      get :create, {:session => invalid_attributes}
-      expect(flash[:alert]).to eq "Wrong Email Or Password"
+    it "display flash alert on invalid attributes" do
+    	user = create(:school).user
+      get :create, {:session => {:email => "Ahmed@gmil.com", :password => "AsW12345"}}
+      expect(flash[:alert]).to eq "Invalid Email Or Password"
+    end
+  end
+
+  describe "DELETE #Destroy" do 
+    it "Deletes session on log out" do 
+      user = create(:school).user
+
+      get :create, {:session => {:email => user.email, :password => "AsW12345"}}
+      expect(session[:user_id]).not_to be nil
+      
+      delete :destroy, {}, {:user_id => user.id}
+      expect(session[:user_id]).to be nil
     end
   end
 
