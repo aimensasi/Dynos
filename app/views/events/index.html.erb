@@ -9,30 +9,15 @@
             </div>
           </form>
           <h2 class="title center">Top Views</h2>
-
-          <% @events.each do |event| %>
- 
-          <div class="col-md-10 offset-md-1">
-            <div class="container event-row">
-              <div class="event-date col-md-1">
-                <h2 class="month">DEC</h2>
-                <h3 class="day">18</h3>
-              </div>
-              <div class="col-md-11">
-                <div class="event-desc flex flex-col">
-                  <h2 class="title">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
-                  <p class="leads">
-                    <strong>Hosted By</strong>
-                    <a href="#" class="hosted-by">
-                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                    </a>
-                  </p>
-                  <div class="event-footer flex">
-                    <p class="time-leads">10:00PM To 01:00AM</p>
-                    <button class="btn btn-view">View</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <%byebug%>
+          <% if @events.empty?%>
+           <div class="col-md-10 offset-md-1">
+                <p><strong>No event</strong></p>
           </div>
-          <% end %>
+          <%else%>
+            <% @events.each do |event| %>
+            <div class="col-md-10 offset-md-1">
+             <%= render :partial => "/events/event_row" ,:locals => {:event => event}%>
+             </div>
+            <%end%>
+          <%end%>
