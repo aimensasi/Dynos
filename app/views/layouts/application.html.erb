@@ -9,6 +9,8 @@
     <!-- Bootstrap CSS -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/show_school.css">
   </head>
   <body>
     
@@ -38,7 +40,7 @@
         </nav> <!-- Navbar -->
       </div> <!-- Header --> 
       <div class="row contant">
-        <div class="container">
+        <div>
           <%= yield %>
         </div>
       </div> <!-- School -->
