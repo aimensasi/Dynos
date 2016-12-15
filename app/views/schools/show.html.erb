@@ -1,49 +1,73 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Name:</strong>
-  <%= @school.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @school.description %>
-</p>
+    
+    <div class="container-fluid flex flex-col">
+      <div class="row header">
+      </div> <!-- Header --> 
+      <div class="row contant">
+        <div class="container">
+          <div class="school-header">
+            <div class="school-info col-md-10 offset-md-1">
+              <div class="school-logo">
+            
+                <% if @school.avatar.file.nil? %>
+                <img src="http://placehold.it/240x150" alt="">
+                <%else%>
+                <img src="<%=@school.avatar%>" alt="">
+                <%end%>
+              </div>
+              <h2 class="school-name">
+                <%= @school.name%>.
+              </h2>
+              <p class="leads">
+                <%= @school.description%>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-10 offset-md-1 my-0">
+            <div class="school-details">
+              <div class="row age details-row">
+                <div class="col-md-2 title-col">Age Taught:</div>
+                <div class="col-md-7"><%= @school.min_age %>  - <%= @school.max_age %> 
+                </div>
+              </div>
+              <div class="row school-type details-row">
+                <div class="col-md-2 title-col">School Type:</div>
+                <div class="col-md-7"><%= @school.category %> </div>
+              </div>
+              <h2 class="contact row">Contacts</h2>
+              <div class="row contact-row details-row">
+                <div class="col-md-2 title-col">Email Address:</div>
+                <div class="col-md-7"><%= @school.email %> </div>  
+              </div>
+              <div class="row contact-row details-row">
+                <div class="col-md-2 title-col">Phone Number:</div>
+                <div class="col-md-7">0129312932</div>  
+              </div>
+              <div class="row contact-row details-row">
+                <div class="col-md-2 title-col">Website</div>
+                <div class="col-md-7">WWW.LoremIpsum.com</div>  
+              </div>
+              <div class="address row details-row">
+                <div class="col-md-2 title-col">Address</div>
+                <div class="col-md-7"><%= @school.location %></div>
+              </div>
+            </div>  
+          </div>
+          <h2 class="title center">Upcomming Events By The School</h2>
+          <% if @events.empty?%>
+           <div class="col-md-10 offset-md-1">
+              <div class="container event-row">
+                <p><strong>No event</strong></p>
+              </div>
+            </div>
+          <%else%>
+            <% @events.each do |event| %>
+             <%= render :partial => "/events/event_row" ,:locals => {:event => event}%>
+            <%end%>
+          <%end%>
+          
+        </div>
+      </div> <!-- School -->
+    </div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @school.location %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @school.email %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @school.category %>
-</p>
-
-<p>
-  <strong>Avatar:</strong>
-  <img src="<%= @school.avatar %>">
-
-</p>
-
-<p>
-  <strong>Minimum Age:</strong>
-  <%= @school.min_age %>
-</p>
-
-<p>
-  <strong>Maximum Age:</strong>
-  <%= @school.max_age %>
-</p>
-
-<p>
-  <strong>Visited:</strong>
-  <%= @school.reviews %>
-</p>
-
-<%= link_to 'Edit', edit_school_path(@school) %> |
-<%= link_to 'Back', schools_path %>

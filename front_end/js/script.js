@@ -14,5 +14,8 @@ $(document).ready(function(){
 
 	$('.custom-checkbox').prop('indeterminate', false);
 
+
 });
+
+ 
 

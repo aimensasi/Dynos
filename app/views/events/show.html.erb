@@ -1,54 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @event.end_date %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
-
-<p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
-</p>
-
-<p>
-  <strong>Min age:</strong>
-  <%= @event.min_age %>
-</p>
-
-<p>
-  <strong>Max age:</strong>
-  <%= @event.max_age %>
-</p>
-
-<p>
-  <strong>School:</strong>
-  <%= @event.school %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+    <div class="container-fluid flex flex-col">
+      <div class="row header">
+      </div> <!-- Header --> 
+      <div class="row contant">
+        <div class="container">
+          <div class="event-header">
+            <div class="event-info col-md-10 offset-md-1">
+              <h2 class="title">Event By</h2>
+              <h2 class="school-name">
+                <a href="#" class="school-name">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                </a>
+                <h2 class="school-name"><%= @event.name %></h2>
+              <p class="leads">
+                <%= @event.description %>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-10 offset-md-1 my-3">
+            <div class="event-details">
+              <div class="row age details-row">
+                <div class="col-md-2 title-col">Age Group:</div>
+                <div class="col-md-7"><%= @event.min_age %>  -  <%= @event.max_age %></div>
+              </div>
+              <div class="row school-type details-row">
+                <div class="col-md-2 title-col">Location:</div>
+                <div class="col-md-10"><%= @event.location %></div>
+              </div>
+              <h2 class="contact row">Date</h2>
+              <div class="row contact-row details-row">
+                <div class="col-md-2 title-col"><%= @event.start_date %> - <%= @event.end_date %></div>
+                <div class="col-md-7"><%= @event.start_time %> - <%= @event.end_time %></div>  
+              </div>
+              <div class="row contact-row details-row">
+                <div class="col-md-2 title-col">Ticket Price:</div>
+                <div class="col-md-7">RM<%= @event.price %></div>  
+              </div>
+              <div class="row contact-row details-row flex">
+                <a href="#" class="btn btn-buy">Get Tickets</a>
+              </div>
+            </div>  
+          </div>
+        </div>
+      </div> <!-- School -->
+    </div>

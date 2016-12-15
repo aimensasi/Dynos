@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
 
   end
 
-
   def create
     @user = User.find_by(:email => session_params[:email])
 
@@ -18,6 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    
     log_out
     redirect_to root_path
   end
