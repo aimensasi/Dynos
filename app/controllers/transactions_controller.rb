@@ -1,44 +1,25 @@
 class TransactionsController < ApplicationController
 
-  # before_action :authenticate_user!
-  # before_action :check_cart!
+  before_action :require_login
+  before_action :is_individual
 
-  # Other Code
+
   def new
-  @event = Event.find(params[:event_id])
-  gon.client_token = generate_client_token
-
+  @event = Event.find_by_id(params[:event][:id])
+  @client_token = generate_client_token
   end
 
   def create
-
-      result = Braintree::Transaction.sale(
-      :amount => params[:total_price],
-      :payment_method_nonce => params[:payment_method_nonce] ,
-      :options => {
-      :submit_for_settlement => true
-      }
-    )
-
-    if result.success?
-      byebug
-      puts "success!: #{result.transaction.id}"
-      eventuser = EventsUser.new(transaction_params)
-      eventuser.status = "paid"
-      eventuser.save
-      flash[:notice] = "Transaction Succeed!!"
-      redirect_to event_path(eventuser.event_id)
-    elsif result.transaction
-      puts "Error processing transaction:"
-      puts "  code: #{result.transaction.processor_response_code}"
-      puts "  text: #{result.transaction.processor_response_text}"
-      flash[:notice] = "Transaction Failed!!"
-      redirect_to event_path(eventuser.event_id)
+    nonce_from_the_client = params[:payment_method_nonce]
+    @result = make_transaction(transaction_params[:total_price], nonce_from_the_client)
+    if @result.success?
+      EventsUser.create(transaction_params)
+      flash[:notice] = "Congregational, Your Spot is now Save"
+      redirect_to individual_path(current_user, :anchor => "your-events")
     else
-      flash[:notice] = "Transaction Error!!"
-      redirect_to event_path(eventuser.event_id)
+      flash[:notice] = "Something Went Wrong, Try Again Later"
+      redirect_to event_path(transaction_params[:event_id])
     end
-
   end
 
   private
@@ -47,10 +28,15 @@ class TransactionsController < ApplicationController
       Braintree::ClientToken.generate
   end
 
-  def transaction_params
-    params.require(:transaction).permit(:amount, :total_price, :event_id, :user_id)
+  def make_transaction(amount, nonce)
+    Braintree::Transaction.sale(
+      :amount => amount, 
+      :payment_method_nonce => nonce, 
+      :options => { :submit_for_settlement => true }
+      )
   end
 
-
-
+  def transaction_params
+    params.require(:transaction).permit(:tickets_count, :total_price, :event_id)
+  end
 end

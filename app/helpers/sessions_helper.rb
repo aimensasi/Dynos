@@ -24,6 +24,21 @@ module SessionsHelper
     end
   end
 
+  def is_individual
+    unless current_user.individual
+      redirect_back_or
+    end
+  end
+
+  def redirect_back_or(default = root_url)
+    if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+      redirect_to :back
+    else
+      redirect_to default
+    end
+  end
+
+
   def log_out
      session[:user_id] = nil
   end
