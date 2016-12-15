@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  post '/search_schools' => "search_engins#search_school", :as => "search_schools"
+  post '/search_events' => "search_engins#search_event", :as => "search_events"
+
+
+
   resources :individuals, :controller => "individuals", :only => [:show, :create, :destroy, :update, :new]
 
   resources :users
