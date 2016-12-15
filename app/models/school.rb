@@ -22,6 +22,7 @@ class School < ActiveRecord::Base
   belongs_to :user
 
   validates :name, presence: true
+  validates :category, :inclusion => {:in => ['private', 'public', 'international']}
  
   mount_uploader :avatar, SchoolAvatarUploader
   mount_uploader :cover, SchoolCoverUploader

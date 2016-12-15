@@ -18,8 +18,9 @@
 
 FactoryGirl.define do
   factory :school do
-    name "Lorem Ipsum"
+    name "Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and"
     description "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    category "international"
     user
   end
 end

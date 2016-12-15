@@ -2,13 +2,16 @@
 <html lang="en">
   <head>
     <!-- Required meta tags always come first -->
+    <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+
     <title>DYNOS</title>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag    'dark_nav', media: 'all', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
+    
     <!-- Bootstrap CSS -->
   </head>
   <body>
@@ -16,66 +19,20 @@
     <div class="container-fluid flex flex-col">
       <div class="row header">
         <nav class="navbar navbar-light home-nav container">
-          <ul class="nav navbar-nav flex">
-            <a class="navbar-brand" href="/">DYNOS</a>
-            <li class="nav-item ">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/schools">Schools</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/events">Events</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Username</a>
-              <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">Your Events</a>
-                <a class="dropdown-item" href="/sign_out" data-method="delete">Sign Out</a>
-              </div>
-            </li>
-          </ul>
+          <%= render :partial => "layouts/partials/navbar" %>
         </nav> <!-- Navbar -->
         <div class="header-content container">
-          <div class="col-md-6 slogen">
-            <div class="title">
-              <p class="leads">Finding School For Your Child</p>
-              <p class="leads"> Has Never Been Easier</p>  
-            </div>
-            <h2 class="banner">Sign Up Now!</h2>
-            <div class="sign-up-btns">
-              <a href="/schools/new" class="btn btn-for-school">For School</a>
-              <a href="/users/new" class="btn btn-for-parent">For Parents</a>
-            </div>
-          </div>
-          <div class="col-md-5 offset-md-1 login-form">
-            <form action="/session" method="post">
-            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-              <h2 class="title">Sign In</h2>
-              <div class="form-group">
-                <input type="email" name="email" class="form-control" placeholder="Email Address">
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <input type="submit" class="btn btn-signin" value="Sign In">
-              </div>
-            </form>
-          </div>
+          <%= render :partial => "layouts/partials/header_content" %>
         </div> <!-- header-content -->
       </div> <!-- Header --> 
       <div class="row contant">
         <div class="container">
           <%= yield %>
         </div>
-      </div> <!-- School -->
-      <div class="row footer">
-        <div class="container">
-          <h2 class="made-at">Created At Next Academy</h2>  
-        </div>
-      </div> <!-- Footer -->
+      </div> 
+      <!-- Render Footer -->
+      <%= render :partial => "layouts/partials/footer" %>
+      <!-- Render Footer -->
     </div>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

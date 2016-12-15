@@ -37,6 +37,8 @@ RSpec.describe School, type: :model do
 
     context "validates attributes" do
       it{ is_expected.to validate_presence_of(:name) }
+      it{ is_expected.to validate_inclusion_of(:category).in_array(['private', 'public', 'international']) }
+
     end
 
     describe "validates Associations" do

@@ -1,5 +1,5 @@
 <h2 class="title center">Popular Schools In Your Area</h2>
 
 <% @schools.each do |school| %>
-	<%= render partial: "/schools/school_row", :locals => {:school => school} %>
+	<%= render partial: "schools/partials/school_row", :locals => {:school => school} %>
 <% end %>
