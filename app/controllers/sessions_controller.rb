@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   end
 
    def create
-    byebug
+    
     if session_params[:account_type] == "school"
       school = School.find_by(email: session_params[:email].downcase)
 
@@ -38,6 +38,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    
     log_out
     redirect_to root_path
   end
