@@ -20,15 +20,15 @@
 
 FactoryGirl.define do
   factory :event do
-    name "MyString"
-    description "MyString"
-    start_date "2016-12-09"
-    end_date "2016-12-09"
-    location "MyString"
+    name "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    description "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    date "2016-12-09"
+    location "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     start_time "2016-12-09 09:57:00"
     end_time "2016-12-09 09:57:00"
-    min_age 1
+    min_age 2
     max_age 1
-    school nil
+    price 120
+    school
   end
 end

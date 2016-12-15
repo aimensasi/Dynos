@@ -52,7 +52,7 @@ group :development, :test do
   gem 'faker', '~> 1.6', '>= 1.6.6'
   gem 'rspec-rails'
   gem 'guard-rspec'
-  gem 'annotate', github: 'ctran/annotate_models'
+  gem 'annotate'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'capybara'

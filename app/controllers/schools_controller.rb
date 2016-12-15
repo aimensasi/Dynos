@@ -17,7 +17,7 @@
 #
 
 class SchoolsController < ApplicationController
-  before_action :require_login, except: [:create, :new]
+  before_action :require_login, except: [:create, :new, :index, :show]
 
 
   def index

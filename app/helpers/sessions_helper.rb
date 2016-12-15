@@ -18,6 +18,12 @@ module SessionsHelper
     end
   end
 
+  def must_be_school
+    unless current_user.school
+      redirect_to root_url      
+    end
+  end
+
   def log_out
      session[:user_id] = nil
   end

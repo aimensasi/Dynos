@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214092235) do
+ActiveRecord::Schema.define(version: 20161215030415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,7 @@ ActiveRecord::Schema.define(version: 20161214092235) do
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.date     "start_date"
-    t.date     "end_date"
+    t.date     "date"
     t.string   "location"
     t.time     "start_time"
     t.time     "end_time"
@@ -37,9 +36,6 @@ ActiveRecord::Schema.define(version: 20161214092235) do
   create_table "events_users", id: false, force: :cascade do |t|
     t.integer "event_id"
     t.integer "user_id"
-    t.integer "amount"
-    t.integer "total_price"
-    t.string  "status",      default: "pending"
   end
 
   add_index "events_users", ["event_id"], name: "index_events_users_on_event_id", using: :btree
@@ -66,8 +62,9 @@ ActiveRecord::Schema.define(version: 20161214092235) do
     t.integer  "reviews"
     t.integer  "min_age"
     t.integer  "max_age"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.string   "cover"
   end
 
   add_index "schools", ["user_id"], name: "index_schools_on_user_id", using: :btree

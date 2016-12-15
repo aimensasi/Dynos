@@ -12,8 +12,6 @@ class TransactionsController < ApplicationController
 
   def create
 
-
-
       result = Braintree::Transaction.sale(
       :amount => params[:total_price],
       :payment_method_nonce => params[:payment_method_nonce] ,
