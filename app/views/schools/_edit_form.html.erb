@@ -5,7 +5,7 @@
                 <!-- Photos Card -->
                 <div class="card-block img-card">
                   <div class="bg-img">
-                    <img src="http://placehold.it/1103x400" alt="" class="img-fluid img-thumbnail">
+                    <img src="<%=@school.cover.url%>" alt="" class="img-fluid img-thumbnail">
                     <form>
                       <input type="file" name="bg-img" id="img-uploader" class="inputfile" data-parent="123">
                       <label for="img-uploader" class="btn btn-file">
@@ -14,7 +14,8 @@
                     </form>
                   </div>
                   <div class="logo-img">
-                    <img src="http://placehold.it/240x150" alt="" class="img-thumbnail ">  
+                  
+                    <img src="<%=@school.avatar.url%>" alt="" class="img-thumbnail ">  
                     <form>
                       <input type="file" name="logo-img" id="img-uploader" class="inputfile" data-parent="123">
                       <label for="img-uploader" class="btn btn-file">
@@ -31,30 +32,37 @@
                   Your Information
                 </div>
                 <div class="card-block info-card">
-                  <form action="">
+                  <form action="/schools/<%=@school.id%>" method="post">
+                  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                  <input type="hidden" name="_method" value="put">
                     <div class="form-group row">
                       <label for="school_name" class="col-sm-2 col-form-label">School Name</label>
                       <div class="col-sm-8">
-                        <input type="text" class="form-control" id="school_name" placeholder="School Name">
+                        <input type="text" class="form-control" id="school_name" placeholder="School Name" name="school[name]" value="<%=@school.name%>">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="description" class="col-sm-2 col-form-label">Description</label>
                       <div class="col-sm-8">
-                        <textarea class="form-control" id="description" rows="5" placeholder="Description..."></textarea>
+                        <textarea class="form-control" id="description" rows="5" placeholder="Description..." name="school[description]" >"<%=@school.description%>"</textarea>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="email" class="col-sm-2 col-form-label">Email Address</label>
                       <div class="col-sm-8">
-                        <input type="email" class="form-control" id="email" placeholder="Email Address" disabled>
+                    
+                        <input type="email" class="form-control" id="email" placeholder="<%=@user.email%>" disabled>
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="school_type" class="col-sm-2 col-form-label">School Type</label>
                       <div class="col-sm-8">
                         <select class="custom-select">
-                          <option selected>Select Option</option>
+                        <% if @school.category.nil? %>
+                          <option selected>Select Category</option>
+                        <%else%>
+                          <option selected><%=@school.category%></option>
+                        <%end%>
                           <option value="private">Private</option>
                           <option value="public">Public</option>
                           <option value="intenational">Intenational</option>
@@ -66,7 +74,11 @@
                       <div class="col-sm-8">
                         <div class="col-sm-3 pl-0">
                           <select class="custom-select">
+                            <% if @school.min_age.nil? %>
                             <option selected>Lowest Age</option>
+                            <% else %>
+                            <option selected><%=@school.min_age%></option>
+                            <%end%>
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -92,7 +104,11 @@
                         </div>
                         <div class="col-sm-4">
                           <select class="custom-select">
+                          <% if @school.max_age.nil? %>
                             <option selected>Highest Age</option>
+                          <%else%>
+                            <option selected><%=@school.max_age%></option>
+                          <% end %>
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -121,11 +137,11 @@
                     <div class="form-group row">
                       <label for="address" class="col-sm-2 col-form-label">Address</label>
                       <div class="col-sm-8">
-                        <input type="text" class="form-control" id="address" placeholder="Location Address">
+                        <input type="text" class="form-control" id="address" placeholder="Location Address" value="<%=@school.location%>">
                       </div>
                     </div>
                     <div class="form-group row flex btns-group">
-                      <a href="#" class="btn btn-remove-account">Delete Account</a>
+                      <a href="/schools/<%=@school.id%>" class="btn btn-remove-account" data_method="delete">Delete Account</a>
                       <input type="submit" class="btn btn-update" value="Save Changes">
                     </div>
                   </form>

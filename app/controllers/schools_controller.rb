@@ -25,7 +25,10 @@ class SchoolsController < ApplicationController
   end
 
   def show
+    
     @school = School.find_by_id(params[:id])
+    @user = @school.user
+    @events = @school.events
   end
 
   def new
@@ -33,9 +36,10 @@ class SchoolsController < ApplicationController
   end
 
   def create
+    
     @school = School.new(school_params)
     @user = User.new(user_params.merge(:role => "school"))
-
+    byebug
     if @user.save
       
       @school.user = @user
@@ -53,12 +57,16 @@ class SchoolsController < ApplicationController
 
 
   def edit
+
     @school = School.find_by_id(params[:id])
+    @events = @school.events
+    @user = @school.user
   end
 
 
   def update
     @school = School.find_by_id(params[:id])
+    byebug
 
     if @school.update_attributes school_params
       flash.notice = "Your Information Has Been Updated"
@@ -78,6 +86,7 @@ class SchoolsController < ApplicationController
 
   private
     def school_params
+
       params.require(:school).permit(:name, :description, :location, :category, :avatar, :min_age, :max_age, :reviews)
     end
 

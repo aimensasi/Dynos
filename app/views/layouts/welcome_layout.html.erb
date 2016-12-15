@@ -9,6 +9,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag    'dark_nav', media: 'all', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/show_school.scss">
     <!-- Bootstrap CSS -->
   </head>
   <body>
@@ -54,10 +56,10 @@
             <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
               <h2 class="title">Sign In</h2>
               <div class="form-group">
-                <input type="email" name="email" class="form-control" placeholder="Email Address">
+                <input type="email" name="session[email]" class="form-control" placeholder="Email Address">
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password">
+                <input type="password" class="form-control" name="session[password]" placeholder="Password">
               </div>
               <div class="form-group">
                 <input type="submit" class="btn btn-signin" value="Sign In">
