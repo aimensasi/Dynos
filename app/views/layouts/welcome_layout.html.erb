@@ -17,22 +17,22 @@
       <div class="row header">
         <nav class="navbar navbar-light home-nav container">
           <ul class="nav navbar-nav flex">
-            <a class="navbar-brand" href="#">DYNOS</a>
+            <a class="navbar-brand" href="/">DYNOS</a>
             <li class="nav-item ">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Schools</a>
+              <a class="nav-link" href="/schools">Schools</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Events</a>
+              <a class="nav-link" href="/events">Events</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Username</a>
               <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
                 <a class="dropdown-item" href="#">Profile</a>
                 <a class="dropdown-item" href="#">Your Events</a>
-                <a class="dropdown-item" href="#">Sign Out</a>
+                <a class="dropdown-item" href="/sign_out">Sign Out</a>
               </div>
             </li>
           </ul>
@@ -50,7 +50,8 @@
             </div>
           </div>
           <div class="col-md-5 offset-md-1 login-form">
-            <form action="">
+            <form action="/session" method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
               <h2 class="title">Sign In</h2>
               <div class="form-group">
                 <input type="email" name="email" class="form-control" placeholder="Email Address">
