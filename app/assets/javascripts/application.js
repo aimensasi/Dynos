@@ -16,3 +16,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+// $function() {
+//   // body...
+
+//   var $total_price = 0;
+//   $("#ticket_number.tickets_count")
+// }
+

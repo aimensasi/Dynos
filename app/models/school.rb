@@ -24,4 +24,5 @@ class School < ActiveRecord::Base
   validates :name, presence: true
  
   mount_uploader :avatar, SchoolAvatarUploader
+  mount_uploader :cover, SchoolCoverUploader
 end

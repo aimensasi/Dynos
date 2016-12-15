@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-
-
-
   resources :individuals, :controller => "individuals", :only => [:show, :create, :destroy, :update, :new]
 
   resources :users
@@ -14,6 +11,8 @@ Rails.application.routes.draw do
   resources :events
 
   resources :schools
+
+  resources :transactions, only: [:create,:new]
 
   root 'welcome#index'
 

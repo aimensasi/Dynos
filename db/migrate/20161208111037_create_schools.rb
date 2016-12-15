@@ -11,6 +11,7 @@ class CreateSchools < ActiveRecord::Migration
       t.integer :reviews
       t.integer :min_age
       t.integer :max_age
+      t.string :cover
       t.timestamps null: false
     end
   end
