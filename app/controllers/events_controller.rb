@@ -26,6 +26,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_id(params[:id])
+    @school = @event.school
   end
 
   def new
@@ -33,8 +34,10 @@ class EventsController < ApplicationController
   end
 
   def create
+    
     @event = Event.new(event_params)
     @event.school = User.find_by_id(session[:user_id]).school
+    
     if @event.save
       flash.notice = "New Event Has Been Create"
       redirect_to event_path @event
@@ -50,6 +53,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    byebug
     @event = Event.find_by_id(params[:id])
     if @event.update_attributes event_params
       flash.notice = "Updated Event successfully"
@@ -77,6 +81,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
+
       params.require(:event).permit(:name, :description, :date, :location, :start_time, :end_time, :min_age, :max_age, :price)
     end
 

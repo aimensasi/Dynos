@@ -1,23 +1,24 @@
 <div class="container event-row">
-  <div class="event-date col-md-1">
-    <h2 class="month">DEC</h2>
-    <h3 class="day">18</h3>
+  <div class="event-date col-md-5">
+    <h3 class="date">Date:<%=event.date%></h3>
   </div>
   <div class="col-md-11">
     <div class="event-desc flex flex-col">
-      <h2 class="title">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+      <h2 class="title">title:<%=event.name%></h2>
       <p class="leads">
         <strong>Hosted By</strong>
-        <a href="#" class="hosted-by">
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+        <a href="/schools/<%=event.school.id%>" class="hosted-by">
+          <%=event.school.name%>
         </a>
       </p>
       <div class="event-footer flex">
-        <p class="time-leads">10:00 PM  To  01:00 AM</p>
-        <button class="btn btn-view">View</button>
+        <p class="time-leads"> <%=event.start_time%> To  <%=event.end_time%></p><br>
+        <p class="price">price:<%=event.price%></p>
+        <%= link_to("View", event_path(event.id) , :class => "btn btn-view") %>
+        
       </div>
     </div>
   </div>
-  <a href="#" class="btn btn-remove">X</a>
-  <a href="#" class="btn btn-edit">edit</a>
+  <a href="/events/<%=event.id%>" class="btn btn-remove" data-method="delete">X</a>
+  <a href="/events/<%=event.id%>/edit" class="btn btn-edit" data-method="get">edit</a>
 </div>

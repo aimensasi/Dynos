@@ -10,7 +10,7 @@
               <h2 class="title">Event By</h2>
               <h2 class="school-name">
                 <a href="#" class="school-name">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                  <%=@school.name%></h2>
                 </a>
                 <h2 class="school-name"><%= @event.name %></h2>
               <p class="leads">
@@ -30,7 +30,7 @@
               </div>
               <h2 class="contact row">Date</h2>
               <div class="row contact-row details-row">
-                <div class="col-md-2 title-col"><%= @event.start_date %> - <%= @event.end_date %></div>
+                <div class="col-md-6 title-col"><%= @event.date %></div>
                 <div class="col-md-7"><%= @event.start_time %> - <%= @event.end_time %></div>  
               </div>
               <div class="row contact-row details-row">

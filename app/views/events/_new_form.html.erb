@@ -14,48 +14,51 @@
               Your Event Information 
             </div>
             <div class="card-block info-card">
-              <form action="">
+              <form action="/events" method="post">
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                 <div class="form-group row">
                   <label for="event_name" class="col-sm-2 col-form-label">Event Name</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" id="event_name" placeholder="Event Name">
+                    <input type="text" class="form-control" id="event_name" placeholder="Event Name" name="event[name]">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="description" class="col-sm-2 col-form-label">Description</label>
                   <div class="col-sm-8">
-                    <textarea class="form-control" id="description" rows="5" placeholder="description"></textarea>
+                    <textarea class="form-control" id="description" rows="5" placeholder="description" name="event[description]"></textarea>
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="start_date" class="col-sm-2 col-form-label">Start Date</label>
+                  <label for="start_date" class="col-sm-2 col-form-label">Date</label>
                   <div class="col-sm-8">
-                    <input type="date" class="form-control" id="date">
+                    <input type="date" class="form-control" id="date" name="event[date]">
                   </div>
                 </div>
+
                  <div class="form-group row">
-                  <label for="end_date" class="col-sm-2 col-form-label">End Date</label>
+                  <label for="end_date" class="col-sm-2 col-form-label">Not using</label>
                   <div class="col-sm-8">
                     <input type="date" class="form-control" id="date">
                   </div>
                 </div>
+
                 <div class="form-group row">
                   <label for="start_time" class="col-sm-2 col-form-label">Start Time</label>
                   <div class="col-sm-8">
-                    <input type="time" class="form-control" id="time" >
+                    <input type="time" class="form-control" id="time" name="event[start_time]">
                   </div>
                 </div>
                  <div class="form-group row">
-                  <label for="end_time" class="col-sm-2 col-form-label">End Time</label>
+                  <label for="end_time" class="col-sm-2 col-form-label" >End Time</label>
                   <div class="col-sm-8">
-                    <input type="time" class="form-control" id="time">
+                    <input type="time" class="form-control" id="time" name="event[end_time]">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="age_taught" class="col-sm-2 col-form-label">Age Taught</label>
                   <div class="col-sm-8">
                     <div class="col-sm-3 pl-0">
-                      <select class="custom-select">
+                      <select class="custom-select" name="event[min_age]">
                         <option selected>Lowest Age</option>
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -82,7 +85,7 @@
                       </select>
                     </div>
                     <div class="col-sm-4">
-                      <select class="custom-select">
+                      <select class="custom-select" name="event[max_age]">
                         <option selected>Highest Age </option>
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -112,13 +115,13 @@
                 <div class="form-group row">
                   <label for="location" class="col-sm-2 col-form-label">Location</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" id="location" placeholder="Location">
+                    <input type="text" class="form-control" id="location" placeholder="Location" name="event[location]">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="price" class="col-sm-2 col-form-label">Price</label>
                   <div class="col-sm-8">
-                    <input type="text" class="form-control" id="price" placeholder="0">
+                    <input type="text" class="form-control" id="price" placeholder="0" name="event[price]">
                   </div>
                 </div>
                 <div class="form-group row flex btns-group">

@@ -19,17 +19,19 @@
           <div class="tab-pane" id="your-events" role="tabpanel">
             <div class="container">
               <div class="col-md-2">
-                <a href="#" class="btn btn-new-event">Add New Event</a>
+                <a href="/events/new" class="btn btn-new-event">Add New Event</a>
               </div><br>
+              <%@events.each do |event| %>
               <div class="col-md-9 ml-3">
-           		 <%= render "/events/event_row"%>
-
+              
+                <%= render :partial => "/events/event_row" ,:locals => {:event => event }%>
               </div>
+              <%end%>
             </div>
           </div>
 	       
 		          <div class="tab-pane active" id="profile" role="tabpanel">
-		            <%= render  "form"%>
+		            <%= render  "edit_form"%>
 		          </div>
 		 
         </div>

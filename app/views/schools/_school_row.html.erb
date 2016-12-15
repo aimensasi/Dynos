@@ -9,7 +9,7 @@
 	          <i class="fa fa-child fa-lg" aria-hidden="true"></i>
 	          <h4><%=school.min_age%> - <%=school.max_age%></h4>
 	        </div>
-            <button class="btn btn-view">View</button>
+            <%= link_to("View", school_path(school.id) , :class => "btn btn-view") %>
         </div>
     </div>
 </div>

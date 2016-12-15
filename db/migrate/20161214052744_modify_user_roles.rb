@@ -1,6 +1,6 @@
 class ModifyUserRoles < ActiveRecord::Migration
   def change
-  	drop_table :bookings
+  	
   	
   	remove_column :users, :first_name
   	remove_column :users, :last_name
