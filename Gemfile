@@ -39,13 +39,20 @@ gem 'bcrypt', '~> 3.1.7'
 # Use carrierwave for photo uploading
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 
+#Use braintree for payment
+gem 'braintree'
+gem 'gon'
+
+#figaro
+gem "figaro"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'faker', '~> 1.6', '>= 1.6.6'
   gem 'rspec-rails'
   gem 'guard-rspec'
-  gem 'annotate', github: 'ctran/annotate_models'
+  gem 'annotate'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'capybara'

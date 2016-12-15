@@ -1,39 +1,18 @@
 class SessionsController < ApplicationController
 
-  include SessionsHelper
-
-
   def new
 
   end
 
-   def create
-    
-    if session_params[:account_type] == "school"
-      school = School.find_by(email: session_params[:email].downcase)
+  def create
+    @user = User.find_by(:email => session_params[:email])
 
-      if school && school.authenticate(session_params[:password])
-        log_in school
-        redirect_to school
-        # Log the parent in and redirect to the parent's show page.
-      else
-        flash.alert = 'Invalid email/password combination' # Not quite right!
-        redirect_to root_path
-      end
-
-    elsif session_params[:account_type] == "parent"
-      parent = User.find_by(email: session_params[:email].downcase)
-      if parent && parent.authenticate(session_params[:password])
-        log_in parent
-        redirect_to user_path parent
-        # Log the parent in and redirect to the parent's show page.
-      else
-        flash.alert = 'Invalid email/password combination' # Not quite right!
-        redirect_to root_path
-      end
-    else 
-      flash.alert = "Wrong Email Or Password"
+    if @user && @user.authenticate(session_params[:password])
+      log_in @user
       redirect_to root_path
+    else
+      flash.alert = "Invalid Email Or Password"
+      render "new"
     end
   end
 
@@ -45,6 +24,6 @@ class SessionsController < ApplicationController
 
   private 
   def session_params
-    params.require(:session).permit(:email, :password, :account_type)
+    params.require(:session).permit(:email, :password)
   end
 end
