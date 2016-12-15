@@ -55,9 +55,10 @@ RSpec.describe IndividualsController, type: :controller do
     end
   end
 
-  xdescribe "GET #destroy" do
+  describe "GET #destroy" do
     it "returns http success" do
-      expect{ delete :destroy, { :id => individual.to_param }, valid_session }.to change(User, :count).by(-1)
+      delete :destroy, {:id => individual.id}, valid_session
+      expect(Individual.all).not_to include individual
     end
   end
 

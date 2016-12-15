@@ -31,7 +31,7 @@ class IndividualsController < ApplicationController
       @individual.user = @user
       @individual.save
       log_in @user
-      redirect_to individuals_show_path @user
+      redirect_to individuals_path @user
     else
       flash.alert = "Invalid Email Or Password"
       render :new
@@ -42,15 +42,14 @@ class IndividualsController < ApplicationController
     @individual = Individual.find_by_id(params[:id])
     if @individual.update_attributes individuals_params
       flash.notice = "Updated Successfully"
-      redirect_to individuals_show_path @user
+      redirect_to individuals_path @user
     else
       flash.notice = "Invalid Attributes"
-      redirect_to individuals_show_path @user      
+      redirect_to individuals_path @user      
     end
   end
 
   def destroy
-    # byebug
     @individual = Individual.find_by_id(params[:id])
     @individual.user.destroy
     log_out
