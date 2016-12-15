@@ -1,13 +1,6 @@
-GIT
-  remote: git://github.com/ctran/annotate_models.git
-  revision: c952306966c9bae4438e4d40351561af3d8005c0
-  specs:
-    annotate (2.7.0)
-      activerecord (>= 3.2, < 6.0)
-      rake (>= 10.4, < 12.0)
-
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actionmailer (4.2.6)
       actionpack (= 4.2.6)
@@ -46,6 +39,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
+    annotate (2.7.1)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 12.0)
     arel (6.0.3)
     autoprefixer-rails (6.5.3.1)
       execjs
@@ -55,6 +51,8 @@ GEM
     bootstrap (4.0.0.alpha5)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
+    braintree (2.33.1)
+      builder (>= 2.0.0)
     builder (3.2.2)
     byebug (9.0.6)
     capybara (2.11.0)
@@ -89,11 +87,18 @@ GEM
     faker (1.6.6)
       i18n (~> 0.5)
     ffi (1.9.14)
+    figaro (1.1.1)
+      thor (~> 0.14)
     formatador (0.2.5)
     given_core (3.8.0)
       sorcerer (>= 0.3.7)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gon (5.1.2)
+      actionpack (>= 2.3.0)
+      json
+      multi_json
+      request_store (>= 1.0.5)
     guard (2.14.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -159,6 +164,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.6)
       sprockets-rails
+    rails-assets-tether (1.3.7)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -177,6 +183,7 @@ GEM
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     rdoc (4.3.0)
+    request_store (1.3.1)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -248,20 +255,24 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate!
+  annotate
   bcrypt (~> 3.1.7)
   bootstrap (~> 4.0.0.alpha5)
+  braintree
   byebug
   capybara
   carrierwave (>= 1.0.0.rc, < 2.0)
   coffee-rails (~> 4.1.0)
   factory_girl_rails
   faker (~> 1.6, >= 1.6.6)
+  figaro
+  gon
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
   pg
   rails (= 4.2.6)
+  rails-assets-tether (>= 1.1.0)!
   rb-fsevent
   rspec-given
   rspec-rails

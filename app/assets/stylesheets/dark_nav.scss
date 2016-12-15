@@ -1,0 +1,86 @@
+.header{
+	background: image-url('Header-img.png') no-repeat center center fixed;
+	background-size: cover;
+	height: 600px;
+	.navbar{
+		.nav{
+			.navbar-brand,
+			.nav-link{
+				color: #fff !important;
+			}
+		}
+	}
+} //Header NavBar
+
+
+.header{
+	.header-content{
+		margin-top: 80px;
+		.slogen{
+			.title{
+				color: #fff;
+				font-family: 'Lato', serif;
+				font-weight: 400;
+				font-size: 1.9rem;
+				letter-spacing: 3px;
+				line-height: 28px;
+			}
+			.banner{
+				color: #fff;
+			  font-size: 1.9rem;
+			  margin-top: 55px;
+			  font-weight: 200;
+			}
+			.sign-up-btns{
+				.btn{
+					background-color: #00848b;
+					color: #fff;
+					margin-top: 25px;
+					margin-right: 20px;
+					width: 150px;
+					&:hover{
+						background-color: #04484c;
+					}
+				}
+			}
+		}
+		.login-form{
+			h2.title{
+			    text-align: center;
+			    padding-top: 32px;
+			    font-size: 1.7rem;
+			    margin-bottom: 25px;
+			}
+			form{
+				background: #fff;
+				width: 350px;
+				height: 370px;
+				border-radius: 25px;
+				margin-bottom: 40px;
+			}
+			.form-control{
+				width: 90%;
+				margin-left: 5%;
+				border-radius: 20px;
+				border-color: #00848b;
+				margin-top: 30px;
+			}
+			.btn-signin{
+				margin-top: 50px;
+				width: 90%;
+				margin-left: 5%;
+				border-radius: 20px;
+				background: #00848b;
+				color: #fff;
+				font-weight: 100;
+				font-size: 18px;
+				padding: 0;
+				transition: background-color .5s;
+				height: 35px;
+				&:hover{
+					background-color: #04484c;
+				}
+			}
+		}	
+	} //Header Contant
+}

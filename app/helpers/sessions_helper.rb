@@ -1,32 +1,45 @@
 module SessionsHelper
 
   def log_in(user)
-
     session[:user_id] = user.id
   end
 
-  # Returns the current logged-in user (if any).
+  def logged_in?
+    session[:user_id]
+  end
 
   def current_user
+    User.find_by_id(session[:user_id])
+  end
 
-
-    if params[:controller] == "schools"
-    @current_user ||= School.find_by(id: session[:user_id])
-    elsif params[:controller] == "users"
-    @current_user ||= User.find_by(id: session[:user_id])
-    else
-    @current_user = nil
+  def require_login
+    unless current_user
+      redirect_to root_url
     end
   end
 
-   # Returns true if the user is logged in, false otherwise.
-  def logged_in?
-    !current_user.nil?
+  def must_be_school
+    unless current_user.school
+      redirect_to root_url      
+    end
   end
+
+  def is_individual
+    unless current_user.individual
+      redirect_back_or
+    end
+  end
+
+  def redirect_back_or(default = root_url)
+    if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+      redirect_to :back
+    else
+      redirect_to default
+    end
+  end
+
 
   def log_out
-
      session[:user_id] = nil
   end
-
 end

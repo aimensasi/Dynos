@@ -1,94 +1,87 @@
+# == Schema Information
+#
+# Table name: schools
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  description :string
+#  location    :string
+#  category    :string
+#  avatar      :string
+#  reviews     :integer
+#  min_age     :integer
+#  max_age     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :integer
+#
+
 class SchoolsController < ApplicationController
-  before_action :set_school, only: [:show, :edit, :update, :destroy]
-  attr_accessor :count
+  before_action :require_login, except: [:create, :new, :index, :show]
 
-  # GET /schools
-  # GET /schools.json
+
   def index
-
     @schools = School.all
-
   end
 
-  # GET /schools/1
-  # GET /schools/1.json
   def show
-
-    school = School.find(params[:id])
-    school.reviews += 1
-    school.save(validate: false)
-
+    @school = School.find_by_id(params[:id])
   end
 
-  # GET /schools/new
   def new
     @school = School.new
-
   end
 
-  # GET /schools/1/edit
-  def edit
-
-  end
-
-  # POST /schools
-  # POST /schools.json
   def create
     @school = School.new(school_params)
+    @user = User.new(user_params.merge(:role => "school"))
 
-    respond_to do |format|
-      if @school.save
+    if @user.save
+      
+      @school.user = @user
+      @school.save
+      
+      log_in @user
 
-        format.html { redirect_to @school, notice: 'School was successfully created.' }
-        format.json { render :show, status: :created, location: @school ,count: 1 }
-
-
-      else
-        format.html { render :new }
-        format.json { render json: @school.errors, status: :unprocessable_entity }
-      end
+      flash.notice = "Welcome To Dynos"
+      redirect_to edit_school_path @school
+    else
+      flash.alert = "Invalid Email Or Password"
+      render 'new'
     end
-
   end
 
-  # PATCH/PUT /schools/1
-  # PATCH/PUT /schools/1.json
+
+  def edit
+    @school = School.find_by_id(params[:id])
+  end
+
+
   def update
-    respond_to do |format|
+    @school = School.find_by_id(params[:id])
 
-      if @school.update(school_params)
-        format.html { redirect_to @school, notice: 'School was successfully updated.' }
-        format.json { render :show, status: :ok, location: @school }
-      else
-        format.html { render :edit }
-        format.json { render json: @school.errors, status: :unprocessable_entity }
-      end
+    if @school.update_attributes school_params
+      flash.notice = "Your Information Has Been Updated"
+      redirect_to edit_school_path @school
+    else
+      flash.alert = "Could not Updated Your Information"
+      render :edit
     end
-
   end
 
-  # DELETE /schools/1
-  # DELETE /schools/1.json
   def destroy
-
-    @school.destroy
-
-    respond_to do |format|
-      format.html { redirect_to schools_url, notice: 'School was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-
+    @school = School.find_by_id(params[:id])
+    @school.user.destroy
+    log_out
+    redirect_to root_path
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_school
-
-      @school = School.find(params[:id])
+    def school_params
+      params.require(:school).permit(:name, :description, :location, :category, :avatar, :min_age, :max_age, :reviews)
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def school_params
-      params.require(:school).permit(:name, :email,:description, :location, :category, :avatar,:min_age,:max_age, :password, :reviews)
+    def user_params
+      params.require(:school).permit(:email, :password)
     end
 end

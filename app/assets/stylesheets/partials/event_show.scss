@@ -1,0 +1,74 @@
+.event-header{
+	background: url(http://placehold.it/1100x450);
+	height: 450px;
+	width: 1110px;
+	margin-bottom: 25px;
+	position: relative;
+}
+
+.event-info{
+	position: absolute;
+	min-height: 162px;
+	opacity: .6;
+	top: 60.2%;
+	background: #000;
+}
+
+.event-info .title{
+	text-align: center;
+  color: #fff;
+  margin-top: 18px;
+  font-weight: 400;
+  font-variant: small-caps;
+  font-size: 22px;
+}
+
+.event-info .school-name {
+	color: #fff;
+	margin-top: 11px;
+	font-family: 'Lato', sans-serif;
+	font-size: 21px;
+	font-style: normal;
+	font-variant: small-caps;
+	font-weight: 500;
+	margin-bottom: 16px;
+	text-align: center;
+}
+
+.event-info a.school-name:hover{
+	text-decoration: none;
+	color: #00848b;
+}
+
+.event-info p.leads {
+	color: #fff;
+	font-weight: 100;
+	padding-left: 17px;
+	padding-right: 17px;
+	margin-bottom: 20px;
+	font-size: 15px;
+	text-align: center;
+}
+
+.event-details {
+	padding: 15px 35px;
+}
+
+
+.event-details .details-row{
+	margin-bottom: 12px;
+}
+
+.event-details h2.contact.row {
+  font-size: 18px;
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+a.btn.btn-buy {
+    background: #00848b;
+    color: #fff;
+    font-weight: 100;
+    margin-left: auto;
+    margin-right: 20px;
+}
