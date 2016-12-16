@@ -1,25 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+    
+  <!-- Render Search Bar  -->
+  <%= render :partial => "search_engins/partials/event_search" %>
+  <!-- Render Search Bar  -->
 
-<div class="row contant">
-  <div class="container">          
-    <form action="">
-      <div class="search-bar flex">
-        <i class="fa fa-search fa-lg search-icon" aria-hidden="true"></i>
-        <input type="text" name="query" class="form-control search-field" placeholder="Search...">
-      </div>
-    </form>
-    <h2 class="title center">Top Views</h2>
- 
-    <% if @events.empty?%>
-     <div class="col-md-10 offset-md-1">
-          <p><strong>No event</strong></p>
-    </div>
-    <%else%>
-      <% @events.each do |event| %>
-      <div class="col-md-10 offset-md-1">
-       <%= render :partial => "/events/event_row" ,:locals => {:event => event}%>
-       </div>
-      <%end%>
-    <%end%>
-   </div>
-   </div>
+  <h2 class="title center">Upcomming Events</h2>
+  
+  <div class="event-results">
+    <!-- Render events results  -->
+    <%= render :partial => "events/partials/events", :locals => {:events => @events} %>
+    <!-- Render events results  -->    
+  </div>

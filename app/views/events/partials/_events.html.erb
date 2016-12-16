@@ -1,0 +1,9 @@
+<% if !events.empty? %>
+  <% events.each do |event| %>
+    <%= render :partial => "events/partials/event_row", :locals => {:event => event}%>
+  <% end %>
+<% else %>
+  <div class="empty-list">
+  	<p class="title">No Result Found</p>
+  </div>
+<% end %>

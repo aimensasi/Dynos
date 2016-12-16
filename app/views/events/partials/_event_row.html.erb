@@ -1,20 +1,22 @@
-<div class="container event-row">
-  <div class="event-date col-md-1">
-    <h2 class="month"><%= event.date.strftime("%b")%></h2>
-    <h3 class="day"><%= event.date.strftime("%d")%></h3>
-  </div>
-  <div class="col-md-11">
-    <div class="event-desc flex flex-col">
-      <h2 class="title"><%= truncate(event.name, :length => 60) %></h2>
-      <p class="leads">
-        <strong>Hosted By</strong>
-        <%= link_to(truncate(event.school.name, :length => 40), school_path(event.school), :class => "hosted-by") %>        
-      </p>
-      <div class="event-footer flex">
-        <p class="time-leads"><%= event.start_time %> - <%= event.end_time %></p>
-        <%= link_to("View", event_path(event) , :class => "btn btn-view") %>
+<div class="col-md-10 offset-md-1 ">
+  <div class="container event-row">
+    <div class="event-date col-md-1">
+      <h2 class="month"><%= event.date.strftime("%b")%></h2>
+      <h3 class="day"><%= event.date.strftime("%d")%></h3>
+    </div>
+    <div class="col-md-11">
+      <div class="event-desc flex flex-col">
+        <h2 class="title"><%= truncate(event.name, :length => 60) %></h2>
+        <p class="leads">
+          <strong>Hosted By</strong>
+          <%= link_to(truncate(event.school.name, :length => 40), school_path(event.school), :class => "hosted-by") %>        
+        </p>
+        <div class="event-footer flex">
+          <p class="time-leads"><%= event.start_time %> - <%= event.end_time %></p>
+          <%= link_to("View", event_path(event) , :class => "btn btn-view") %>
+        </div>
       </div>
     </div>
-  </div>
-  <%= link_to("X", event_path event , :method => "delete", :class => "btn btn-remove") %>
+    <%= link_to("X", event_path event , :method => "delete", :class => "btn btn-remove") %>
+  </div>  
 </div>
