@@ -1,0 +1,56 @@
+<div class="form-group row">
+  <%= f.label :name, "Event Name", :class => "col-sm-2 col-form-label" %>
+  <div class="col-sm-8">
+    <%= f.text_field :name, :class => "form-control", :placeholder => "Event Name" %>
+  </div>
+</div>
+<div class="form-group row">
+  <%= f.label :description, "Description", :class => "col-sm-2 col-form-label" %>
+  <div class="col-sm-8">
+    <%= f.text_area :description, :class => "form-control", :placeholder => "Give A littel Summary About The Event" %>
+  </div>
+</div>
+<div class="form-group row">
+  <%= f.label :date, "Event Date", :class => "col-sm-2 col-form-label" %>
+  <div class="col-sm-8">
+    <%= f.date_field :date, :class => "form-control" %>
+  </div>
+</div>
+<div class="form-group row">
+  <%= f.label :start_time, "Start Time", :class => "col-sm-2 col-form-label" %>
+  <div class="col-sm-8">
+    <%= f.time_field :start_time, :class => "form-control" %>
+  </div>
+</div>
+<div class="form-group row">
+  <%= f.label :end_time, "End Time", :class => "col-sm-2 col-form-label" %>
+  <div class="col-sm-8">
+    <%= f.time_field :end_time, :class => "form-control" %>
+  </div>
+</div>
+<div class="form-group row">
+  <%= f.label :age_rate, "Age Range", :class => "col-sm-2 col-form-label" %>
+  <div class="col-sm-8">
+    <div class="col-sm-3 pl-0">
+      <%= f.select :min_age, options_for_select(2..19, @event.min_age), {}, :class => 'custom-select'%>
+    </div>
+    <div class="col-sm-3">
+      <%= f.select :max_age, options_for_select(2..19, @event.max_age), {}, :class => 'custom-select'%>
+    </div>
+  </div>
+</div>
+<div class="form-group row">
+  <%= f.label :location, "Address", :class => "col-sm-2 col-form-label" %>
+  <div class="col-sm-8">
+    <%= f.text_field :location, :class => "form-control", :placeholder => "Location Of The Event..." %>
+  </div>
+</div>
+<div class="form-group row">
+  <%= f.label :price, "Price Per Ticket", :class => "col-sm-2 col-form-label" %>
+  <div class="col-sm-8">
+    <%= f.text_field :price, :class => "form-control", :placeholder => "Price Per Ticket..." %>
+  </div>
+</div>
+<div class="form-group row flex btns-group">
+  <%= f.submit btn, :class => "btn btn-update" %>
+</div>

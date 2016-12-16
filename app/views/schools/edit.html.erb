@@ -27,7 +27,7 @@
           </div>
         <% else %>
           <% @school.events.each do |event|%>  
-            <%= render :partial => "events/partials/event-row", :locals => {:event => event} %>
+            <%= render :partial => "events/partials/event_row", :locals => {:event => event} %>
           <% end %>
         <% end %>
       </div>

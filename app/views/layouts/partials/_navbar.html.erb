@@ -18,8 +18,8 @@
           <%= truncate(school.name, :length => 17, :end_string => '') %>
         </a>                
         <div class="dropdown-menu" aria-labelledby="user_menu">
-          <%= link_to("Profile", school_path(school), :class => "dropdown-item") %>
-          <%= link_to("Your Events", school_path(school, :anchor => "your-events"), :class => "dropdown-item") %>
+          <%= link_to("Profile", edit_school_path(school), :class => "dropdown-item") %>
+          <%= link_to("Your Events", edit_school_path(school, :anchor => "your-events"), :class => "dropdown-item") %>
           <%= link_to("Sign Out", sign_out_path, method: :delete, :class => "dropdown-item") %>
         </div>
       <% else %>

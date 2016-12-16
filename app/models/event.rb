@@ -27,4 +27,24 @@ class Event < ActiveRecord::Base
   validates_presence_of :name, :description, :date, :location, :start_time, :end_time, :min_age, :max_age, :price, :school_id
 
   pg_search_scope :by_address, :against => :location, using: { :tsearch => {:prefix => true, :any_word => true} }
+
+  def event_time
+  	"#{start_time.strftime("%I:%M%p")} - #{end_time.strftime("%I:%M%p")}"
+  end
+
+  def event_date
+  	date.strftime("%e %b %Y")
+  end
+
+  def month
+  	date.strftime("%b")
+  end
+
+  def day
+  	date.strftime("%e")
+  end
+
+  def age_range
+  	"#{min_age} - #{max_age}"
+  end
 end

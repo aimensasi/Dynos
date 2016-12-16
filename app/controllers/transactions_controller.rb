@@ -5,8 +5,8 @@ class TransactionsController < ApplicationController
 
 
   def new
-  @event = Event.find_by_id(params[:event][:id])
-  @client_token = generate_client_token
+    @event = Event.find_by_id(params[:event][:id])
+    @client_token = generate_client_token
   end
 
   def create
