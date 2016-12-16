@@ -17,6 +17,7 @@
 #
 
 class School < ActiveRecord::Base
+	include PgSearch
 
   has_many :events, dependent: :destroy
   belongs_to :user
@@ -26,4 +27,42 @@ class School < ActiveRecord::Base
  
   mount_uploader :avatar, SchoolAvatarUploader
   mount_uploader :cover, SchoolCoverUploader
+
+  pg_search_scope :pg_address, :against => :location, using: { :tsearch => {:prefix => true, :any_word => true} }
+
+  scope :by_address, -> (query) {
+  	return all unless query.present?
+  	pg_address(query)
+  }
+
+  scope :by_age, -> (min_age, max_age){
+  	return all unless min_age.present? && max_age.present?
+  	where.or(:min_age => min_age..max_age, :max_age => min_age..max_age)
+  }
+
+  scope :by_category, -> (category){
+  	return all unless category.present?
+  	where(:category => category.downcase)
+  }
+
+  def self.filters search_params
+  	by_address(search_params[:location])
+  	.by_age(search_params[:min_age], search_params[:max_age])
+  end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

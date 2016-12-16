@@ -32,10 +32,12 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-
+#using pg search for fuzzy search support
+gem 'pg_search'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
 # Use carrierwave for photo uploading
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 
