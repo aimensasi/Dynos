@@ -1,7 +1,7 @@
 class ModifyUserRoles < ActiveRecord::Migration
   def change
-  	drop_table :bookings
-  	
+
+
   	remove_column :users, :first_name
   	remove_column :users, :last_name
   	remove_column :users, :location
@@ -14,7 +14,7 @@ class ModifyUserRoles < ActiveRecord::Migration
 
   	add_reference :schools, :user, :index => true
 
-  	
+
   	create_table :individuals do |t|
   		t.string :first_name
       t.string :last_name
