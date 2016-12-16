@@ -9,15 +9,15 @@
           </div>
         </div>
         <div class="form-group row">
-          <%= label_tag :email, "Email Address", :class => "col-sm-2 col-form-label" %>
+          <%= f.label :email, "Email Address", :class => "col-sm-2 col-form-label" %>
           <div class="col-sm-8">
-            <%= email_field_tag "school[email]", nil, :class => "form-control", :placeholder => "Email Address" %>
+            <%= email_field :user, :email, :class => "form-control", :placeholder => "Email Address" %>
           </div>
         </div>
         <div class="form-group row">
-          <%= label_tag :password, "Password", :class => "col-sm-2 col-form-label" %>
+          <%= f.label :password, "Password", :class => "col-sm-2 col-form-label" %>
           <div class="col-sm-8">
-            <%= password_field_tag "school[password]", nil, :class => "form-control", :placeholder => "Password" %>
+            <%= password_field :user, :password, :class => "form-control", :placeholder => "Password" %>
           </div>
         </div>
         <div class="form-group row flex btns-group">

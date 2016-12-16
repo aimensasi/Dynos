@@ -24,6 +24,12 @@ module SessionsHelper
     end
   end
 
+  def require_individual
+    unless current_user.individual
+      redirect_to root_url
+    end
+  end
+
   def is_individual
     unless current_user.individual
       redirect_back_or

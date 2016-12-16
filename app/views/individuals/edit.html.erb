@@ -1,5 +1,5 @@
-<%= form_for @individual do |f| %>
-  
+<%= form_for @individual, :method => "patch" do |f| %>
+
   <div class="form-group row">
     <%= f.label :first_name, "First Name", :class => "col-sm-2 col-form-label" %>
     <div class="col-sm-8">
@@ -15,17 +15,17 @@
   <div class="form-group row">
     <%= f.label :email, "Email Address", :class => "col-sm-2 col-form-label" %>
     <div class="col-sm-8">
-      <%= email_field :user, :email, :class => "form-control", :placeholder => "Email Address" %>
+      <%= email_field :user, :email, :value => @individual.user.email, :class => "form-control", :placeholder => "Email Address", :disabled => true %>
     </div>
   </div>
   <div class="form-group row">
-    <%= f.label :password, "Password", :class => "col-sm-2 col-form-label" %>
+    <%= f.label :location, "Address", :class => "col-sm-2 col-form-label" %>
     <div class="col-sm-8">
-      <%= password_field :user, :password, :class => "form-control", :placeholder => "Password" %>
+      <%= f.text_area :location, :class => "form-control", :placeholder => "Address" %>
     </div>
   </div>
   <div class="form-group row flex btns-group">
-    <%= f.submit "Sign Up", :class => "btn btn-signup" %>
+    <%= f.submit "Save Changes", :class => "btn btn-signup" %>
   </div>
 
 <% end %>

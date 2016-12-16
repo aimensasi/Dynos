@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :individuals, :controller => "individuals", :only => [:show, :create, :destroy, :update, :new]
+  resources :individuals, :controller => "individuals", :only => [:create, :destroy, :update, :new, :edit]
 
   resources :users
 
