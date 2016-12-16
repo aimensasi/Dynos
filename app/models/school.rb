@@ -37,7 +37,7 @@ class School < ActiveRecord::Base
 
   scope :by_age, -> (min_age, max_age){
   	return all unless min_age.present? && max_age.present?
-  	where.or(:min_age => min_age..max_age, :max_age => min_age..max_age)
+  	where(:min_age => min_age..max_age, :max_age => min_age..max_age)
   }
 
   scope :by_category, -> (category){

@@ -1,18 +1,27 @@
 $(document).ready(function(){
+	
 	var SCHOOL_URL = '/search_schools';
+	var EVENT_URL = '/search_events';
+
 	var $schoolResult = $('.schools-result');
 	var $schoolSearch = $('#school-search');
-	var $iconSearch = $('#search-icon');
-	// var $eventSearch = $('#event-search');
+	var $iconSearch = $('.search-icon');
 	var $ageRange = $('#age-range');
 	var $schoolType = $('.category');
 
+	var $eventSearch = $('#event-search');
 
 
-	// Search For School Using Full Text Search
+
+	// Search For School Using Full Text Search and Filters
 	$iconSearch.on('click', function(){
 		console.log($(this).next().serialize());
-		sendAjaxRequest('/search_schools', $(this).next().serialize());
+		if ($(this).attr('data-parent') == 'school') {
+			sendAjaxRequest(SCHOOL_URL, $(this).next().serialize());	
+		}else{
+			sendAjaxRequest(EVENT_URL, $(this).next().serialize());	
+		}
+		
 	});
 	$schoolSearch.on('submit', function(e){
 		e.preventDefault()
@@ -32,6 +41,10 @@ $(document).ready(function(){
 		console.log("Changed" + $(this).serialize());
 		sendAjaxRequest(SCHOOL_URL, $(this).serialize());
 	});
+	// Search For School Using Full Text Search and Filters
+
+	// Search For events Using Full Text Search
+
 
 	
 	function updateView(data){
