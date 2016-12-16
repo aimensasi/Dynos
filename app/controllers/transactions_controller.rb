@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
 
 
   def new
-    @event = Event.find_by_id(params[:event][:id])
+    @event = Event.find_by_id(transaction_params[:event_id])
     @client_token = generate_client_token
   end
 
@@ -15,7 +15,7 @@ class TransactionsController < ApplicationController
     if @result.success?
       EventsUser.create(transaction_params)
       flash[:notice] = "Congregational, Your Spot is now Save"
-      redirect_to individual_path(current_user, :anchor => "your-events")
+      redirect_to edit_individual_path(current_user, :anchor => "your-events")
     else
       flash[:notice] = "Something Went Wrong, Try Again Later"
       redirect_to event_path(transaction_params[:event_id])
@@ -37,6 +37,6 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:tickets_count, :total_price, :event_id)
+    params.require(:transaction).permit(:ticket_counter, :total_price, :event_id)
   end
 end

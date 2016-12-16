@@ -28,7 +28,7 @@
        <div class="col-md-7"><%= number_to_currency(@event.price, :unit => "RM") %></div>  
      </div>
      <div class="row contact-row details-row flex">
-       <%= link_to("Get Tickets", new_transaction_path, :class => "btn btn-buy") %>
+       <%= link_to("Get Tickets", new_transaction_path(:transaction => {:event_id => @event.id}), :class => "btn btn-buy") %>
      </div>
    </div>
   </div>  

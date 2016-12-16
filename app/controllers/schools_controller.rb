@@ -46,6 +46,7 @@ class SchoolsController < ApplicationController
       flash.notice = "Welcome To Dynos"
       redirect_to edit_school_path @school
     else
+      byebug
       flash.alert = "Invalid Email Or Password"
       render 'new'
     end
@@ -83,6 +84,6 @@ class SchoolsController < ApplicationController
     end
 
     def user_params
-      params.require(:school).permit(:email, :password)
+      params.require(:user).permit(:email, :password)
     end
 end

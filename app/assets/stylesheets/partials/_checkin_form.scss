@@ -1,0 +1,112 @@
+
+.checkout-form{
+	border: 1px solid #eee;
+	box-shadow: 3px 3px 9px #eee;
+	min-height: 700px;
+	padding-bottom: 30px;
+	.checkout-header{
+		position: relative;
+		background: rgba(0, 132, 139, .6);
+		padding: 30px 20px;	
+
+		.form-control{
+			height: 100%;
+			width: 66%;
+			text-align: center;
+		  background: transparent;
+		  border: none;
+		  display: block;
+		  font-size: 4em;
+		  letter-spacing: -0.06em;
+		  text-transform: uppercase;
+		  font-family: 'Roboto Mono';
+		  color: #00848b;
+		  margin-left: auto;
+		  margin-right: auto;
+		  &:disabled{
+				background: transparent;
+				cursor: default;
+			}
+			&:focus{
+				background: rgba(0, 132, 139, .2);
+				color: rgba(0, 132, 139, .6);
+			}
+		}
+		.btns{
+			position: absolute;
+			z-index: 2009;
+			background: transparent;
+			border: none;
+			top: 126px;
+		  color: #00848b;
+		  font-size: 1.4rem;
+			cursor: pointer;
+		}
+		.btn-up{
+			right: 33px;
+
+		}
+		.btn-down{
+			left: 33px;
+		}
+		.btn-up,
+		.btn-down{
+			transition: color .6s;
+			&:hover{
+				color: rgba(0, 132, 139, .6);
+			}
+		}
+		.ticket-label{
+			text-align: center;
+			font-size: 1.3em;
+		  letter-spacing: 0.3em;
+		  font-family: 'Roboto Mono';
+		  font-weight: 700;
+		  text-transform: uppercase;
+			color: #00848b;
+		}
+
+	}
+}
+
+.checkout-form{
+	.form-controls{
+		height: 40px;
+		width: 90%;
+		border-bottom: 1px solid #00848b;
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+		padding-bottom: 10px;
+		padding-left: 10px;
+	}	
+	.card-label{
+		text-align: center;
+		display: block;
+		margin-top: 2rem;
+		font-family: 'Roboto Mono';
+		font-size: 18px;
+	}
+	.btn-pay{
+	  width: 90%;
+	  display: block;
+	  border-radius: 20px;
+	  background: #00848b;
+	  font-weight: 100;
+	  font-family: 'Roboto Mono';
+	  color: #fff;
+	  padding: 8px 16px;
+	  margin-top: 55px;
+	  transition: background .6s;
+	  &:hover{
+	  	background: rgba(0, 132, 139, .6);
+	  }
+	}
+}
+
+
+
+
+
+
+
+

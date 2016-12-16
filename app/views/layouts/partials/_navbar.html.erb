@@ -29,7 +29,7 @@
         </a>                
         <div class="dropdown-menu" aria-labelledby="user_menu">
           <%= link_to("Profile", edit_individual_path(individual), :class => "dropdown-item") %>
-        <%= link_to("Your Events", edit_individual_path(individual, :anchor => "your-events"), :class => "dropdown-item") %>
+          <%= link_to("Your Events", edit_individual_path(individual, :anchor => "your-events"), :class => "dropdown-item") %>
           <%= link_to("Sign Out", sign_out_path, method: :delete, :class => "dropdown-item") %>
         </div>
       <% end %>

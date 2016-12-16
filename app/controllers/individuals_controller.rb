@@ -31,14 +31,12 @@ class IndividualsController < ApplicationController
       flash.notice = "Welcome To Dynos"
       redirect_to edit_individual_path @individual
     else
-      # byebug
       flash.alert = "Invalid Email Or Password"
       redirect_to new_individual_path
     end
   end
 
   def edit
-    # byebug
     @individual = Individual.find_by_id(params[:id])
   end
   
