@@ -37,7 +37,8 @@ class IndividualsController < ApplicationController
     end
   end
 
-  def edit 
+  def edit
+    # byebug
     @individual = Individual.find_by_id(params[:id])
   end
   
