@@ -23,10 +23,10 @@ class School < ActiveRecord::Base
   belongs_to :user
 
   validates :name, presence: true
-  validates :category, :inclusion => {:in => ['private', 'public', 'international']}
+  validates :category, :inclusion => {:in => ['Private', 'Public', 'International'], :allow_nil => true}
  
   mount_uploader :avatar, SchoolAvatarUploader
-  mount_uploader :cover, SchoolCoverUploader
+  # mount_uploader :cover, SchoolCoverUploader
 
   pg_search_scope :pg_address, :against => :location, using: { :tsearch => {:prefix => true, :any_word => true} }
 

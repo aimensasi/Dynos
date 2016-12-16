@@ -18,7 +18,7 @@
 
 class SchoolsController < ApplicationController
   before_action :require_login, except: [:create, :new, :index, :show]
-
+  before_action :must_be_school, except: [:create, :new, :index, :show]
 
   def index
     @schools = School.all
@@ -64,6 +64,7 @@ class SchoolsController < ApplicationController
       flash.notice = "Your Information Has Been Updated"
       redirect_to edit_school_path @school
     else
+      byebug
       flash.alert = "Could not Updated Your Information"
       render :edit
     end
