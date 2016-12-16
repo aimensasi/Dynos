@@ -22,7 +22,9 @@ class School < ActiveRecord::Base
   belongs_to :user
 
   validates :name, presence: true
- 
+
   mount_uploader :avatar, SchoolAvatarUploader
   mount_uploader :cover, SchoolCoverUploader
+
+
 end
