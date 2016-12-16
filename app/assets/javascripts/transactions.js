@@ -21,13 +21,14 @@ braintree.client.create({
     client: clientInstance,
     styles: {
       'input': {
-        'font-size': '14pt'
+        'font-size': '14pt',
+        'color': 'rgba(0, 132, 139, .7)'
       },
       'input.invalid': {
-        'color': 'red'
+        'color': '#ff5a5f'
       },
       'input.valid': {
-        'color': 'green'
+        'color': '#00848b'
       }
     },
     fields: {
@@ -65,6 +66,7 @@ braintree.client.create({
         // submit the form. Alternatively, you could send the nonce to your server
         // with AJAX.
         document.querySelector('input[name="payment-method-nonce"]').value = payload.nonce;
+        totalPrice.removeAttribute('disabled');
         form.submit();
       });
     }, false);

@@ -78,7 +78,7 @@
 		border-bottom-right-radius: 15px;
 		padding-bottom: 10px;
 		padding-left: 10px;
-	}	
+	}
 	.card-label{
 		text-align: center;
 		display: block;
@@ -104,7 +104,15 @@
 }
 
 
-
+input[type="tel"] {
+  color: rgba(0, 132, 139, .7) !important;
+}	
+input.valid{
+	color: #00848b !important;
+}
+input.invalid{
+	color: #ff5a5f !important;
+}
 
 
 

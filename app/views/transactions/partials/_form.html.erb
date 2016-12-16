@@ -4,7 +4,7 @@
       <form id="checkout-form" action="/transactions" method="post" data_token="<%= client_token %>">
       <!-- Transaction Form  -->
         <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" class="hidden">
-        <input type="hidden" value="<%= event.id %>" name="event_id" class="hidden">
+        <input type="hidden" value="<%= event.id %>" name="transaction[event_id]" class="hidden">
 
         <div class="checkout-header flex flex-col">
           <!-- Checkout Header -->
@@ -13,7 +13,7 @@
           
           <div class="tickets-group center-content flex flex-col">
             <label for="#ticket-counter" class="ticket-label">Tickets</label>
-            <input type="text" name="transaction[ticket-counter]" id="ticket-counter" class="form-control" 
+            <input type="text" name="transaction[ticket_counter]" id="ticket-counter" class="form-control" 
             value="1" data-default="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
             autocomplete="off"> 
           </div>
@@ -21,8 +21,8 @@
           <div class="price-group center-content flex flex-col">
             <label for="#ticket-counter" class="ticket-label">Total</label>
             <input type="text" id="total-price" class="form-control" 
-            value="<%= event.price %>" data-default="<%= event.price %>"
-            disabled name="transaction[total-price]">
+            value="<%= event.price %>" data-default="<%= event.price %>" name="transaction[total_price]"
+            disabled>
           </div>
           <!-- Checkout Header -->
         </div>
