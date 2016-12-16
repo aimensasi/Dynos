@@ -10,9 +10,11 @@
     <%= stylesheet_link_tag    'dark_nav', media: 'all', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <!-- Bootstrap CSS -->
+
+
   </head>
   <body>
-    
+
     <div class="container-fluid flex flex-col">
       <div class="row header">
         <nav class="navbar navbar-light home-nav container">
@@ -41,7 +43,7 @@
           <div class="col-md-6 slogen">
             <div class="title">
               <p class="leads">Finding School For Your Child</p>
-              <p class="leads"> Has Never Been Easier</p>  
+              <p class="leads"> Has Never Been Easier</p>
             </div>
             <h2 class="banner">Sign Up Now!</h2>
             <div class="sign-up-btns">
@@ -65,7 +67,7 @@
             </form>
           </div>
         </div> <!-- header-content -->
-      </div> <!-- Header --> 
+      </div> <!-- Header -->
       <div class="row contant">
         <div class="container">
           <%= yield %>
@@ -73,12 +75,64 @@
       </div> <!-- School -->
       <div class="row footer">
         <div class="container">
-          <h2 class="made-at">Created At Next Academy</h2>  
+          <h2 class="made-at">Created At Next Academy</h2>
         </div>
       </div> <!-- Footer -->
     </div>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'https://use.fontawesome.com/0b77101dd2.js'%>
+    <!-- <script src="/path/to/jquery.cookie.js"></script> -->
+
+<p>Click the button to get your coordinates.</p>
+
+
+<button onclick="getLocation()">Try It</button>
+
+
+
+<p id="demo"></p>
+
+<%=Geocoder.address([cookies[:lat], cookies[:long]].join(','))%>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+    document.cookie = "lat" + "="+ position.coords.latitude;
+    document.cookie = "long" + "="+position.coords.longitude;
+
+
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+</script>
+
+
   </body>
 </html>
