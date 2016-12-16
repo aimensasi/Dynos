@@ -12,7 +12,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag    'dark_nav', media: 'all', 'data-turbolinks-track' => true %>
     
-    <!-- Bootstrap CSS -->
   </head>
   <body>
     
@@ -26,16 +25,14 @@
         </div> <!-- header-content -->
       </div> <!-- Header --> 
       <div class="row contant">
-        <div class="container">
           <%= yield %>
-        </div>
       </div> 
       <!-- Render Footer -->
       <%= render :partial => "layouts/partials/footer" %>
       <!-- Render Footer -->
     </div>
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'https://use.fontawesome.com/0b77101dd2.js'%>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    
   </body>
 </html>

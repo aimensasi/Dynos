@@ -9,7 +9,7 @@ RSpec.describe SearchEnginsController, type: :controller do
     		create(:school, :location => "USA")
     		create(:school, :location => "Malaysia, Kuala Lumpur") if i == 2
     	end
-      get :search_school, { :search_engins => {:location => "Milano"} }
+      get :search_school, { :location => "Milano"}
       expect(assigns(:schools)).to include school
     end
     it "returns schools that teach age between 2 and 9" do 
@@ -17,7 +17,7 @@ RSpec.describe SearchEnginsController, type: :controller do
     	3.times do |i|
     		school = create(:school, :max_age => 19, :min_age => 2)
     	end
-    	get :search_school, { :search_engins => {:min_age => 2, :max_age => 9} }
+    	get :search_school, { :min_age => 2, :max_age => 9} 
     	expect(assigns(:schools).first.min_age).to be_between(2, 9)
     	expect(assigns(:schools).first.max_age).to be >= 9
     end
@@ -26,7 +26,7 @@ RSpec.describe SearchEnginsController, type: :controller do
     	3.times do |i|
     		school = create(:school, :category => "international")
     		school = create(:school, :category => "public")
-    		get :search_school, { :search_engins => {:category => "private"} }
+    		get :search_school, { :category => "private"} 
     		expect(assigns(:schools).first.category).to eq "private"
     	end
     end
@@ -39,7 +39,7 @@ RSpec.describe SearchEnginsController, type: :controller do
     		create(:event, :location => "MILANO")
     		create(:event, :location => "Malaysia, Kuala Lumpur") if i == 2
     	end
-      get :search_event, { :search_engins => {:location => "Glomac Damansara"} }
+      get :search_event, { :location => "Glomac Damansara"} 
       expect(assigns(:events)).to include event
     end
 
@@ -49,7 +49,7 @@ RSpec.describe SearchEnginsController, type: :controller do
     	3.times do |i|
     		create(:event, :location => "MILANO")
     	end
-      get :search_event, { :search_engins => {:location => "Kuala Lumpur"} }
+      get :search_event, { :location => "Kuala Lumpur"} 
       expect(assigns(:events)).to include(event, event2)
     end
   end

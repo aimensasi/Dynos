@@ -48,6 +48,7 @@ class School < ActiveRecord::Base
   def self.filters search_params
   	by_address(search_params[:location])
   	.by_age(search_params[:min_age], search_params[:max_age])
+    .by_category(search_params[:category])
   end
 
 end

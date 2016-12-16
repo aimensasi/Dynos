@@ -19,19 +19,18 @@
         </nav> <!-- Navbar -->
       </div> <!-- Header --> 
       <div class="row contant">
-        <div>
-          <%= yield %>
-        </div>
+        <%= yield %>
       </div> <!-- School -->
       <!-- Render Footer -->
-        <%= render :partial => "layouts/partials/footer" %>
+      <%= render :partial => "layouts/partials/footer" %>
       <!-- Render Footer -->
     </div>
     
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <!-- Important For  Fonts Icons -->
     <%= javascript_include_tag 'https://use.fontawesome.com/0b77101dd2.js'%>
+    
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
     
   </body>
 </html>
