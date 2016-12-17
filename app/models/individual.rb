@@ -22,7 +22,7 @@ class Individual < ActiveRecord::Base
 	mount_uploader :bg_img, AvatarUploader
 
 	belongs_to :user
-	has_and_belongs_to_many :events, :join_table => :events_users, :foreign_key => :user_id
+	has_many :tickets, :dependent => :destroy
 
 	validates_presence_of :first_name, :last_name
 

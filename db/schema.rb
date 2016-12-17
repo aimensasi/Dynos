@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161217041016) do
+ActiveRecord::Schema.define(version: 20161217173813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,22 +27,13 @@ ActiveRecord::Schema.define(version: 20161217041016) do
     t.integer  "max_age"
     t.integer  "school_id"
     t.integer  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "bg_img"
+    t.integer  "seats",       default: 0, null: false
   end
 
   add_index "events", ["school_id"], name: "index_events_on_school_id", using: :btree
-
-  create_table "events_users", id: false, force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "user_id"
-    t.integer "tickets_count"
-    t.integer "total_price"
-  end
-
-  add_index "events_users", ["event_id"], name: "index_events_users_on_event_id", using: :btree
-  add_index "events_users", ["user_id"], name: "index_events_users_on_user_id", using: :btree
 
   create_table "individuals", force: :cascade do |t|
     t.string   "first_name"
@@ -73,6 +64,14 @@ ActiveRecord::Schema.define(version: 20161217041016) do
   end
 
   add_index "schools", ["user_id"], name: "index_schools_on_user_id", using: :btree
+
+  create_table "tickets", id: false, force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+  end
+
+  add_index "tickets", ["event_id"], name: "index_tickets_on_event_id", using: :btree
+  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
