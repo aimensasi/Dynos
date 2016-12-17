@@ -100,7 +100,7 @@ btnDown.addEventListener('click', function(){
   totalPriceText = count * price;
   ticketCounter.value = count;
   totalPrice.value = totalPriceText;
-  
+
   console.log("Price: " + price + " Count: " + count + " totalPrice: " + totalPriceText);
 });
 
