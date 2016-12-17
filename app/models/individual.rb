@@ -10,16 +10,40 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  bg_img     :string
+#
+# Indexes
+#
+#  index_individuals_on_user_id  (user_id)
 #
 
 class Individual < ActiveRecord::Base
+	mount_uploader :avatar, AvatarUploader
+	mount_uploader :bg_img, AvatarUploader
 
 	belongs_to :user
 	has_and_belongs_to_many :events, :join_table => :events_users, :foreign_key => :user_id
 
 	validates_presence_of :first_name, :last_name
 
+	
 	def name 
 		"#{first_name} #{last_name}".camelize
+	end
+
+	def profile_pic
+		if self.avatar.file.present?
+		  self[:avatar].thumbnail.url
+		else  
+		  nil  
+		end
+	end
+
+	def profile_cover
+	  if self.bg_img.file.present?
+	    self[:bg_img].cover.url
+	  else  
+	    nil  
+	  end
 	end
 end

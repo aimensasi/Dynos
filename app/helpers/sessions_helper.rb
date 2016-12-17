@@ -12,6 +12,10 @@ module SessionsHelper
     User.find_by_id(session[:user_id])
   end
 
+  def owner school
+    return nil unless current_user == school.user
+  end
+
   def require_login
     unless current_user
       redirect_to root_url
@@ -52,7 +56,6 @@ module SessionsHelper
       redirect_to default
     end
   end
-
 
   def log_out
      session[:user_id] = nil

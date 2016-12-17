@@ -40,6 +40,8 @@ gem 'pg_search'
 
 # Use carrierwave for photo uploading
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+#for image editing
+gem 'mini_magick'
 
 #Use braintree for payment
 gem 'braintree'

@@ -1,21 +1,3 @@
-# == Schema Information
-#
-# Table name: schools
-#
-#  id          :integer          not null, primary key
-#  name        :string
-#  description :string
-#  location    :string
-#  category    :string
-#  avatar      :string
-#  reviews     :integer
-#  min_age     :integer
-#  max_age     :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  user_id     :integer
-#
-
 class SchoolsController < ApplicationController
   before_action :require_login, except: [:create, :new, :index, :show]
   before_action :must_be_school, except: [:create, :new, :index, :show]

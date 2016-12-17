@@ -27,7 +27,7 @@ class TransactionsController < ApplicationController
   private
 
   def generate_client_token
-      Braintree::ClientToken.generate
+    Braintree::ClientToken.generate
   end
 
   def make_transaction(amount, nonce)

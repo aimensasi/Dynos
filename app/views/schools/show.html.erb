@@ -2,11 +2,8 @@
   <div class="school-header">
     <div class="school-info col-md-10 offset-md-1">
       <div class="school-logo">
-        <% if @school.avatar.file.nil? %>
-          <%= image_tag("http://placehold.it/240x150", :size => "240x150", :alt => "Logo") %>
-        <% else %>
-          <%= image_tag(@school.avatar.url, :size => "240x150", :alt => "Logo") %>
-        <% end %>
+        <%= image_tag(@school.profile_pic ? @school.profile_pic : "http://placehold.it/240x150", 
+            :size => "240x150", :class => "img-thumbnail") %>
       </div>
       <h2 class="school-name"><%= @school.name %></h2>
       <p class="leads"><%= @school.description %></p>
