@@ -10,7 +10,7 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    nonce_from_the_client = params[:payment_method_nonce]
+    nonce_from_the_client = params["payment_method_nonce"]
     @result = make_transaction(transaction_params[:total_price], nonce_from_the_client)
     if @result.success?
       puts "Price + #{transaction_params[:total_price]}"
