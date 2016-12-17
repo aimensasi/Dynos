@@ -1,13 +1,18 @@
 <div class="container">
-    
+
   <!-- Render Search Bar  -->
   <%= render :partial => "search_engins/partials/event_search" %>
   <!-- Render Search Bar  -->
 
   <h2 class="title center">Upcomming Events</h2>
-  
+
   <div class="event-results">
     <!-- Render events results  -->
     <%= render :partial => "events/partials/events", :locals => {:events => @events} %>
-    <!-- Render events results  -->    
+    <!-- Render events results  -->
   </div>
+
+
+  <div class="apple_pagination">
+    <%= will_paginate @events, :container => false %>
+</div>
