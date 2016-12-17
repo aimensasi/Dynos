@@ -16,7 +16,7 @@ class IndividualsController < ApplicationController
 
   before_action :require_login, :except => [:create, :new]
   before_action :require_individual, :except => [:create, :new]
-  
+
   def new
     @individual = Individual.new
   end
@@ -37,9 +37,10 @@ class IndividualsController < ApplicationController
   end
 
   def edit
+
     @individual = Individual.find_by_id(params[:id])
   end
-  
+
   def update
     @individual = Individual.find_by_id(params[:id])
     if @individual.update_attributes individuals_params
@@ -47,7 +48,7 @@ class IndividualsController < ApplicationController
       redirect_to edit_individual_path @individual
     else
       flash.notice = "Invalid Attributes"
-      redirect_to edit_individual_path @individual      
+      redirect_to edit_individual_path @individual
     end
   end
 
@@ -55,12 +56,12 @@ class IndividualsController < ApplicationController
     @individual = Individual.find_by_id(params[:id])
     @individual.user.destroy
     log_out
-    
+
     redirect_to root_url
   end
 
-  
-  private 
+
+  private
   def individuals_params
     params.require(:individual).permit(:first_name, :last_name, :location, :avatar)
   end

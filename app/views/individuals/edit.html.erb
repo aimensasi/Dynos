@@ -24,7 +24,7 @@
             </h2>
           </div>
         <% else %>
-          <% @individual.events.each do |event|%>  
+          <% @individual.events.each do |event|%>
             <%= render :partial => "events/partials/event_row", :locals => {:event => event} %>
           <% end %>
         <% end %>
@@ -35,7 +35,7 @@
   <div class="tab-pane active" id="profile" role="tabpanel">
     <!--  Profile Tab -->
     <div class="col-md-10 offset-md-1">
-      
+
       <!-- Profile Photo Partial -->
       <%= render :partial => "individuals/partials/photo_row", :locals => {:individual => @individual} %>
       <!-- Profile Photo Partial -->
