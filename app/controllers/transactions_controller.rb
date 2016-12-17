@@ -10,33 +10,27 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    nonce_from_the_client = params["payment_method_nonce"]
-
+    nonce_from_the_client = params["payment-method-nonce"]
+    # byebug
     @result = make_transaction(transaction_params[:total_price], nonce_from_the_client)
     if @result.success?
-      puts "Price + #{transaction_params[:total_price]}"
-
-      eventuser = EventsUser.create(transaction_params)
-      flash[:notice] = "Congratulation, Your Spot is now Save"
-
-      redirect_to edit_individual_path(current_user.individual.id, :anchor => "your-events")
+      # create_ticket
+      puts "Done payment_method_nonce #{transaction_params[:total_price]}"
     else
-      flash[:notice] =  @result.errors.first.message
-      puts "Price + #{transaction_params[:event_id]}"
+      byebug
+      flash.alert =  @result.errors.first.message
       redirect_to new_transaction_path :transaction => {:event_id => transaction_params[:event_id]}
     end
   end
 
 
-
   private
-
   def generate_client_token
     Braintree::ClientToken.generate
   end
 
   def make_transaction(amount, nonce)
-
+    # byebug
     Braintree::Transaction.sale(
       :amount => amount,
       :payment_method_nonce => nonce,
@@ -44,7 +38,19 @@ class TransactionsController < ApplicationController
       )
   end
 
+  def create_ticket
+    users_event = EventsUser.new(transaction_params)
+    users_event.user = current_user.individual
+    if users_event.save
+      flash.notice = "Congratulation, Your Spot is now Save"
+      redirect_to edit_individual_path(current_user.individual.id, :anchor => "your-events")  
+    else
+      flash.alert = users_event.errors.full_messages.first
+      redirect_to new_transaction_path :transaction => {:event_id => transaction_params[:event_id]}
+    end
+  end
+
   def transaction_params
-    params.require(:transaction).permit(:tickets_count, :total_price, :event_id ,:user_id)
+    params.require(:transaction).permit(:tickets_count, :total_price, :event_id)
   end
 end

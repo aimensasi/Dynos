@@ -5,7 +5,6 @@
       <!-- Transaction Form  -->
         <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" class="hidden">
         <input type="hidden" value="<%= event.id %>" name="transaction[event_id]" class="hidden">
-        <input type="hidden" value="<%= current_user.individual.id %>" name="transaction[user_id]" class="hidden">
 
         <div class="checkout-header flex flex-col">
           <!-- Checkout Header -->
