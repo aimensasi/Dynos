@@ -1,0 +1,42 @@
+<ul class="nav navbar-nav flex">
+  <%= link_to("DYNOS", root_path , :class => "navbar-brand") %>
+  <li class="nav-item ">
+    <%= link_to("Home", root_path , :class => "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Schools", schools_path , :class => "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Events", events_path , :class => "nav-link") %>
+  </li>
+  <%# byebug %>
+  <% if logged_in? %>
+    <li class="nav-item dropdown">                                
+      <% if current_user.school %>
+        <% school = current_user.school %>
+        <a class="nav-link dropdown-toggle" href="#" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= truncate(school.name, :length => 17, :end_string => '') %>
+        </a>                
+        <div class="dropdown-menu" aria-labelledby="user_menu">
+          <%= link_to("Profile", edit_school_path(school), :class => "dropdown-item") %>
+          <%= link_to("Your Events", edit_school_path(school, :anchor => "your-events"), :class => "dropdown-item") %>
+          <%= link_to("Sign Out", sign_out_path, method: :delete, :class => "dropdown-item") %>
+        </div>
+      <% else %>
+        <% individual = current_user.individual %>
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= individual.name %>
+        </a>                
+        <div class="dropdown-menu" aria-labelledby="user_menu">
+          <%= link_to("Profile", edit_individual_path(individual), :class => "dropdown-item") %>
+          <%= link_to("Your Events", edit_individual_path(individual, :anchor => "your-events"), :class => "dropdown-item") %>
+          <%= link_to("Sign Out", sign_out_path, method: :delete, :class => "dropdown-item") %>
+        </div>
+      <% end %>
+    </li>
+  <% else %>
+    <li class="nav-item">
+      <%= link_to("Sign In", sign_in_path , :class => "nav-link") %>
+    </li>
+  <% end %>
+</ul>

@@ -7,6 +7,12 @@
 
 @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700|Roboto+Mono:400,700|Roboto:300,400,500');
+
+*{
+	outline: 0 !important;
+}
+
 html, body{
 	height: 100%;
 }
@@ -40,8 +46,17 @@ body{
 	box-shadow: 2px 4px 10px #d7d7d7;
 }
 
-h2.title.center {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 30px;
+.center {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+
+.center-content{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ml-22 {
+    margin-left: 22%;
 }

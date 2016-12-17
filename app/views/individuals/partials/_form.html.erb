@@ -1,0 +1,39 @@
+<div class="card">
+  <!-- Info Card -->
+  <div class="card-header">
+    Your Information
+  </div>
+  <div class="card-block info-card">
+    <%= form_for individual, :method => "patch" do |f| %>
+
+      <div class="form-group row">
+        <%= f.label :first_name, "First Name", :class => "col-sm-2 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.text_field :first_name, :class => "form-control", :placeholder => "First Name" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :last_name, "Last Name", :class => "col-sm-2 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.text_field :last_name, :class => "form-control", :placeholder => "Last Name" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :email, "Email Address", :class => "col-sm-2 col-form-label" %>
+        <div class="col-sm-8">
+          <%= email_field :user, :email, :value => @individual.user.email, :class => "form-control", :placeholder => "Email Address", :disabled => true %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :location, "Address", :class => "col-sm-2 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.text_area :location, :class => "form-control", :placeholder => "Address" %>
+        </div>
+      </div>
+      <div class="form-group row flex btns-group">
+        <%= f.submit "Save Changes", :class => "btn btn-signup" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

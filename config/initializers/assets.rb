@@ -9,3 +9,5 @@ Rails.application.config.assets.precompile += %w( dark_nav.css )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+# Rails.application.config.assets.precompile += %w( anchor_handler.js )
+Rails.application.config.assets.precompile += %w( transactions.js )

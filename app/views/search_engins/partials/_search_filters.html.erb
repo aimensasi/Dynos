@@ -1,0 +1,33 @@
+<form action="" id="school-search">
+  <div class="search-bar flex">
+    <i class="fa fa-search fa-lg search-icon" aria-hidden="true" id="search-icon" data-parent="school"></i>
+    <input type="text" name="location" class="form-control search-field" placeholder="Search...">
+  </div>
+</form>
+<div class="filters">
+  <h2 class="title">Filters</h2>
+  <div class="age-filter">
+    <h2 class="title">Age:</h2>
+    <input type="hidden" class="age-range" value="2,19" id="age-range" />
+  </div>
+  <div class="type-filter">
+    <h2 class="title">School Type:</h2>
+    <div class="choice">
+      <label class="custom-control custom-checkbox">
+        <input name="category" type="radio" class="custom-control-input category" value="private">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">Private</span>
+      </label>
+      <label class="custom-control custom-checkbox">
+        <input name="category" type="radio" class="custom-control-input category" value="public">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">Public</span>
+      </label>
+      <label class="custom-control custom-checkbox">
+        <input name="category" type="radio" class="custom-control-input category" value="international">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">International</span>
+      </label>
+    </div>
+  </div>
+</div>

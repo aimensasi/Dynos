@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-
+    @user = User.new
   end
 
   def create
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(session_params[:password])
       log_in @user
-      redirect_to root_path
+      redirect_to_user_profile @user
     else
       flash.alert = "Invalid Email Or Password"
       render "new"
@@ -17,7 +17,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    
     log_out
     redirect_to root_path
   end

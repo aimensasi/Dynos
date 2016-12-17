@@ -1,2 +1,0 @@
-json.extract! event, :id, :name, :description, :start_date, :end_date, :location, :start_time, :end_time, :min_age, :max_age, :school_id, :created_at, :updated_at
-json.url event_url(event, format: :json)

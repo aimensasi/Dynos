@@ -24,9 +24,24 @@ module SessionsHelper
     end
   end
 
+  def require_individual
+    unless current_user.individual
+      redirect_to root_url
+    end
+  end
+
   def is_individual
     unless current_user.individual
       redirect_back_or
+    end
+  end
+
+  def redirect_to_user_profile user
+    # byebug
+    if user.school
+      redirect_to edit_school_path user.school
+    else
+      redirect_to edit_individual_path user.individual
     end
   end
 

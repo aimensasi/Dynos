@@ -15,11 +15,8 @@
 class IndividualsController < ApplicationController
 
   before_action :require_login, :except => [:create, :new]
+  before_action :require_individual, :except => [:create, :new]
   
-  def show
-    @individual = Individual.find_by_id(params[:id])
-  end
-
   def new
     @individual = Individual.new
   end
@@ -31,21 +28,26 @@ class IndividualsController < ApplicationController
       @individual.user = @user
       @individual.save
       log_in @user
-      redirect_to individuals_path @user
+      flash.notice = "Welcome To Dynos"
+      redirect_to edit_individual_path @individual
     else
       flash.alert = "Invalid Email Or Password"
-      render :new
+      redirect_to new_individual_path
     end
+  end
+
+  def edit
+    @individual = Individual.find_by_id(params[:id])
   end
   
   def update
     @individual = Individual.find_by_id(params[:id])
     if @individual.update_attributes individuals_params
       flash.notice = "Updated Successfully"
-      redirect_to individuals_path @user
+      redirect_to edit_individual_path @individual
     else
       flash.notice = "Invalid Attributes"
-      redirect_to individuals_path @user      
+      redirect_to edit_individual_path @individual      
     end
   end
 
@@ -64,6 +66,6 @@ class IndividualsController < ApplicationController
   end
 
   def user_params
-    params.require(:individual).permit(:email, :password)
+    params.require(:user).permit(:email, :password)
   end
 end

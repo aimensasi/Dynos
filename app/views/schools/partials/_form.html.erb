@@ -1,0 +1,60 @@
+<div class="card">
+  <!-- Info Card -->
+  <div class="card-header">
+    Your Information
+  </div>
+  <div class="card-block info-card">
+
+    <%= form_for school, :method => "PATCH" do |f|%>
+      <!-- Form For School Update  -->
+      <div class="form-group row">
+        <%= f.label :name, "School Name", :class => "col-sm-2 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.text_field :name, :class => "form-control", :placeholder => "School Name" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :description, "Description", :class => "col-sm-2 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.text_field :description, :class => "form-control", :placeholder => "Enter Small Summary About The School" %>
+        </div>
+      </div> 
+      <div class="form-group row">
+        <%= label_tag :email, "Email Address", :class => "col-sm-2 col-form-label" %>
+        <div class="col-sm-8">
+          <%= email_field_tag "school[email]", school.user.email, :class => "form-control", :placeholder => "Email Address", :disabled => true %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :category, "School Type", :class => "col-sm-2 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.select :category, options_for_select(['Private', 'International', 'Public'], school.category), 
+          {:include_blank => true}, :class => 'custom-select', :placeholder => "School Type" %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :age_taught, "Age Taught", :class => "col-sm-2 col-form-label" %>
+        <div class="col-sm-8">
+          <div class="col-sm-3 pl-0">
+            <%= f.select :min_age, options_for_select(2..19, school.min_age), {}, :class => 'custom-select'%>
+          </div>
+          <div class="col-sm-3">
+            <%= f.select :max_age, options_for_select(2..19, school.max_age), {}, :class => 'custom-select'%>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <%= f.label :location, "Address", :class => "col-sm-2 col-form-label" %>
+        <div class="col-sm-8">
+          <%= f.text_field :location, :class => "form-control", :placeholder => "Address..." %>
+        </div>
+      </div>
+      <div class="form-group row flex btns-group">
+        <%= link_to("Delete Account", school_path(school), :method => "DELETE", :class => "btn btn-remove-account") %>
+        <%= f.submit "Save Changes", :class => "btn btn-update" %>
+      </div>
+      <!-- Form For School Update  -->
+    <% end %>
+  </div>
+  <!-- Info Card -->
+</div>

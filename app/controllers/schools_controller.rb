@@ -18,7 +18,7 @@
 
 class SchoolsController < ApplicationController
   before_action :require_login, except: [:create, :new, :index, :show]
-
+  before_action :must_be_school, except: [:create, :new, :index, :show]
 
   def index
     @schools = School.all
@@ -46,6 +46,7 @@ class SchoolsController < ApplicationController
       flash.notice = "Welcome To Dynos"
       redirect_to edit_school_path @school
     else
+      byebug
       flash.alert = "Invalid Email Or Password"
       render 'new'
     end
@@ -64,6 +65,7 @@ class SchoolsController < ApplicationController
       flash.notice = "Your Information Has Been Updated"
       redirect_to edit_school_path @school
     else
+      byebug
       flash.alert = "Could not Updated Your Information"
       render :edit
     end
@@ -82,6 +84,6 @@ class SchoolsController < ApplicationController
     end
 
     def user_params
-      params.require(:school).permit(:email, :password)
+      params.require(:user).permit(:email, :password)
     end
 end

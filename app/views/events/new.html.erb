@@ -1,4 +1,9 @@
-
-
-<%= render 'new_form' %>
-
+<div class="col-md-10 offset-md-1">
+  <div class="card">
+    <div class="card-block info-card">
+      <%= form_for @event do |f| %>
+        <%= render :partial => "events/partials/form", :locals => {:f => f, :btn => "Add New Event"} %>
+      <% end %>
+    </div>
+  </div>
+</div>

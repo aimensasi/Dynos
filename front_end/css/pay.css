@@ -1,0 +1,254 @@
+/*Lato*/
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+/*Cinzel Decorative*/
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700');
+
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:600');
+
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700|Roboto+Mono:400,700|Roboto:300,400,500');
+/*$Dark-Green: #00848b;*/
+/*$light-green: #00848b;*/
+html, body{
+	height: 100%;
+
+}
+
+*{
+	outline: 0 !important;
+}
+
+body{
+	font-family: 'Lato', sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+
+.container-fluid{
+	height: 100%;
+}
+
+.flex{
+	display: flex;
+	flex-direction: row;
+}
+
+.flex-col{
+	flex-direction: column;
+}
+
+.home-nav{
+	background-color: transparent;
+}
+
+.navbar-brand{
+	margin-right: auto;
+	color: #000 !important;
+	margin-top: 10px;
+	font-family: 'Cinzel Decorative', serif;
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+
+.home-nav .nav .nav-link{
+	color: #000;
+	font-size: 1.2rem;
+	padding-right: 20px;
+}
+
+.nav-link:hover{
+	color: #00848b !important;
+}
+
+.home-nav .nav .nav-link:not(.navbar-brand){
+	font-weight: 300;
+}
+
+.dropdown-menu .dropdown-item{
+	color: #222 !important;
+	font-weight: 300;
+}
+
+
+
+
+
+
+
+
+
+
+/*Pay Form 0000*/
+	
+.checkout-form{
+	border: 1px solid #eee;
+	box-shadow: 3px 3px 9px #eee;
+	min-height: 700px;
+	padding-bottom: 30px;
+}
+
+.form-control{
+	height: 46px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checkout-header{
+	position: relative;
+	background: rgba(0, 132, 139, .6);
+	padding: 30px 20px;
+}
+
+.center-content{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.btns{
+	position: absolute;
+	z-index: 2009;
+	background: transparent;
+	border: none;
+	top: 126px;
+  color: #00848b;
+  font-size: 1.4rem;
+	cursor: pointer;
+}
+
+.ticket-label{
+	text-align: center;
+	font-size: 1.3em;
+  letter-spacing: 0.3em;
+  font-family: 'Roboto Mono';
+  font-weight: 700;
+  text-transform: uppercase;
+	color: #00848b;
+}
+
+.form-control{
+	height: 100%;
+	width: 66%;
+	text-align: center;
+  background: transparent;
+  border: none;
+  display: block;
+  font-size: 4em;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  font-family: 'Roboto Mono';
+  color: #00848b;
+}
+
+.form-control:disabled{
+	background: transparent;
+	cursor: default;
+}
+
+.form-control:focus{
+	background: rgba(0, 132, 139, .2);
+	color: rgba(0, 132, 139, .6);
+}
+
+.btn-up{
+	right: 33px;
+
+}
+.btn-down{
+	left: 33px;
+}
+
+.btn-up,
+.btn-down{
+	transition: color .6s;
+}
+
+.btn-up:hover,
+.btn-down:hover{
+	color: rgba(0, 132, 139, .6);
+}
+
+.ml-22 {
+    margin-left: 22%;
+}
+
+.form-controls{
+	height: 40px;
+	width: 90%;
+	border-bottom: 1px solid #00848b;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	/*background: #eee;*/
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+.card-label{
+	text-align: center;
+	display: block;
+	margin-top: 2rem;
+	font-family: 'Roboto Mono';
+	font-size: 18px;
+}
+
+.btn-pay{
+  width: 90%;
+  display: block;
+  border-radius: 20px;
+  background: #00848b;
+  font-weight: 100;
+  font-family: 'Roboto Mono';
+  color: #fff;
+  padding: 8px 16px;
+  margin-top: 55px;
+  transition: background .6s;
+}
+
+.btn-pay:hover{
+	background: rgba(0, 132, 139, .6);
+}
+/*Pay Form 0000*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Footer*/
+
+
+.footer{
+	height: 57px;
+	margin-top: auto;
+	background: #232526; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #232526 , #414345); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #232526 , #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.footer h2{
+	color: #fff;
+	font-family: 'Libre Baskerville', serif;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 16px;
+}

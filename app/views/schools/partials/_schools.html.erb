@@ -1,0 +1,9 @@
+<% if schools.empty? %>
+	<div class="empty-list">
+		<p class="title">No Result Found</p>
+	</div>
+<% else %>
+	<% schools.each do |school| %>	 
+		<%= render partial: "schools/partials/school_row", :locals => {:school => school} %>
+	<% end %>
+<% end %>

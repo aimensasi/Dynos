@@ -1,43 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<div class="row contant">
-        <div class="container">          
-          <form action="">
-            <div class="search-bar flex">
-              <i class="fa fa-search fa-lg search-icon" aria-hidden="true"></i>
-              <input type="text" name="query" class="form-control search-field" placeholder="Search...">
-            </div>
-          </form>
-          <div class="filters">
-            <h2 class="title">Filters</h2>
-            <div class="age-filter">
-              <h2 class="title">Age:</h2>
-              <input type="hidden" class="age-range" value="2,19" />
-            </div>
-            <div class="type-filter">
-              <h2 class="title">School Type:</h2>
-              <div class="choice">
-                <label class="custom-control custom-checkbox">
-                  <input name="category" type="radio" class="custom-control-input">
-                  <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">Private</span>
-                </label>
-                <label class="custom-control custom-checkbox">
-                  <input name="category" type="radio" class="custom-control-input">
-                  <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">Public</span>
-                </label>
-                <label class="custom-control custom-checkbox">
-                  <input name="category" type="radio" class="custom-control-input">
-                  <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">International</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <h2 class="title center">Top Results</h2>
-<!-- <h1>Listing Schools</h1> -->
-
-<% @schools.each do |school| %>
-  <%= render :partial => "school_row" ,:locals => {:school => school}%>
-<% end %>
+<div class="container">          
+  <!-- Include Search Bar Partials -->
+  <%= render partial: "search_engins/partials/search_filters"%>  
+  <h2 class="title center">Top Results</h2>
+  <div class="schools-result">
+    <%= render partial: "schools/partials/schools", :locals => {:schools => @schools} %>  
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="card">
+  <!-- Photos Card -->
+  <div class="card-block img-card">
+    <div class="bg-img">
+      <%= image_tag("http://placehold.it/1103x400", :size => "1103x400", :class => "img-fluid img-thumbnail") %>
+      <form>
+        <input type="file" name="bg-img" class="inputfile" data-parent="school">
+        <label for="img-uploader" class="btn btn-file">
+          <i class="fa fa-camera" aria-hidden="true"></i>
+        </label>
+      </form>
+    </div>
+    <div class="logo-img">
+      <% if school.avatar.file.nil? %>
+        <%= image_tag(school.avatar.url, :size => "240x150", :class => "img-thumbnail") %>
+      <% else %>
+        <%= image_tag("http://placehold.it/240x150", :size => "240x150", :class => "img-thumbnail") %>
+      <% end %>
+      <form>
+        <input type="file" name="logo-img" class="inputfile" data-parent="school">
+        <label for="img-uploader" class="btn btn-file">
+          <i class="fa fa-camera" aria-hidden="true"></i>
+        </label>
+      </form>
+    </div>
+  </div>
+  <!-- Photos Card -->
+</div>
