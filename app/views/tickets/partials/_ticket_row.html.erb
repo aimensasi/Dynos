@@ -1,0 +1,27 @@
+<div class="col-md-10 offset-md-1 ">
+  <div class="container event-row">
+    <div class="event-date col-md-1">
+      <h2 class="month"><%= ticket.ticket.event.month%></h2>
+      <h3 class="day"><%= ticket.event.day%></h3>
+    </div>
+    <div class="col-md-11">
+      <div class="event-desc flex flex-col">
+        <h2 class="title"><%= truncate(ticket.event.name, :length => 60) %></h2>
+        <p class="leads">
+          <strong>Hosted By</strong>
+          <%= link_to(truncate(ticket.event.school.name, :length => 40), school_path(ticket.event.school), :class => "hosted-by") %>        
+        </p>
+        <div class="event-footer flex">
+          <p class="time-leads"><%= ticket.event.event_time %></p>
+          <%= link_to("View", event_path(ticket.event) , :class => "btn btn-view") %>
+        </div>
+      </div>
+    </div>
+    <% if owner(ticket.event.school) %>
+      <%= link_to("X", event_path(ticket.event), :method => "delete", :class => "btn btn-remove") %>
+      <%= link_to(edit_event_path(ticket.event), :class => "btn btn-edit") do %>
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      <% end %>
+    <% end %>
+  </div>  
+</div>

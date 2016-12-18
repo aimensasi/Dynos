@@ -46,4 +46,8 @@ class Individual < ActiveRecord::Base
 	    nil  
 	  end
 	end
+
+	def uniq_tickets
+		tickets.group(:individual_id, :event_id)
+	end
 end

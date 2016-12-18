@@ -1,59 +1,125 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-# == Schema Information
-#
-# Table name: schools
-#
-#  id          :integer          not null, primary key
-#  name        :string
-#  description :string
-#  location    :string
-#  category    :string
-#  avatar      :string
-#  reviews     :integer
-#  min_age     :integer
-#  max_age     :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  user_id     :integer
-#\
-
-#  id              :integer          not null, primary key
-#  email           :string
-#  password_digest :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  role  
-
 # 10.times do |n|  
 # 	User.create(
 # 		:email => "adam#{n}@gmail.com",
 # 		:password => "1234567#{n}",
 # 		:role => "school"
 # 	)
+# # end
+
+# user_ids = User.ids
+# 20.times do 
+# 	school = School.new(
+# 		:name => Faker::Company.name,
+# 		:description => Faker::Lorem.paragraph(2),
+# 		:location => Faker::Address.street_address,
+# 		:category => ['private', 'public', 'international'].sample,
+# 		:min_age => [2, 3, 1].sample,
+# 		:max_age => [16, 17, 18, 19].sample,
+# 		:user_id => user_ids.sample
+# 	)
+# 	if school.save
+# 		puts "Created School with name of #{school.name}"
+# 	else
+# 		puts "Ops Error: #{school.errors.full_messages}"
+# 	end
 # end
 
-user_ids = User.ids
-20.times do 
-	school = School.new(
-		:name => Faker::Company.name,
-		:description => Faker::Lorem.paragraph(2),
+
+10.times do |n|  
+	User.create(
+		:email => "james#{n}@gmail.com",
+		:password => "1234567#{n}",
+		:role => "individual"
+	)
+end
+
+users = User.where(:role => "individual")
+
+user_ids = users.ids
+
+20.times do |n|
+	unsplash = "https://unsplash.com/?photo=nvj-PDU98WU".gsub(/https/, 'http')
+
+	individual = Individual.new(
+		:first_name => Faker::Name.first_name,
+		:last_name => Faker::Name.last_name,
 		:location => Faker::Address.street_address,
-		:category => ['private', 'public', 'international'].sample,
-		:min_age => [2, 3, 1].sample,
-		:max_age => [16, 17, 18, 19].sample,
 		:user_id => user_ids.sample
 	)
-	if school.save
-		puts "Created School with name of #{school.name}"
+	if n == 3
+		Individual.create(
+			:first_name => Faker::Name.first_name,
+			:last_name => Faker::Name.last_name,
+			:remote_avatar_url => unsplash,
+			:location => Faker::Address.street_address,
+			:user_id => user_ids.sample
+		)
+	end
+
+	if individual.save
+		puts "Created individual with name of #{individual.name}"
 	else
-		puts "Ops Error: #{school.errors.full_messages}"
+		puts "Ops Error: #{individual.errors.full_messages}"
 	end
 end
 
-# :avatar => Faker::Company.logo
+# t.string   "name"
+# t.string   "description"
+# t.date     "date"
+# t.string   "location"
+# t.time     "start_time"
+# t.time     "end_time"
+# t.integer  "min_age"
+# t.integer  "max_age"
+# t.integer  "school_id"
+# t.integer  "price"
+# t.datetime "created_at",              null: false
+# t.datetime "updated_at",              null: false
+# t.string   "bg_img"
+# t.integer  "seats", 
+
+school_ids = School.ids
+
+30.times do |n|
+	event = Event.new({
+		:name => Faker::Lorem.sentence(6),
+		:description => Faker::Lorem.paragraph(10),
+		:date => Faker::Date.forward(30),
+		:location => Faker::Address.street_address,
+		:min_age => [2, 3, 1].sample,
+		:max_age => [16, 17, 18, 19].sample, 
+		:start_time => Faker::Time.forward(23, :evening),
+		:end_time => Faker::Time.forward(23, :evening),
+		:price => [300, 120, 30, 50, 1000].sample,
+		:seats => [20, 30, 120, 10, 22].sample,
+		:school_id => school_ids.sample
+	})
+
+	if event.save
+		puts "Created event with name of #{event.name}"
+	else
+		puts "Ops Error: #{event.errors.full_messages}"
+	end
+	
+end
+
+events_ids = Event.ids
+individual_ids = Individual.ids
+70.times do |n| 
+	Ticket.create(
+		:event_id => events_ids.sample,
+		:individual_id => individual_ids
+	)
+	puts "Created #{n + 1} Ticket" 
+end
+
+
+
+
+
+
+
+
+
+
+

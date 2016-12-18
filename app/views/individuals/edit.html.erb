@@ -19,16 +19,16 @@
         <div class="col-md-2">
           <%= link_to("Search For Event", events_path , :class => "btn btn-new-event") %>
         </div>
-        <div class="col-md-9 ml-3">
-          <% if @individual.events.empty? %>
+        <div class="col-md-10 ">
+          <% if @individual.tickets.empty? %>
             <div class="empty-list">
               <h2 class="title">
                 You Have No Upcomming Event, <%= link_to("Search For Event", events_path , :class => "link-new-event") %>
               </h2>
             </div>
           <% else %>
-            <% @individual.events.each do |event|%>  
-              <%= render :partial => "events/partials/event_row", :locals => {:event => event} %>
+            <% @individual.uniq_tickets.each do |ticket|%>  
+              <%= render :partial => "events/partials/event_row", :locals => {:event => ticket.event} %>
             <% end %>
           <% end %>
         </div>
