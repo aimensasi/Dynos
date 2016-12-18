@@ -8,6 +8,17 @@
 @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
 /*$Dark-Green: #00848b;*/
 /*$light-green: #00848b;*/
+
+@font-face {
+  font-family: "Luxia-Semi-Bold";
+  src: font-url( "Luxia-Semi-Bold.otf" );
+}
+@font-face {
+  font-family: "Luxia-Semi-BoldDisplay";
+  src: font-url( "Luxia-Semi-BoldDisplay.otf" );
+}
+
+
 html, body{
 	height: 100%;
 }
@@ -32,7 +43,7 @@ body{
 }
 
 .header{
-	background: url(../images/header-img.png) no-repeat center center fixed;
+	background: url(../images/bg-img.jpg) no-repeat center center ;
 	background-size: cover;
 	height: 600px;
 }
@@ -44,7 +55,7 @@ body{
 	margin-right: auto;
 	color: #fff !important;
 	margin-top: 10px;
-	font-family: 'Cinzel Decorative', serif;
+	font-family: 'Luxia-Semi-BoldDisplay', 'Cinzel Decorative', serif;
 	font-size: 1.4rem;
 	font-weight: 700;
 }
@@ -69,16 +80,17 @@ body{
 }
 
 .header-content{
-	margin-top: 80px;
+	margin-top: 40px;
 }
 
 .slogen .title{
 	color: #fff;
-	font-family: 'Lato', serif;
-	font-weight: 400;
-	font-size: 1.9rem;
-	letter-spacing: 3px;
-	line-height: 28px;
+  font-family: 'Luxia-Semi-Bold', serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+  letter-spacing: 3px;
+  line-height: 28px;
+  margin-top: 75px;
 }
 
 .slogen .banner{
@@ -89,54 +101,84 @@ body{
 }
 
 .sign-up-btns .btn{
-	background-color: #00848b;
+	background-color: #66b5b9;
 	color: #fff;
 	margin-top: 25px;
 	margin-right: 20px;
 	width: 150px
 }
 
-.login-form form{
-	background: #fff;
-	width: 350px;
-	height: 370px;
-	border-radius: 25px;
-	margin-bottom: 40px;
+
+
+/*Form Style*/
+
+.signup-form{
+  box-shadow: 2px 1px 4px #222;
+  padding: 0;
+  margin-bottom: 40px;
+  width: 400px;
+  margin-left: 5%;
+  background: #fff;
+}
+.signup-header{
+	background: rgba(0, 132, 139, .6);
+  height: 90px;
+  /*padding-top: 20px;*/
+  margin-bottom: 55px;
+}
+.signup-header .title{
+	letter-spacing: 1px;
+	font-family: 'Roboto Mono';
+	color: #00848b;
+	margin: auto;
 }
 
-.login-form h2.title {
-    text-align: center;
-    padding-top: 32px;
-    font-size: 1.7rem;
-    margin-bottom: 25px;
+.form-group, .signup-form form, .signup-header{
+	display: flex;
+	flex-direction: column;
 }
 
-.login-form .form-control{
+.form-group label{
+	text-align: center;
+	display: block;
+	font-family: 'Roboto Mono';
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+.form-group input{
 	width: 90%;
-	margin-left: 5%;
-	border-radius: 20px;
-	border-color: #00848b;
-	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.login-form .btn-signin{
-	margin-top: 50px;
-	width: 90%;
-	margin-left: 5%;
-	border-radius: 20px;
-	background: #00848b;
-	color: #fff;
+.form-group .form-control{
+	border: none;
+	border-bottom: 1px solid rgba(0, 132, 139, .6);
+	border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.btn-sign-up{
+	background: #66b5b9;
 	font-weight: 100;
-	font-size: 18px;
-	padding: 0;
-	transition: background-color .5s;
-	height: 35px;
+  font-family: 'Roboto Mono';
+  color: #fff;
+	letter-spacing: .8px;
+	margin-bottom: 20px;
+	margin-top: 60px;
+	border-radius: 20px;
+	font-size: 19px;
 }
 
-/* #04484c */
-.login-form .btn-signin:hover, .sign-up-btns .btn:hover{
-	background-color: #04484c;
-}
+
+
+
+
+/*Form Style*/
+
+
 
 .contant .title{
 	text-align: center;

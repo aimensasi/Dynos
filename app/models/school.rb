@@ -82,6 +82,14 @@ class School < ActiveRecord::Base
     end
   end
 
+  def age_range
+    "#{min_age} - #{max_age}"
+  end
+
+  def email
+    user.email
+  end
+
 end
 
 

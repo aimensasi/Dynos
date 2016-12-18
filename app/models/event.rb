@@ -56,4 +56,13 @@ class Event < ActiveRecord::Base
   def age_range
   	"#{min_age} - #{max_age}"
   end
+
+  def profile_cover
+    return nil if self.bg_img.nil?
+    if self.bg_img.file.present?
+      self[:bg_img].cover.url
+    else  
+      nil  
+    end
+  end
 end

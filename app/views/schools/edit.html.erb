@@ -1,51 +1,53 @@
-<nav class="navbar navbar-dark bg-inverse">
-  <ul class="nav navbar-nav container tabs" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link " data-toggle="tab" href="#your-events" role="tab">Your Events</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#profile" role="tab">Profile</a>
-    </li>
-  </ul>
-</nav>
+<div class="profile-view">
+  <nav class="navbar navbar-dark bg-inverse">
+    <ul class="nav navbar-nav container tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link " data-toggle="tab" href="#your-events" role="tab">Your Events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#profile" role="tab">Profile</a>
+      </li>
+    </ul>
+  </nav>
 
 
-<!-- Tab panes -->
-<div class="tab-content">
-  <div class="tab-pane" id="your-events" role="tabpanel">
-  <!-- Event Tab -->
-    <div class="container">
-      <div class="col-md-2">
-        <%= link_to("Add New Event", new_event_path, :class => "btn btn-new-event") %>
-      </div>
-      <div class="col-md-9 ml-3">
-        <% if @school.events.empty? %>
-          <div class="empty-list">
-            <h2 class="title">
-              You Don't Have Any Events, <%= link_to("Add One Now", new_event_path , :class => "link-new-event") %>
-            </h2>
-          </div>
-        <% else %>
-          <% @school.events.each do |event|%>  
-            <%= render :partial => "events/partials/event_row", :locals => {:event => event} %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane" id="your-events" role="tabpanel">
     <!-- Event Tab -->
-  </div>
-  <div class="tab-pane active" id="profile" role="tabpanel">
-    <!--  Profile Tab -->
-    <div class="col-md-10 offset-md-1">
-      
-      <!-- Profile Photo Partial -->
-      <%= render :partial => "schools/partials/photo_row", :locals => {:school => @school} %>
-      <!-- Profile Photo Partial -->
-
-      <!-- Profile Info form Partial -->
-      <%= render :partial => "schools/partials/form", :locals => {:school => @school} %>
-      <!-- Profile Info form Partial -->
+      <div class="container">
+        <div class="col-md-2">
+          <%= link_to("Add New Event", new_event_path, :class => "btn btn-new-event") %>
+        </div>
+        <div class="col-md-10 ">
+          <% if @school.events.empty? %>
+            <div class="empty-list">
+              <h2 class="title">
+                You Don't Have Any Events, <%= link_to("Add One Now", new_event_path , :class => "link-new-event") %>
+              </h2>
+            </div>
+          <% else %>
+            <% @school.events.each do |event|%>  
+              <%= render :partial => "events/partials/event_row", :locals => {:event => event} %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <!-- Event Tab -->
     </div>
-    <!--  Profile Tab -->
-  </div>
+    <div class="tab-pane active" id="profile" role="tabpanel">
+      <!--  Profile Tab -->
+      <div class="col-md-10 offset-md-1">
+        
+        <!-- Profile Photo Partial -->
+        <%= render :partial => "schools/partials/photo_row", :locals => {:school => @school} %>
+        <!-- Profile Photo Partial -->
+
+        <!-- Profile Info form Partial -->
+        <%= render :partial => "schools/partials/form", :locals => {:school => @school} %>
+        <!-- Profile Info form Partial -->
+      </div>
+      <!--  Profile Tab -->
+    </div>
+  </div>  
 </div>

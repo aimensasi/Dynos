@@ -1,29 +1,24 @@
-<div class="col-md-10 offset-md-1">
-  <div class="card">
-    <div class="card-block info-card">
-      <%= form_for @school do |f| %>
-        <div class="form-group row">
-          <%= f.label :name, "School Name", :class => "col-sm-2 col-form-label" %>
-          <div class="col-sm-8">
-            <%= f.text_field :name, :class => "form-control", :placeholder => "School Name" %>
-          </div>
-        </div>
-        <div class="form-group row">
-          <%= f.label :email, "Email Address", :class => "col-sm-2 col-form-label" %>
-          <div class="col-sm-8">
-            <%= email_field :user, :email, :class => "form-control", :placeholder => "Email Address" %>
-          </div>
-        </div>
-        <div class="form-group row">
-          <%= f.label :password, "Password", :class => "col-sm-2 col-form-label" %>
-          <div class="col-sm-8">
-            <%= password_field :user, :password, :class => "form-control", :placeholder => "Password" %>
-          </div>
-        </div>
-        <div class="form-group row flex btns-group">
-          <%= f.submit "Sign Up", :class => "btn btn-create" %>
-        </div>
-      <% end %>
+<div class="container">
+  <div class="signup-form">
+    <div class="signup-header">
+      <h2 class="title">Sign Up</h2>
     </div>
+    <%= form_for @school do |f| %>
+      <div class="form-group">
+        <%= f.label :name, "School Name" %>
+        <%= f.text_field :name, :class => "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, "Email Address" %>
+        <%= email_field :user, :email, :class => "form-control"%>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, "Password"%>
+        <%= password_field :user, :password, :class => "form-control"%>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Sign Up", :class => "btn btn-sign-up" %>
+      </div>
+    <% end %>
   </div>
 </div>

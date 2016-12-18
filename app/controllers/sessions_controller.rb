@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(session_params[:password])
       log_in @user
-      redirect_to_user_profile @user
+      redirect_back_or @user
     else
       flash.alert = "Invalid Email Or Password"
       render "new"

@@ -1,0 +1,70 @@
+
+.signup-form{
+  box-shadow: 2px 4px 10px #d7d7d7;
+  border: 1px solid #d7d7d7;
+  padding: 0;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  width: 490px;
+  margin-left: auto;
+  margin-right: auto;
+  .signup-header{
+  	background: rgba(0, 132, 139, .6);
+    height: 90px;
+    margin-bottom: 55px;
+    .title{
+    	letter-spacing: 1px;
+    	font-family: 'Roboto Mono';
+    	color: #00848b;
+    	margin: auto;
+    	font-size: 27px;
+    }
+  }
+	.form-group,
+	.signup-form form,
+	.signup-header{
+		display: flex;
+		flex-direction: column;
+	}
+	.form-group{
+		label{
+			text-align: center;
+			display: block;
+			font-family: 'Roboto Mono';
+			margin-top: 10px;
+			margin-bottom: 0;
+		}
+		input{
+			width: 90%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.form-control{
+			border: none;
+			border-bottom: 1px solid rgba(0, 132, 139, .6);
+			border-bottom-right-radius: 10px;
+		  border-bottom-left-radius: 10px;
+		  padding-left: 15px;
+		  padding-right: 15px;
+		}
+	}
+	.btn-sign-up{
+		background: #66b5b9;
+		font-weight: 100;
+	  font-family: 'Roboto Mono';
+	  color: #fff;
+		letter-spacing: .8px;
+		margin-bottom: 20px;
+		margin-top: 60px;
+		border-radius: 20px;
+		font-size: 19px;
+	}
+}
+
+.form-small{
+	width: 410px;
+	margin-left: auto;
+	margin-right: auto;
+	float: none;
+}
+    

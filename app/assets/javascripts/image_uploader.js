@@ -17,6 +17,7 @@ $(document).ready(function(){
 			//show loading cover
 			$loadingCover.removeClass('hide');
 			// make an ajax call to update cover img
+			// sendAjaxRequest('/individuals/', );
 		}else if ($fileBtn.attr('data-parent') == "logo"){
 			//hide current cover img
 			$logoImage.addClass('hide');
@@ -27,4 +28,23 @@ $(document).ready(function(){
 		}
 
 	});
+
+
+	function sendAjaxRequest(url, data){
+		$.ajax({
+			url: url,
+			type: 'PATCH',
+			dataType: 'json',
+			cache: false,
+			data: data,
+			success: function(data){
+				console.log("Success");
+				console.log(data);
+			},
+			error: function(err){
+				console.log("Error");
+				console.log(err);
+			}
+		});
+	} //AjaxFunction
 });

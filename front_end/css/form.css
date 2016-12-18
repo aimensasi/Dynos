@@ -6,7 +6,6 @@
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text:600');
 
 @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
-
 @import url('https://fonts.googleapis.com/css?family=Montserrat:700|Roboto+Mono:400,700|Roboto:300,400,500');
 /*$Dark-Green: #00848b;*/
 /*$light-green: #00848b;*/
@@ -66,119 +65,78 @@ body{
 	font-weight: 300;
 }
 
-.event-row,
-.event-details{
-	/*border: 1px solid #d7d7d7;*/
+/*Header*/
+
+
+
+/*Form Style*/
+
+.signup-form{
+	border: 1px solid #d7d7d7;
 	box-shadow: 2px 4px 10px #d7d7d7;
-}
-
-h2.title.center {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 30px;
-}
-
-.card{
-	margin-bottom: 2.75rem;
-}
-
-.details-row .title{
-	
-}
-
-.hosted-by{
-	margin-bottom: 20px;
-	margin-left: 15px;
-}
-
-.hosted-by .title{
-	font-size: 16px;
-	margin-right: 8px;
-	margin-bottom: 0 !important;
-	margin-top: 4px;
-}
-.hosted-by .school-name{
-	color: #222;
-	font-weight: 200;
-}
-.hosted-by .school-name:hover{
-	color: #66b5b9;
-	text-decoration: none;
-	cursor: pointer;
-}
-
-.card-block.img-card{
 	padding: 0;
+	margin-bottom: 40px;
+	margin-top: 40px;
+	width: 490px;
+	margin-left: 23%;
+}
+.signup-header{
+	background: rgba(0, 132, 139, .6);
+  height: 90px;
+  /*padding-top: 20px;*/
+  margin-bottom: 55px;
+}
+.signup-header .title{
+	letter-spacing: 1px;
+	font-family: 'Roboto Mono';
+	color: #00848b;
+	margin: auto;
 }
 
-.bg-img{
-	position: relative;
+.form-group, .signup-form form, .signup-header{
+	display: flex;
+	flex-direction: column;
 }
 
-.img-card .logo{
-	position: absolute;
-	z-index: 93883;
-	bottom: 10px;
-	left: 10px;
+.form-group label{
+	text-align: center;
+	display: block;
+	font-family: 'Roboto Mono';
+	margin-top: 10px;
+	margin-bottom: 0;
 }
-
-.school-info p.leads {
-	color: #fff;
-	font-weight: 100;
-	padding-left: 17px;
-	padding-right: 85px;
-	margin-bottom: 25px;
-	font-size: 15px;
-}
-
-.event-details {
-	padding: 20px 45px;
-}
-
-.event-details .event-name{
-	font-size: 20px;
-	margin-top: 20px;
-	margin-bottom: 25px;
-	font-weight: 300;
-}
-
-.event-details .about-us{
-	font-size: 18px;
-	font-weight: 400;
-	margin-bottom: 20px;
-}
-.event-details .leads{
-	margin-left: 15px;
-	font-size: 15px;
-	font-weight: 400;
-	margin-right: 25px;
-}
-
-.event-details .title-col{
-
-}
-
-.event-details .details-row{
-	margin-bottom: 12px;
-}
-
-.event-details .date-row {
-  font-size: 18px;
-  margin-bottom: 15px;
-  margin-top: 30px;
-}
-
-.btn-ticket{
-	background: #66b5b9;
-	border-radius: 0;
+.form-group input{
+	width: 90%;
 	margin-left: auto;
-	margin-right: 30px;
-	width: 150px;
-	color: #fff;
-	font-family: 'Roboto Mono', sans-serif;
+	margin-right: auto;
+}
+
+.form-group .form-control{
+	border: none;
+	border-bottom: 1px solid rgba(0, 132, 139, .6);
+	border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.btn-sign-up{
+	background: #66b5b9;
+	font-weight: 100;
+  font-family: 'Roboto Mono';
+  color: #fff;
+	letter-spacing: .8px;
+	margin-bottom: 20px;
+	margin-top: 60px;
+	border-radius: 20px;
+	font-size: 19px;
 }
 
 
+
+
+
+/*Form Style*/
 
 
 

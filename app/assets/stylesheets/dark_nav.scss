@@ -1,7 +1,7 @@
 .header{
-	background: image-url('Header-img.png') no-repeat center center fixed;
+	background: image-url('bg-img.jpg') no-repeat center center;
 	background-size: cover;
-	height: 600px;
+	height: 720px;
 	.navbar{
 		.nav{
 			.navbar-brand,
@@ -19,11 +19,12 @@
 		.slogen{
 			.title{
 				color: #fff;
-				font-family: 'Lato', serif;
-				font-weight: 400;
-				font-size: 1.9rem;
-				letter-spacing: 3px;
-				line-height: 28px;
+			  font-family: 'Luxia-Semi-Bold', 'Lato', serif;
+			  font-weight: 400;
+			  font-size: 1.7rem;
+			  letter-spacing: 3px;
+			  line-height: 28px;
+			  margin-top: 75px;
 			}
 			.banner{
 				color: #fff;
@@ -33,54 +34,85 @@
 			}
 			.sign-up-btns{
 				.btn{
-					background-color: #00848b;
 					color: #fff;
 					margin-top: 25px;
 					margin-right: 20px;
 					width: 150px;
+					background-color: #66b5b9;
+					transition: background .5s;
 					&:hover{
-						background-color: #04484c;
+						background-color: #00848b;
 					}
 				}
 			}
 		}
-		.login-form{
-			h2.title{
-			    text-align: center;
-			    padding-top: 32px;
-			    font-size: 1.7rem;
-			    margin-bottom: 25px;
+
+		.signup-form{
+		  box-shadow: 2px 1px 4px #222;
+		  padding: 0;
+		  margin-bottom: 40px;
+		  width: 400px;
+		  margin-left: 5%;
+		  background: #fff;
+		  .signup-header{
+		  	background: rgba(0, 132, 139, .6);
+		    height: 90px;
+		    margin-bottom: 55px;
+		    .title{
+		    	letter-spacing: 1px;
+		    	font-family: 'Roboto Mono';
+		    	color: #00848b;
+		    	margin: auto;
+		    }
+		  }
+			.form-group,
+			.signup-form form,
+			.signup-header{
+				display: flex;
+				flex-direction: column;
 			}
-			form{
-				background: #fff;
-				width: 350px;
-				height: 370px;
-				border-radius: 25px;
-				margin-bottom: 40px;
-			}
-			.form-control{
-				width: 90%;
-				margin-left: 5%;
-				border-radius: 20px;
-				border-color: #00848b;
-				margin-top: 30px;
-			}
-			.btn-signin{
-				margin-top: 50px;
-				width: 90%;
-				margin-left: 5%;
-				border-radius: 20px;
-				background: #00848b;
-				color: #fff;
-				font-weight: 100;
-				font-size: 18px;
-				padding: 0;
-				transition: background-color .5s;
-				height: 35px;
-				&:hover{
-					background-color: #04484c;
+			.form-group{
+				label{
+					text-align: center;
+					display: block;
+					font-family: 'Roboto Mono';
+					margin-top: 10px;
+					margin-bottom: 0;
+				}
+				input{
+					width: 90%;
+					margin-left: auto;
+					margin-right: auto;
 				}
 			}
-		}	
+			.btn-sign-up{
+				background: #66b5b9;
+				font-weight: 100;
+			  font-family: 'Roboto Mono';
+			  color: #fff;
+				letter-spacing: .8px;
+				margin-bottom: 20px;
+				margin-top: 60px;
+				border-radius: 20px;
+				font-size: 19px;
+				transition: background .5s;
+				&:hover{
+					background: #00848b;
+				}
+			}
+		}
 	} //Header Contant
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

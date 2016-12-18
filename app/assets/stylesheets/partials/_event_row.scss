@@ -62,9 +62,13 @@
         margin-right: 27px;
         margin-left: auto;
         padding: 4px;
-        background: #00848b;
         color: #fff;
         font-weight: 100;
+        background-color: #66b5b9;
+        transition: background .5s;
+        &:hover{
+          background-color: #00848b;
+        }
       }
     }
   }

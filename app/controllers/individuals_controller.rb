@@ -29,13 +29,19 @@ class IndividualsController < ApplicationController
 
   def update
     @individual = Individual.find_by_id(params[:id])
-    if @individual.update_attributes individuals_params
-      flash.notice = "Updated Successfully"
-      redirect_to edit_individual_path @individual
+
+    if request.xhr?
+      byebug
     else
-      flash.notice = "Invalid Attributes"
-      redirect_to edit_individual_path @individual
+      if @individual.update_attributes individuals_params
+        flash.notice = "Updated Successfully"
+        redirect_to edit_individual_path @individual
+      else
+        flash.notice = "Invalid Attributes"
+        redirect_to edit_individual_path @individual
+      end
     end
+    
   end
 
   def destroy
@@ -49,7 +55,7 @@ class IndividualsController < ApplicationController
 
   private
   def individuals_params
-    params.require(:individual).permit(:first_name, :last_name, :location, :avatar)
+    params.require(:individual).permit(:first_name, :last_name, :location, :avatar, :bg_img)
   end
 
   def user_params

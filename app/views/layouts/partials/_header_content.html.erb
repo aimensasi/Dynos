@@ -1,14 +1,21 @@
-<div class="col-md-6 slogen">
-    <div class="title">
-      <p class="leads">Finding School For Your Child</p>
-      <p class="leads"> Has Never Been Easier</p>  
-    </div>
-    <h2 class="banner">Sign Up Now!</h2>
-    <div class="sign-up-btns">
-      <%= link_to("For Schools", new_school_path , :class => "btn btn-for-school") %>
-      <%= link_to("For Individuals", new_individual_path , :class => "btn btn-for-parent") %>
-    </div>
+<div class="col-md-7 slogen">
+  <div class="title">
+    <p class="leads">Finding School For Your Child</p>
+    <p class="leads"> Has Never Been Easier</p>  
   </div>
-  <div class="col-md-5 offset-md-1 login-form">
-    <%= render :partial => "users/partials/signin_form" %>
+  <h2 class="banner">Sign Up Now!</h2>
+  <div class="sign-up-btns">
+    <%= link_to("For Schools", new_school_path , :class => "btn btn-for-school") %>
+    <%= link_to("For Individuals", new_individual_path , :class => "btn btn-for-parent") %>
   </div>
+</div>
+<div class="col-md-6 signup-form">
+  <div class="signup-header">
+    <h2 class="title">Sign In</h2>
+  </div>
+
+  <%= render :partial => "users/partials/signin_form" %>
+</div>
+
+
+
