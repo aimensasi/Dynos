@@ -16,6 +16,8 @@
 #  updated_at  :datetime         not null
 #  user_id     :integer
 #  bg_img      :string
+#  phone       :string
+#  website     :string
 #
 # Indexes
 #
