@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  private 
+  private
   def session_params
     params.require(:session).permit(:email, :password)
   end
