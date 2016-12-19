@@ -2,11 +2,19 @@
   <!-- Include Search Bar Partials -->
   <%= render partial: "search_engins/partials/search_filters"%>
   <h2 class="title center">Top Results</h2>
+  <div class="result-cover cover hide" id="events-loading">
+    <div class="fl spinner7">
+      <div class="circ1"></div>
+      <div class="circ2"></div>
+      <div class="circ3"></div>
+      <div class="circ4"></div>
+    </div>
+  </div>
   <div class="schools-result">
     <%= render partial: "schools/partials/schools", :locals => {:schools => @schools} %>
   </div>
 </div>
 
-<div class="apple_pagination">
-    <%= will_paginate @schools, :container => false %>
+<div class="pagination-well flex flex-col">
+    <%= will_paginate @schools %>
 </div>

@@ -4,6 +4,6 @@
 	<%= render partial: "schools/partials/school_row", :locals => {:school => school} %>
 <% end %>
 
-<div class="apple_pagination">
-    <%= will_paginate @schools, :container => false %>
+<div class="pagination-well flex flex-col">
+	<%= will_paginate @schools %>	
 </div>

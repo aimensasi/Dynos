@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       log_in @user
       redirect_back_or @user
     else
-      flash.alert = "Invalid Email Or Password"
+      flash.now.alert = "Invalid Email Or Password"
       render "new"
     end
   end
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  private 
+  private
   def session_params
     params.require(:session).permit(:email, :password)
   end

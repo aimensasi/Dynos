@@ -31,8 +31,12 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+
 #FILE UPLOADER
 gem 'remotipart', '~> 1.2'
+
+# gem 'rails_12factor'
+
 #using pg search for fuzzy search support
 gem 'pg_search'
 

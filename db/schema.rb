@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20161219104857) do
     t.datetime "updated_at",              null: false
     t.integer  "user_id"
     t.string   "bg_img"
+    t.string   "phone"
+    t.string   "website"
   end
 
   add_index "schools", ["user_id"], name: "index_schools_on_user_id", unique: true, using: :btree

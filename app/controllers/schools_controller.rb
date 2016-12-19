@@ -3,7 +3,7 @@ class SchoolsController < ApplicationController
   before_action :must_be_school, except: [:create, :new, :index, :show]
 
   def index
-    @schools = School.order(reviews: :desc).paginate(:page => params[:page], :per_page => 30)
+    @schools = School.by_review().paginate(:page => params[:page])
   end
 
   def show
@@ -29,7 +29,7 @@ class SchoolsController < ApplicationController
       redirect_to edit_school_path @school
     else
 
-      flash.alert = "Invalid Email Or Password"
+      flash.now.alert = "Invalid Email Or Password"
       render 'new'
     end
   end
@@ -56,7 +56,7 @@ class SchoolsController < ApplicationController
           flash.notice = "Your Information Has Been Updated"
           format.html { redirect_to(edit_school_path(@school)) } 
         else
-          flash.alert = "Could not Updated Your Information"
+          flash.now.alert = "Could not Updated Your Information"
           format.html { render :edit }
         end
       end
@@ -72,7 +72,7 @@ class SchoolsController < ApplicationController
 
   private
     def school_params
-      params.require(:school).permit(:name, :description, :location, :category, :min_age, :max_age, :reviews)
+      params.require(:school).permit(:name, :description, :location, :category, :min_age, :max_age, :reviews, :phone, :website)
     end
 
     def user_params

@@ -16,6 +16,7 @@
   src: font-url( asset-path("Luxia-Semi-BoldDisplay.otf") );
 }
 
+
 *{
 	outline: 0 !important;
 }
@@ -53,7 +54,8 @@ body{
 .search-bar,
 .filters,
 .age-filter,
-.type-filter{
+.type-filter,
+.empty-list{
 	border: 1px solid #d7d7d7;
 	box-shadow: 2px 3px 10px #d7d7d7;
 }
@@ -85,8 +87,10 @@ body{
 }
 
 .empty-list{
+  text-align: center;
+  margin: 30px auto;
 	.title{
-		font-size: 1.4rem;
+		font-size: 1rem;
 		margin-top: 14px;
 	}
 }
@@ -101,4 +105,43 @@ margin-bottom: 50px;
 
 .img-thumbnail {
 	transition: none !important;
+}
+
+
+
+.alert {
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  z-index: 99999;
+  padding-top: 0.95rem;
+	border-radius: 0;
+  top: 0;
+  transition: top 1.2s, opacity .5s .8s;
+  .alert-message {
+    font-size: 19px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Lato';
+    font-weight: 500;
+  }
+}
+
+.alert-danger{
+	background: rgba(255, 90, 95, 1);
+	border-color: rgba(255, 90, 95, .7);
+	color: #373a3c;
+}
+.alert-success {
+  background-color: #66b5b9;
+  border-color: rgba(0, 132, 139, 0.6);
+  color: #00848b;
+}
+
+.result-cover {
+  height: 50px !important;
+  padding: 29px;
 }

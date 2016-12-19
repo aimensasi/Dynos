@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :require_login, except: [:show, :index]
   before_action :must_be_school, except: [:index, :show]
   def index
-    @events = Event.paginate(:page => params[:page], :per_page => 30)
+    @events = Event.paginate(:page => params[:page])
   end
 
   def show
@@ -20,7 +20,7 @@ class EventsController < ApplicationController
       flash.notice = "New Event Has Been Create"
       redirect_to event_path @event
     else
-      flash.alert = "Invalid Attributes"
+      flash.now.alert = "Invalid Attributes"
       render :new
     end
 
@@ -36,7 +36,7 @@ class EventsController < ApplicationController
       flash.notice = "Updated Event successfully"
       redirect_to @event
     else
-      flash.alert = "Something Went Wrong, Could not updated your event"
+      flash.now.alert = "Something Went Wrong, Could not updated your event"
       render :edit
     end
   end

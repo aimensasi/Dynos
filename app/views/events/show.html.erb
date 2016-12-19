@@ -4,44 +4,50 @@
       <!-- Photos Card -->
       <div class="card-block img-card">
         <div class="bg-img">
-          <%= image_tag(@event.profile_cover ? @event.profile_cover : "http://placehold.it/1108x450", 
+          <%= image_tag(@event.profile_cover ? @event.profile_cover : "http://placehold.it/1108x450",
           :size => "1108x450", :class => "img-fluid") %>
         </div>
         <div class="event-details">
           <div class="row details-row">
             <h2 class="event-name"><%= @event.name %></h2>
             <div class="hosted-by flex">
-              <h6 class="title">Hosted By</h6>  
+              <h6 class="title"><strong>Hosted By</strong></h6>
               <%= link_to(@event.school.name, school_path(@event.school), :class => "school-name") %>
             </div>
-            
-            <h6 class="about-us">About The Event</h6>
-            <p class="leads"><%= @event.description %></p>
+
+            <h6 class="about-us"><strong>About The Event</strong></h6>
+            <div class="row details-row">
+              <div class="col-md-3 title-col">Description:</div>
+              <div class="col-md-7"><%=@event.description %></div>
+            </div>
           </div>
           <div class="row age details-row">
-            <div class="col-md-3 title-col">Age Taught:</div>
+            <div class="col-md-3 title-col">Age Group:</div>
             <div class="col-md-7"><%= @event.age_range %></div>
           </div>
           <div class="row location details-row">
             <div class="col-md-3 title-col">Location:</div>
             <div class="col-md-7"><%= @event.location %></div>
           </div>
-          <h2 class="row date-row">Date</h2>
+          <h2 class="row date-row"><strong>Date/Time</strong></h2>
           <div class="row details-row">
             <div class="col-md-3 title-col"><%= @event.event_date %></div>
-            <div class="col-md-7"><%= @event.event_time %></div>  
+            <div class="col-md-7"><%= @event.event_time %></div>
           </div>
           <div class="row details-row">
-            <div class="col-md-3 title-col">Price Per Ticket</div>
-            <div class="col-md-7"><%= number_to_currency(@event.price, :unit => "RM") %></div>  
+            <div class="col-md-3 title-col">Price Per Ticket:</div>
+            <div class="col-md-7"><%= number_to_currency(@event.price, :unit => "RM") %></div>
           </div>
+
+          <% if is_individual_or_new? %>
           <div class="row flex">
-            <%= link_to("Get Tickets", new_transaction_path(:transaction => {:event_id => @event.id}), 
+            <%= link_to("Get Tickets", new_transaction_path(:transaction => {:event_id => @event.id}),
                 :class => "btn btn-ticket") %>
           </div>
+          <% end -%>
         </div>
       </div>
       <!-- Photos Card -->
     </div>
-  </div>    
+  </div>
 </div>

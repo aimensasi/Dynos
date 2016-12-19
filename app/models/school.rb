@@ -16,6 +16,8 @@
 #  updated_at  :datetime         not null
 #  user_id     :integer
 #  bg_img      :string
+#  phone       :string
+#  website     :string
 #
 # Indexes
 #
@@ -24,7 +26,9 @@
 
 class School < ActiveRecord::Base
 	include PgSearch
-  
+
+  self.per_page = 5
+
   mount_uploader :logo, AvatarUploader
   mount_uploader :bg_img, AvatarUploader
 
@@ -33,10 +37,11 @@ class School < ActiveRecord::Base
 
   validates :name, presence: true
   validates :category, :inclusion => {:in => ['Private', 'Public', 'International'], :allow_nil => true}
+
   validates_uniqueness_of :user
   
 
-  
+
 
   pg_search_scope :pg_address, :against => :location, using: { :tsearch => {:prefix => true, :any_word => true} }
 
@@ -47,11 +52,14 @@ class School < ActiveRecord::Base
   scope :by_age, -> (min_age, max_age){
   	return all unless min_age.present? && max_age.present?
   	where(:min_age => min_age..max_age, :max_age => min_age..max_age)
+    # where("min_age between 2 and ? and max_age between ? and 19 or min_age <= ?",min_age,max_age,max_age)
   }
+  
   scope :by_category, -> (category){
   	return all unless category.present?
-  	where(:category => category.downcase)
+  	where(:category => category.capitalize)
   }
+  scope :by_review, -> { order(reviews: :desc) }
 
   def self.filters search_params
   	by_address(search_params[:location])
@@ -74,7 +82,7 @@ class School < ActiveRecord::Base
       nil  
     end
   end
-  
+
   def profile_cover
     if self.bg_img.file.present?
       self.bg_img.cover.url

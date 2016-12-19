@@ -18,7 +18,12 @@ class TransactionsController < ApplicationController
       puts "Done payment_method_nonce #{transaction_params[:total_price]}"
       redirect_to edit_individual_path current_user.individual, :anchor => "your-events"
     else
-      flash.alert =  @result.errors.first.message
+      if @result.errors.first.nil?
+        flash.alert = "Unknown Error By Braintree, Please Try Again Later or "
+      else
+        flash.alert =  @result.errors.first.message 
+      end
+      
       redirect_to new_transaction_path :transaction => {:event_id => transaction_params[:event_id]}
     end
   end

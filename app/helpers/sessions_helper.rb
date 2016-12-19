@@ -19,7 +19,13 @@ module SessionsHelper
   end
 
   def owner school
-    return nil unless current_user == school.user
+    if current_user == school.user
+      return true
+    else
+      return nil
+    end
+
+
   end
 
   def require_login
@@ -34,7 +40,7 @@ module SessionsHelper
 
   def must_be_school
     unless current_user.school
-      redirect_to root_url      
+      redirect_to root_url
     end
   end
 
@@ -48,6 +54,18 @@ module SessionsHelper
   def is_individual
     unless current_user.individual
       redirect_back_or
+    end
+  end
+
+  def is_individual_or_new?
+    if current_user
+      if current_user.individual
+        true
+      else
+        false
+      end
+    else
+      true
     end
   end
 
