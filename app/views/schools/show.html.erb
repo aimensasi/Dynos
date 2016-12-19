@@ -12,11 +12,11 @@
         <div class="school-details">
           <div class="row details-row">
             <h2 class="title"><%= @school.name %></h2>
-            <h6 class="about-us">About The School</h6>
+            <h6 class="about-us"><strong>About The School</strong></h6>
             <p class="leads"><%= @school.description %></p>
           </div>
           <div class="row age details-row">
-            <div class="col-md-3 title-col">Age Taught:</div>
+            <div class="col-md-3 title-col">Age Group:</div>
             <div class="col-md-7"><%= @school.age_range %></div>
           </div>
           <div class="row school-type details-row">
@@ -27,7 +27,7 @@
               <div class="col-md-7"><%= @school.category.camelize %></div>
             <%end%>
           </div>
-          <h2 class="contact row">Contacts</h2>
+          <h2 class="contact row"><strong>Contacts</strong></h2>
           <div class="row contact-row details-row">
             <div class="col-md-3 title-col">Email Address:</div>
             <div class="col-md-7"><%= @school.email %></div>

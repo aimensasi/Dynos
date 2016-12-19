@@ -11,31 +11,31 @@
           <div class="row details-row">
             <h2 class="event-name"><%= @event.name %></h2>
             <div class="hosted-by flex">
-              <h6 class="title">Hosted By</h6>
+              <h6 class="title"><strong>Hosted By</strong></h6>
               <%= link_to(@event.school.name, school_path(@event.school), :class => "school-name") %>
             </div>
 
-            <h6 class="about-us">About The Event</h6>
+            <h6 class="about-us"><strong>About The Event</strong></h6>
             <div class="row details-row">
-              <div class="col-md-3 title-col">Description</div>
-              <div class="col-md-7"><%=  @event.description %></div>
+              <div class="col-md-3 title-col">Description:</div>
+              <div class="col-md-7"><%=@event.description %></div>
             </div>
           </div>
           <div class="row age details-row">
-            <div class="col-md-3 title-col">Age Taught:</div>
+            <div class="col-md-3 title-col">Age Group:</div>
             <div class="col-md-7"><%= @event.age_range %></div>
           </div>
           <div class="row location details-row">
             <div class="col-md-3 title-col">Location:</div>
             <div class="col-md-7"><%= @event.location %></div>
           </div>
-          <h2 class="row date-row">Date</h2>
+          <h2 class="row date-row"><strong>Date/Time</strong></h2>
           <div class="row details-row">
             <div class="col-md-3 title-col"><%= @event.event_date %></div>
             <div class="col-md-7"><%= @event.event_time %></div>
           </div>
           <div class="row details-row">
-            <div class="col-md-3 title-col">Price Per Ticket</div>
+            <div class="col-md-3 title-col">Price Per Ticket:</div>
             <div class="col-md-7"><%= number_to_currency(@event.price, :unit => "RM") %></div>
           </div>
 
