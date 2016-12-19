@@ -54,10 +54,10 @@ class SchoolsController < ApplicationController
       else
         if @school.update_attributes school_params
           flash.notice = "Your Information Has Been Updated"
-          redirect_to edit_school_path @school
+          format.html { redirect_to(edit_school_path(@school)) } 
         else
           flash.alert = "Could not Updated Your Information"
-          render :edit
+          format.html { render :edit }
         end
       end
     end

@@ -23,14 +23,7 @@
     <div class="logo-img">
       <%= image_tag(individual.profile_pic ? individual.profile_pic : "http://placehold.it/240x150", 
           :size => "240x150", :class => "img-thumbnail logo", :id => "logo") %>
-    <!--   <form>
-        <input type="file" name="logo-img" id="logo-img" data-parent="logo" class="inputfile">
-        <label for="logo-img" class="btn btn-file">
-          <i class="fa fa-camera" aria-hidden="true"></i>
-          <span class="tooltips tooltips-small">Add Logo</span>
-        </label>
-      </form>
- -->
+
       <%= form_for(individual, :method => "PATCH", remote: true, 
                            :html => {:id => "logo-img", :'data-type' => :json}) do |f| %>
         <%= f.file_field :avatar, accept: 'image/png,image/jpg,image/jpeg', 

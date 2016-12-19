@@ -23,7 +23,6 @@ class IndividualsController < ApplicationController
   end
 
   def edit
-
     @individual = Individual.find_by_id(params[:id])
   end
 
@@ -43,17 +42,13 @@ class IndividualsController < ApplicationController
       else
         if @individual.update_attributes individuals_params
           flash.notice = "Updated Successfully"
-          redirect_to edit_individual_path @individual
         else
           flash.notice = "Invalid Attributes"
-          redirect_to edit_individual_path @individual
         end
+        format.html { redirect_to(edit_individual_path(@individual)) }
       end
 
     end
-    
-    
-    
   end
 
   def destroy
