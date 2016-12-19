@@ -67,43 +67,25 @@ class School < ActiveRecord::Base
 
   def profile_pic
     if self.logo.file.present?
-<<<<<<< HEAD
       self.logo.thumbnail.url
     else  
       nil  
-=======
-      self[:logo].thumbnail.url
-    else
-      nil
->>>>>>> 6f7b22ec068a5344852847ff90610b0acfdab2e3
     end
   end
 
   def logo_pic
     if self.logo.file.present?
-<<<<<<< HEAD
       self.logo.thumbnail_saml.url
     else  
       nil  
-=======
-      self[:logo].thumbnail_saml.url
-    else
-      nil
->>>>>>> 6f7b22ec068a5344852847ff90610b0acfdab2e3
     end
   end
 
   def profile_cover
     if self.bg_img.file.present?
-<<<<<<< HEAD
       self.bg_img.cover.url
     else  
       nil  
-=======
-      self[:bg_img].cover.url
-    else
-      nil
->>>>>>> 6f7b22ec068a5344852847ff90610b0acfdab2e3
     end
   end
 
