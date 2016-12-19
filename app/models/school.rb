@@ -27,6 +27,8 @@
 class School < ActiveRecord::Base
 	include PgSearch
 
+  self.per_page = 5
+
   mount_uploader :logo, AvatarUploader
   mount_uploader :bg_img, AvatarUploader
 
@@ -49,15 +51,15 @@ class School < ActiveRecord::Base
   }
   scope :by_age, -> (min_age, max_age){
   	return all unless min_age.present? && max_age.present?
-  	# where(:min_age => "2"..min_age, :max_age => max_age.."19")
-
-    where("min_age between 2 and ? and max_age between ? and 19 or min_age <= ?",min_age,max_age,max_age)
-
+  	where(:min_age => min_age..max_age, :max_age => min_age..max_age)
+    # where("min_age between 2 and ? and max_age between ? and 19 or min_age <= ?",min_age,max_age,max_age)
   }
+  
   scope :by_category, -> (category){
   	return all unless category.present?
   	where(:category => category.capitalize)
   }
+  scope :by_review, -> { order(reviews: :desc) }
 
   def self.filters search_params
   	by_address(search_params[:location])
