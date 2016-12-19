@@ -115,6 +115,8 @@ margin-bottom: 50px;
   z-index: 99999;
   padding-top: 0.95rem;
 	border-radius: 0;
+  top: 0;
+  transition: top 1.2s, opacity .5s .8s;
   .alert-message {
     font-size: 19px;
     text-align: left;

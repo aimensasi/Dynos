@@ -17,7 +17,7 @@ class IndividualsController < ApplicationController
       flash.notice = "Welcome To Dynos"
       redirect_to edit_individual_path @individual
     else
-      flash.alert = "Invalid Email Or Password"
+      flash.alert = @user.errors.full_messages.first
       redirect_to new_individual_path
     end
   end

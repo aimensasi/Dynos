@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :require_login, except: [:show, :index]
   before_action :must_be_school, except: [:index, :show]
   def index
-    @events = Event.paginate(:page => params[:page], :per_page => 30)
+    @events = Event.paginate(:page => params[:page])
   end
 
   def show

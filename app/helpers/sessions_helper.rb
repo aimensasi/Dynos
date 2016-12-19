@@ -57,6 +57,18 @@ module SessionsHelper
     end
   end
 
+  def is_individual_or_new?
+    if current_user
+      if current_user.individual
+        true
+      else
+        false
+      end
+    else
+      true
+    end
+  end
+
   def redirect_to_user_profile user
     # byebug
     if user.school

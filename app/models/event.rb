@@ -30,6 +30,8 @@
 class Event < ActiveRecord::Base
 	include PgSearch
 
+  self.per_page = 10
+
   belongs_to :school
   has_many :tickets, :dependent => :destroy
   
