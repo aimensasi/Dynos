@@ -35,7 +35,7 @@ gem 'puma'
 #FILE UPLOADER
 gem 'remotipart', '~> 1.2'
 
-# gem 'rails_12factor'
+gem 'rails_12factor'
 
 #using pg search for fuzzy search support
 gem 'pg_search'
