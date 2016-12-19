@@ -60,7 +60,7 @@ class School < ActiveRecord::Base
 
   def profile_pic
     if self.logo.file.present?
-      self[:logo].thumbnail.url
+      self.logo.thumbnail.url
     else  
       nil  
     end
@@ -68,7 +68,7 @@ class School < ActiveRecord::Base
 
   def logo_pic
     if self.logo.file.present?
-      self[:logo].thumbnail_saml.url
+      self.logo.thumbnail_saml.url
     else  
       nil  
     end
@@ -76,7 +76,7 @@ class School < ActiveRecord::Base
   
   def profile_cover
     if self.bg_img.file.present?
-      self[:bg_img].cover.url
+      self.bg_img.cover.url
     else  
       nil  
     end

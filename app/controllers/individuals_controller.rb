@@ -23,25 +23,32 @@ class IndividualsController < ApplicationController
   end
 
   def edit
-
     @individual = Individual.find_by_id(params[:id])
   end
 
+
   def update
     @individual = Individual.find_by_id(params[:id])
-
-    if request.xhr?
-      byebug
-    else
-      if @individual.update_attributes individuals_params
-        flash.notice = "Updated Successfully"
-        redirect_to edit_individual_path @individual
-      else
-        flash.notice = "Invalid Attributes"
-        redirect_to edit_individual_path @individual
-      end
-    end
     
+    respond_to do |format|
+      if remotipart_submitted?
+        if img_params[:bg_img]
+          @individual.update(:bg_img => img_params[:bg_img]) 
+        else
+          @individual.update(:avatar => img_params[:avatar]) 
+        end
+        @individual.reload
+        format.json
+      else
+        if @individual.update_attributes individuals_params
+          flash.notice = "Updated Successfully"
+        else
+          flash.notice = "Invalid Attributes"
+        end
+        format.html { redirect_to(edit_individual_path(@individual)) }
+      end
+
+    end
   end
 
   def destroy
@@ -60,5 +67,9 @@ class IndividualsController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :password)
+  end
+
+  def img_params
+    params.require(:individual).permit(:bg_img, :avatar)
   end
 end

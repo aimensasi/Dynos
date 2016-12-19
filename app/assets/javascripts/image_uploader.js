@@ -1,50 +1,65 @@
 $(document).ready(function(){
-	var $loadingCover = $('.loading-cover');
-	var $loadingLogo = $('.loading-logo');
-	var $coverImage = $('.cover');
-	var $logoImage = $('.logo');
-
+	var $loadingCover = $('#loading-cover');
+	var $loadingLogo = $('#loading-logo');
+	var $coverImage = $('#cover');
+	var $logoImage = $('#logo');
+	var $coverbtn = $('.cover-btn');
+	var $logoBtn = $('.logo-btn');
 
 	$('.inputfile').on('change', function(){
 		var $fileBtn = $(this);	
 		var filePath = $fileBtn.val();
-		console.log('Cliked');
 
 		if ($fileBtn.attr('data-parent') == "cover") {
-			//hide current cover img
-			$coverImage.addClass('hide');
-			$fileBtn.next().addClass('hide');
-			//show loading cover
+			$coverbtn.addClass('hide');
 			$loadingCover.removeClass('hide');
-			// make an ajax call to update cover img
-			// sendAjaxRequest('/individuals/', );
+			$coverImage.addClass('hide');
+	
+			$('#cover-img').submit();
 		}else if ($fileBtn.attr('data-parent') == "logo"){
-			//hide current cover img
-			$logoImage.addClass('hide');
-			//show loading cover
-			$fileBtn.next().addClass('hide');
-			
-			$loadingLogo.removeClass('hide');
-		}
 
+			$logoImage.addClass('hide');
+			$logoBtn.addClass('hide');
+			$loadingLogo.removeClass('hide');
+			
+			$('#logo-img').submit();
+		}
 	});
 
-
-	function sendAjaxRequest(url, data){
-		$.ajax({
-			url: url,
-			type: 'PATCH',
-			dataType: 'json',
-			cache: false,
-			data: data,
-			success: function(data){
-				console.log("Success");
-				console.log(data);
-			},
-			error: function(err){
-				console.log("Error");
-				console.log(err);
-			}
-		});
-	} //AjaxFunction
+	$("#cover-img").bind("ajax:success", function(e, data, status, xhr){
+		res = JSON.parse(xhr.responseText);
+		$coverImage.attr("src", res.bg_img);
+		
+		setTimeout(function(){
+			$coverbtn.removeClass('hide');
+			$coverImage.removeClass('hide');
+			$loadingCover.addClass('hide');	
+		}, 500);
+		
+			
+	});	
+	$("#logo-img").bind("ajax:success", function(e, data, status, xhr){
+		res = JSON.parse(xhr.responseText);
+		$logoImage.attr("src", res.logo);
+		
+		setTimeout(function(){
+			$logoBtn.removeClass('hide');
+			$logoImage.removeClass('hide');
+			$loadingLogo.addClass('hide');	
+		}, 500);
+		
+			
+	});	
 });
+
+
+
+
+
+
+
+	// function getPosition(string, subString, index) {
+	// 		var pathname = window.location.pathname;
+	// 		var url = pathname.substring(0, getPosition(pathname, '/', 3));
+	//    return string.split(subString, index).join(subString).length;
+	// }

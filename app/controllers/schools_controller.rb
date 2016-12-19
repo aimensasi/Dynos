@@ -42,14 +42,24 @@ class SchoolsController < ApplicationController
 
   def update
     @school = School.find_by_id(params[:id])
-
-    if @school.update_attributes school_params
-      flash.notice = "Your Information Has Been Updated"
-      redirect_to edit_school_path @school
-    else
-
-      flash.alert = "Could not Updated Your Information"
-      render :edit
+    respond_to do |format|
+      if remotipart_submitted?
+        if img_params[:bg_img]
+          @school.update(:bg_img => img_params[:bg_img]) 
+        else
+          @school.update(:logo => img_params[:logo]) 
+        end
+        @school.reload
+        format.json
+      else
+        if @school.update_attributes school_params
+          flash.notice = "Your Information Has Been Updated"
+          format.html { redirect_to(edit_school_path(@school)) } 
+        else
+          flash.alert = "Could not Updated Your Information"
+          format.html { render :edit }
+        end
+      end
     end
   end
 
@@ -62,10 +72,14 @@ class SchoolsController < ApplicationController
 
   private
     def school_params
-      params.require(:school).permit(:name, :description, :location, :category, :avatar, :min_age, :max_age, :reviews)
+      params.require(:school).permit(:name, :description, :location, :category, :min_age, :max_age, :reviews)
     end
 
     def user_params
       params.require(:user).permit(:email, :password)
+    end
+
+    def img_params
+      params.require(:school).permit(:bg_img, :logo)
     end
 end

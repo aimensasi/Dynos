@@ -31,7 +31,8 @@ body{
 }
 
 .cover{
-	width: 100%;
+	width: 100% !important;
+	height: 500px !important;
 }
 
 .container-fluid{
@@ -76,11 +77,11 @@ body{
 }
 
 .hide{
-  opacity: 0;
+  opacity: 0 !important;
 }
 
 .show{
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 .empty-list{

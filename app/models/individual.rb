@@ -33,7 +33,7 @@ class Individual < ActiveRecord::Base
 
 	def profile_pic
 		if self.avatar.file.present?
-		  self[:avatar].thumbnail.url
+		  self.avatar.thumbnail.url
 		else  
 		  nil  
 		end
@@ -41,7 +41,7 @@ class Individual < ActiveRecord::Base
 
 	def profile_cover
 	  if self.bg_img.file.present?
-	    self[:bg_img].cover.url
+	    self.bg_img.cover.url
 	  else  
 	    nil  
 	  end

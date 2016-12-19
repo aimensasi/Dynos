@@ -68,5 +68,6 @@ module SessionsHelper
 
   def log_out
      session[:user_id] = nil
+     session[:pre_page] = nil
   end
 end
