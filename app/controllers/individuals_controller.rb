@@ -29,9 +29,11 @@ class IndividualsController < ApplicationController
 
   def update
     @individual = Individual.find_by_id(params[:id])
-
+    byebug
     if request.xhr?
-      byebug
+      @individual.update_attributes(individuals_params)
+      
+      {:url => @individual.profile_cover}.to_json
     else
       if @individual.update_attributes individuals_params
         flash.notice = "Updated Successfully"

@@ -18,6 +18,18 @@ $(document).ready(function(){
 			$loadingCover.removeClass('hide');
 			// make an ajax call to update cover img
 			// sendAjaxRequest('/individuals/', );
+			var pathname = window.location.pathname;
+			var url = pathname.substring(0, getPosition(pathname, '/', 3));
+			// var image = $fileBtn.val();
+			// console.log({individual: {'bg_img': image}});
+			// $coverImage.removeClass('hide');
+			// $coverImage.attr('src', image);
+			$('#edit_school_28').submit();
+			$('#edit_school_28').on('submit', function(){
+				console.log('Submit');
+			});
+			// sendAjaxRequest(url, {individual: {'bg_img': image}});
+
 		}else if ($fileBtn.attr('data-parent') == "logo"){
 			//hide current cover img
 			$logoImage.addClass('hide');
@@ -28,6 +40,10 @@ $(document).ready(function(){
 		}
 
 	});
+
+	function getPosition(string, subString, index) {
+	   return string.split(subString, index).join(subString).length;
+	}
 
 
 	function sendAjaxRequest(url, data){
