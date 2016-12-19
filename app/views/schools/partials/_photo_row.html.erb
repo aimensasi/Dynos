@@ -3,6 +3,7 @@
   <div class="card-block img-card">
     <div class="bg-img" >
       <%= image_tag(school.profile_cover ? school.profile_cover : "http://placehold.it/1103x450", 
+
           :size => "1103x450", :class => "img-thumbnail cover", :id => "cover") %>
 
       <%= form_for(school, :method => "PATCH", remote: true, 

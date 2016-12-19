@@ -11,6 +11,7 @@
 #  reviews     :integer          default(0)
 #  min_age     :integer
 #  max_age     :integer
+#  cover       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
@@ -18,7 +19,7 @@
 #
 # Indexes
 #
-#  index_schools_on_user_id  (user_id)
+#  index_schools_on_user_id  (user_id) UNIQUE
 #
 
 class School < ActiveRecord::Base
@@ -32,7 +33,7 @@ class School < ActiveRecord::Base
 
   validates :name, presence: true
   validates :category, :inclusion => {:in => ['Private', 'Public', 'International'], :allow_nil => true}
- 
+  validates_uniqueness_of :user
   
 
   

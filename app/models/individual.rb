@@ -14,7 +14,7 @@
 #
 # Indexes
 #
-#  index_individuals_on_user_id  (user_id)
+#  index_individuals_on_user_id  (user_id) UNIQUE
 #
 
 class Individual < ActiveRecord::Base
@@ -25,6 +25,7 @@ class Individual < ActiveRecord::Base
 	has_many :tickets, :dependent => :destroy
 
 	validates_presence_of :first_name, :last_name
+	validates_uniqueness_of :user
 
 	
 	def name 

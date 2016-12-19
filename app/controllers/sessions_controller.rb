@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+  before_action :store_prev_page
   def new
     @user = User.new
   end

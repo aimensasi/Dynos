@@ -2,8 +2,8 @@
 #
 # Table name: tickets
 #
-#  event_id      :integer
-#  individual_id :integer
+#  event_id      :integer          not null
+#  individual_id :integer          not null
 #
 # Indexes
 #

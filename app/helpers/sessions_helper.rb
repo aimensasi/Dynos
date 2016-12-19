@@ -24,9 +24,12 @@ module SessionsHelper
 
   def require_login
     unless current_user
-      session[:pre_page] = request.env["HTTP_REFERER"]
       redirect_to sign_in_path
     end
+  end
+
+  def store_prev_page
+    session[:pre_page] = request.env["HTTP_REFERER"]
   end
 
   def must_be_school
@@ -36,6 +39,7 @@ module SessionsHelper
   end
 
   def require_individual
+    # byebug
     unless current_user.individual
       redirect_to root_url
     end
@@ -57,13 +61,14 @@ module SessionsHelper
   end
 
   def redirect_back_or(default = root_url)
-    if session[:pre_page].present?
+    if session[:pre_page].present? and session[:pre_page] != root_url
       redirect_to session[:pre_page]
-    elsif request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+    elsif request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"] and request.env["HTTP_REFERER"] != root_url
       redirect_to :back
     else
       redirect_to default
     end
+    # byebug
   end
 
   def log_out
