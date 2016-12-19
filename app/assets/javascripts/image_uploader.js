@@ -11,21 +11,17 @@ $(document).ready(function(){
 		var filePath = $fileBtn.val();
 
 		if ($fileBtn.attr('data-parent') == "cover") {
-			
-			// $coverImage.attr('src', "#");
 			$coverbtn.addClass('hide');
 			$loadingCover.removeClass('hide');
 			$coverImage.addClass('hide');
-
-			
+	
 			$('#cover-img').submit();
 		}else if ($fileBtn.attr('data-parent') == "logo"){
 
 			$logoImage.addClass('hide');
-			//show loading cover
 			$logoBtn.addClass('hide');
-			
 			$loadingLogo.removeClass('hide');
+			
 			$('#logo-img').submit();
 		}
 	});
