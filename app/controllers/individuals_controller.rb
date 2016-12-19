@@ -29,7 +29,6 @@ class IndividualsController < ApplicationController
 
   def update
     @individual = Individual.find_by_id(params[:id])
-    byebug
     if request.xhr?
       @individual.update_attributes(individuals_params)
       

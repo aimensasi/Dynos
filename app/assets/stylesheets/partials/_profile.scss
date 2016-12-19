@@ -116,14 +116,15 @@
   .loading-logo,
   .loading-cover{
     pointer-events: none;
+    opacity: 1;
+    transition: opacity .5s;
   }
   .loading-cover{
-    height: 446px;
-    width: 1092px;
+    height: 502px !important;
     position: absolute;
     z-index: 999;
-    top: 5px;
-    right: 6px;
+    top: 0px;
+    right: 0px;
     .spinner2{
       position: absolute;
       top: 41%;

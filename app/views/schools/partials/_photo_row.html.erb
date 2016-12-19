@@ -1,36 +1,47 @@
 <div class="card">
   <!-- Photos Card -->
   <div class="card-block img-card">
-    <div class="bg-img" id="cover">
+    <div class="bg-img" >
       <%= image_tag(school.profile_cover ? school.profile_cover : "http://placehold.it/1103x450", 
-          :size => "1103x450", :class => "img-thumbnail cover") %>
-      <%= form_for(school, :method => "PATCH", remote: true, :id => "form") do |f| %>
-        <!-- <input type="file" name="school[bg-img]" id="bg-img" data-parent="cover" class="inputfile"> -->
-        <%= f.file_field :bg_img, accept: 'image/png,image/jpg,image/jpeg', :class => "inputfile" %>
-        <%= f.label :bg_img, :class=> "btn btn-file" do %>
+          :size => "1103x450", :class => "img-thumbnail cover", :id => "cover") %>
+
+      <%= form_for(school, :method => "PATCH", remote: true, 
+          :html => {:id => "cover-img", :'data-type' => :json}) do |f| %>
+        <%= f.label :bg_img, :class=> "btn btn-file cover-btn" do %>
+
+        <%= f.file_field :bg_img, accept: 'image/png,image/jpg,image/jpeg', 
+                         :class => "inputfile", "data-parent" => "cover" %>
           <i class="fa fa-camera" aria-hidden="true"></i>
           <span class="tooltips">Add Cover Image</span>
         <% end %>
-        <!-- <label for="bg-img" class="btn btn-file">
-          <i class="fa fa-camera" aria-hidden="true"></i>
-          <span class="tooltips">Add Cover Image</span>
-        </label> -->
+
       <% end %>
-      <div class="loading-cover hide">
+
+      <div class="loading-cover cover hide" id="loading-cover">
         <%= render :partial => "schools/partials/spinner" %>
       </div>
     </div>
     <div class="logo-img">
       <%= image_tag(school.profile_pic ? school.profile_pic : "http://placehold.it/240x150", 
-          :size => "240x150", :class => "img-thumbnail logo") %>
-      <form>
+          :size => "240x150", :class => "img-thumbnail logo", :id => "logo") %>
+      
+      <%= form_for(school, :method => "PATCH", remote: true, 
+                           :html => {:id => "logo-img", :'data-type' => :json}) do |f| %>
+        <%= f.file_field :logo, accept: 'image/png,image/jpg,image/jpeg', 
+                                :class => "inputfile", "data-parent" => "logo" %>
+        <%= f.label :logo, :class => "btn btn-file logo-btn" do %>
+          <i class="fa fa-camera" aria-hidden="true"></i>
+          <span class="tooltips tooltips-small">Add Logo</span>
+        <% end %>
+      <% end %>
+      <!-- <form>
         <input type="file" name="logo-img" id="logo-img" data-parent="logo" class="inputfile">
         <label for="logo-img" class="btn btn-file">
           <i class="fa fa-camera" aria-hidden="true"></i>
           <span class="tooltips tooltips-small">Add Logo</span>
         </label>
-      </form>
-      <div class="loading-logo hide">
+      </form> -->
+      <div class="loading-logo hide" id="loading-logo">
         <%= render :partial => "schools/partials/spinner" %>
       </div>
     </div>
