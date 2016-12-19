@@ -14,6 +14,7 @@
 //= require tether
 //= require bootstrap
 //= require jquery_ujs
+//= require jquery.remotipart
 
 //= require_tree .
 //= stub transactions

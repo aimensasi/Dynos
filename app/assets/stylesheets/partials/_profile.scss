@@ -91,6 +91,12 @@
       z-index: 93883;
       bottom: 10px;
       left: 10px;
+      height: 150px;
+      width: 240px;
+      img{
+        height: 150px;
+        width: 240px;
+      }
       .btn-file{
         top: 118px;
         left: 7px;
@@ -116,14 +122,15 @@
   .loading-logo,
   .loading-cover{
     pointer-events: none;
+    opacity: 1;
+    transition: opacity .5s;
   }
   .loading-cover{
-    height: 446px;
-    width: 1092px;
+    height: 502px !important;
     position: absolute;
     z-index: 999;
-    top: 5px;
-    right: 6px;
+    top: 0px;
+    right: 0px;
     .spinner2{
       position: absolute;
       top: 41%;

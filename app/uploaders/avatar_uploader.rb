@@ -21,10 +21,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
-  process resize_to_limit: [1103, 450]
+  process resize_to_limit: [1103, 500]
   
   version :cover do 
-    process resize_to_limit: [1103, 450]
+    process resize_to_limit: [1103, 500]
   end
 
   version :thumbnail do

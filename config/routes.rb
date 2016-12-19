@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   resources :individuals, :controller => "individuals", :only => [:create, :destroy, :update, :new, :edit]
 
-  resources :users
 
   get "/sign_in" => "sessions#new", as: "sign_in"
   delete "/sign_out" => "sessions#destroy", as: "sign_out"
