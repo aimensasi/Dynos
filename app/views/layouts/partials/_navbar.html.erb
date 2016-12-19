@@ -13,6 +13,7 @@
   <% if logged_in? %>
     <li class="nav-item dropdown">                                
       <% if current_user.school %>
+
         <% school = current_user.school %>
         <a class="nav-link dropdown-toggle" href="#" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= truncate(school.name, :length => 17, :end_string => '') %>
@@ -24,6 +25,7 @@
         </div>
       <% else %>
         <% individual = current_user.individual %>
+        <% #byebug %>
         <a class="nav-link dropdown-toggle" href="http://example.com" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= individual.name %>
         </a>                

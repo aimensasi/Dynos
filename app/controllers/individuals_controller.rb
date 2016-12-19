@@ -29,7 +29,6 @@ class IndividualsController < ApplicationController
 
   def update
     @individual = Individual.find_by_id(params[:id])
-    
     respond_to do |format|
       if remotipart_submitted?
         if img_params[:bg_img]
@@ -40,11 +39,16 @@ class IndividualsController < ApplicationController
         @individual.reload
         format.json
       else
-        if @individual.update_attributes individuals_params
+        if @individual.update_attributes(
+            :first_name => individuals_params[:first_name],
+            :last_name => individuals_params[:last_name],
+            :location => individuals_params[:location]
+          )
           flash.notice = "Updated Successfully"
         else
           flash.notice = "Invalid Attributes"
         end
+        # byebug
         format.html { redirect_to(edit_individual_path(@individual)) }
       end
 
@@ -62,7 +66,7 @@ class IndividualsController < ApplicationController
 
   private
   def individuals_params
-    params.require(:individual).permit(:first_name, :last_name, :location, :avatar, :bg_img)
+    params.require(:individual).permit(:first_name, :last_name, :location)
   end
 
   def user_params

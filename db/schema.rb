@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161218053717) do
+ActiveRecord::Schema.define(version: 20161219104857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20161218053717) do
     t.string   "bg_img"
   end
 
-  add_index "individuals", ["user_id"], name: "index_individuals_on_user_id", using: :btree
+  add_index "individuals", ["user_id"], name: "index_individuals_on_user_id", unique: true, using: :btree
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
@@ -57,17 +57,18 @@ ActiveRecord::Schema.define(version: 20161218053717) do
     t.integer  "reviews",     default: 0
     t.integer  "min_age"
     t.integer  "max_age"
+    t.string   "cover"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "user_id"
     t.string   "bg_img"
   end
 
-  add_index "schools", ["user_id"], name: "index_schools_on_user_id", using: :btree
+  add_index "schools", ["user_id"], name: "index_schools_on_user_id", unique: true, using: :btree
 
   create_table "tickets", id: false, force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "individual_id"
+    t.integer "event_id",      null: false
+    t.integer "individual_id", null: false
   end
 
   add_index "tickets", ["event_id"], name: "index_tickets_on_event_id", using: :btree
