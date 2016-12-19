@@ -4,9 +4,9 @@
       <!-- Photos Card -->
       <div class="card-block img-card">
         <div class="bg-img">
-          <%= image_tag(@school.profile_cover ? @school.profile_cover : "http://placehold.it/1108x450", 
+          <%= image_tag(@school.profile_cover ? @school.profile_cover : "http://placehold.it/1108x450",
           :size => "1108x450", :class => "img-fluid") %>
-          <%= image_tag(@school.profile_pic ? @school.profile_pic : "http://placehold.it/240x150", 
+          <%= image_tag(@school.profile_pic ? @school.profile_pic : "http://placehold.it/240x150",
               :size => "240x150", :class => "img-thumbnail logo") %>
         </div>
         <div class="school-details">
@@ -21,20 +21,24 @@
           </div>
           <div class="row school-type details-row">
             <div class="col-md-3 title-col">School Type:</div>
-            <div class="col-md-7"><%= @school.category.camelize %></div>
+            <%if @school.category.nil? %>
+              <div class="col-md-7"><%= @school.category %></div>
+            <%else%>
+              <div class="col-md-7"><%= @school.category.camelize %></div>
+            <%end%>
           </div>
           <h2 class="contact row">Contacts</h2>
           <div class="row contact-row details-row">
             <div class="col-md-3 title-col">Email Address:</div>
-            <div class="col-md-7"><%= @school.email %></div>  
+            <div class="col-md-7"><%= @school.email %></div>
           </div>
           <div class="row contact-row details-row">
             <div class="col-md-3 title-col">Phone Number:</div>
-            <div class="col-md-7">0129312932</div>  
+            <div class="col-md-7">0129312932</div>
           </div>
           <div class="row contact-row details-row">
             <div class="col-md-3 title-col">Website</div>
-            <div class="col-md-7">WWW.LoremIpsum.com</div>  
+            <div class="col-md-7">WWW.LoremIpsum.com</div>
           </div>
           <div class="address row details-row">
             <div class="col-md-3 title-col">Address</div>
@@ -44,7 +48,7 @@
       </div>
       <!-- Photos Card -->
     </div>
-  </div>    
+  </div>
 
   <div class="col-md-10 offset-md-1 my-3"></div>
   <h2 class="title center">Upcomming Events By The School</h2>
