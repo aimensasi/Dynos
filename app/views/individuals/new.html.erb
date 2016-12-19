@@ -1,31 +1,28 @@
-<%= form_for @individual do |f| %>
-  
-  <div class="form-group row">
-    <%= f.label :first_name, "First Name", :class => "col-sm-2 col-form-label" %>
-    <div class="col-sm-8">
-      <%= f.text_field :first_name, :class => "form-control", :placeholder => "First Name" %>
+<div class="container">
+  <div class="signup-form">
+    <div class="signup-header">
+      <h2 class="title">Sign Up</h2>
     </div>
+    <%= form_for @individual do |f| %>
+      <div class="form-group">
+        <%= f.label :first_name, "First Name"%>
+        <%= f.text_field :first_name, :class => "form-control"%>
+      </div>
+      <div class="form-group">
+        <%= f.label :last_name, "Last Name" %>
+        <%= f.text_field :last_name, :class => "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, "Email Address" %>
+        <%= email_field :user, :email, :class => "form-control"%>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, "Password"%>
+        <%= password_field :user, :password, :class => "form-control"%>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Sign Up", :class => "btn btn-sign-up" %>
+      </div>
+    <% end %>
   </div>
-  <div class="form-group row">
-    <%= f.label :last_name, "Last Name", :class => "col-sm-2 col-form-label" %>
-    <div class="col-sm-8">
-      <%= f.text_field :last_name, :class => "form-control", :placeholder => "Last Name" %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <%= f.label :email, "Email Address", :class => "col-sm-2 col-form-label" %>
-    <div class="col-sm-8">
-      <%= email_field :user, :email, :class => "form-control", :placeholder => "Email Address" %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <%= f.label :password, "Password", :class => "col-sm-2 col-form-label" %>
-    <div class="col-sm-8">
-      <%= password_field :user, :password, :class => "form-control", :placeholder => "Password" %>
-    </div>
-  </div>
-  <div class="form-group row flex btns-group">
-    <%= f.submit "Sign Up", :class => "btn btn-signup" %>
-  </div>
-
-<% end %>
+</div>

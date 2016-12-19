@@ -5,8 +5,7 @@
 #  id          :integer          not null, primary key
 #  name        :string
 #  description :string
-#  start_date  :date
-#  end_date    :date
+#  date        :date
 #  location    :string
 #  start_time  :time
 #  end_time    :time
@@ -16,6 +15,15 @@
 #  price       :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  bg_img      :string
+#
+# Indexes
+#
+#  index_events_on_school_id  (school_id)
+#
+# Foreign Keys
+#
+#  fk_rails_1beae4dfaa  (school_id => schools.id)
 #
 
 FactoryGirl.define do

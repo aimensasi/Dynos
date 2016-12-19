@@ -1,0 +1,166 @@
+/*Lato*/
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+/*Cinzel Decorative*/
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700');
+
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:600');
+
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700|Roboto+Mono:400,700|Roboto:300,400,500');
+/*$Dark-Green: #00848b;*/
+/*$light-green: #00848b;*/
+html, body{
+	height: 100%;
+}
+
+body{
+	font-family: 'Lato', sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+
+.container-fluid{
+	height: 100%;
+}
+
+.flex{
+	display: flex;
+	flex-direction: row;
+}
+
+.flex-col{
+	flex-direction: column;
+}
+
+.home-nav{
+	background-color: transparent;
+}
+
+.navbar-brand{
+	margin-right: auto;
+	color: #000 !important;
+	margin-top: 10px;
+	font-family: 'Cinzel Decorative', serif;
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+
+.home-nav .nav .nav-link{
+	color: #000;
+	font-size: 1.2rem;
+	padding-right: 20px;
+}
+
+.nav-link:hover{
+	color: #00848b !important;
+}
+
+.home-nav .nav .nav-link:not(.navbar-brand){
+	font-weight: 300;
+}
+
+.dropdown-menu .dropdown-item{
+	color: #222 !important;
+	font-weight: 300;
+}
+
+/*Header*/
+
+
+
+/*Form Style*/
+
+.signup-form{
+	border: 1px solid #d7d7d7;
+	box-shadow: 2px 4px 10px #d7d7d7;
+	padding: 0;
+	margin-bottom: 40px;
+	margin-top: 40px;
+	width: 450px;
+	margin-left: 25%;
+}
+.signup-header{
+	background: rgba(0, 132, 139, .6);
+  height: 90px;
+  /*padding-top: 20px;*/
+  margin-bottom: 55px;
+}
+.signup-header .title{
+	letter-spacing: 1px;
+	font-family: 'Roboto Mono';
+	color: #00848b;
+	margin: auto;
+}
+
+.form-group, .signup-form form, .signup-header{
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group label{
+	text-align: center;
+	display: block;
+	font-family: 'Roboto Mono';
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+.form-group input{
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.form-group .form-control{
+	border: none;
+	border-bottom: 1px solid rgba(0, 132, 139, .6);
+	border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.btn-sign-up{
+	background: #66b5b9;
+	font-weight: 100;
+  font-family: 'Roboto Mono';
+  color: #fff;
+	letter-spacing: .8px;
+	margin-bottom: 20px;
+	margin-top: 60px;
+	border-radius: 20px;
+	font-size: 19px;
+}
+
+
+
+
+
+/*Form Style*/
+
+
+
+
+
+
+
+
+
+
+/*Footer */
+
+.footer{
+	height: 57px;
+	margin-top: auto;
+	background: #232526; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #232526 , #414345); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #232526 , #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.footer h2{
+	color: #fff;
+	font-family: 'Libre Baskerville', serif;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 16px;
+}

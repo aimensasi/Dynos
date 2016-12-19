@@ -8,13 +8,24 @@ module SessionsHelper
     session[:user_id]
   end
 
+  def new_user
+    if logged_in?
+      redirect_to schools_path
+    end
+  end
+
   def current_user
     User.find_by_id(session[:user_id])
   end
 
+  def owner school
+    return nil unless current_user == school.user
+  end
+
   def require_login
     unless current_user
-      redirect_to root_url
+      session[:pre_page] = request.env["HTTP_REFERER"]
+      redirect_to sign_in_path
     end
   end
 
@@ -46,13 +57,14 @@ module SessionsHelper
   end
 
   def redirect_back_or(default = root_url)
-    if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+    if session[:pre_page].present?
+      redirect_to session[:pre_page]
+    elsif request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
       redirect_to :back
     else
       redirect_to default
     end
   end
-
 
   def log_out
      session[:user_id] = nil

@@ -1,4 +1,4 @@
-<div class="col-md-10 offset-md-1 ">
+<div class="">
   <div class="container event-row">
     <div class="event-date col-md-1">
       <h2 class="month"><%= event.month%></h2>
@@ -17,7 +17,11 @@
         </div>
       </div>
     </div>
-    <%= link_to("X", event_path(event), :method => "delete", :class => "btn btn-remove") %>
-    <%= link_to("Edit", edit_event_path(event), :class => "btn btn-edit") %>
+    <% if owner(event.school) %>
+      <%= link_to("X", event_path(event), :method => "delete", :class => "btn btn-remove") %>
+      <%= link_to(edit_event_path(event), :class => "btn btn-edit") do %>
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      <% end %>
+    <% end %>
   </div>  
 </div>

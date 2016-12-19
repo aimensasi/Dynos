@@ -10,17 +10,17 @@
           <!-- Checkout Header -->
           <button class="btns btn-down" id="btn-down"><i class="fa fa-caret-down fa-4x" aria-hidden="true"></i></button>
           <button class="btns btn-up" id="btn-up"><i class="fa fa-caret-up fa-4x" aria-hidden="true"></i></button>
-          
+
           <div class="tickets-group center-content flex flex-col">
             <label for="#ticket-counter" class="ticket-label">Tickets</label>
-            <input type="text" name="transaction[ticket_counter]" id="ticket-counter" class="form-control" 
+            <input type="text" name="transaction[tickets_count]" id="ticket-counter" class="form-control"
             value="1" data-default="1" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
-            autocomplete="off"> 
+            autocomplete="off">
           </div>
 
           <div class="price-group center-content flex flex-col">
             <label for="#ticket-counter" class="ticket-label">Total</label>
-            <input type="text" id="total-price" class="form-control" 
+            <input type="text" id="total-price" class="form-control"
             value="<%= event.price %>" data-default="<%= event.price %>" name="transaction[total_price]"
             disabled>
           </div>
@@ -28,17 +28,17 @@
         </div>
 
         <div class="mt-3"></div>
-        
-        
+
+
           <label class="card-label" for="card-number" >Card Number</label>
-          <div class="hosted-field form-controls center-content" id="card-number"></div>  
-        
+          <div class="hosted-field form-controls center-content" id="card-number"></div>
+
           <label class="card-label" for="cvv">CVV</label>
-          <div class="hosted-field form-controls center-content" id="cvv"></div>  
-        
+          <div class="hosted-field form-controls center-content" id="cvv"></div>
+
           <label class="card-label" for="expiration-date">Expiration Date</label>
           <div class="hosted-field form-controls center-content" id="expiration-date"></div>
-        
+
           <input type="hidden" name="payment-method-nonce">
           <input type="submit" value="Get Tickets" class="btn btn-pay center-content" disabled>
       <!-- Transaction Form  -->

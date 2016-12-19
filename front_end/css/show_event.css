@@ -6,6 +6,8 @@
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text:600');
 
 @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700|Roboto+Mono:400,700|Roboto:300,400,500');
 /*$Dark-Green: #00848b;*/
 /*$light-green: #00848b;*/
 html, body{
@@ -66,7 +68,7 @@ body{
 
 .event-row,
 .event-details{
-	border: 1px solid #d7d7d7;
+	/*border: 1px solid #d7d7d7;*/
 	box-shadow: 2px 4px 10px #d7d7d7;
 }
 
@@ -76,63 +78,80 @@ h2.title.center {
     font-size: 30px;
 }
 
+.card{
+	margin-bottom: 2.75rem;
+}
 
-/*event header info*/
+.details-row .title{
+	
+}
 
-.event-header{
-	background: url(http://placehold.it/1100x450);
-	height: 450px;
-	width: 1110px;
-	margin-bottom: 25px;
+.hosted-by{
+	margin-bottom: 20px;
+	margin-left: 15px;
+}
+
+.hosted-by .title{
+	font-size: 16px;
+	margin-right: 8px;
+	margin-bottom: 0 !important;
+	margin-top: 4px;
+}
+.hosted-by .school-name{
+	color: #222;
+	font-weight: 200;
+}
+.hosted-by .school-name:hover{
+	color: #66b5b9;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.card-block.img-card{
+	padding: 0;
+}
+
+.bg-img{
 	position: relative;
 }
 
-.event-info{
+.img-card .logo{
 	position: absolute;
-	min-height: 162px;
-	opacity: .6;
-	top: 60.2%;
-	background: #000;
+	z-index: 93883;
+	bottom: 10px;
+	left: 10px;
 }
 
-.event-info .title{
-	text-align: center;
-  color: #fff;
-  margin-top: 18px;
-  font-weight: 400;
-  font-variant: small-caps;
-  font-size: 22px;
-}
-
-.event-info .school-name {
-	color: #fff;
-	margin-top: 11px;
-	font-family: 'Lato', sans-serif;
-	font-size: 21px;
-	font-style: normal;
-	font-variant: small-caps;
-	font-weight: 500;
-	margin-bottom: 16px;
-	text-align: center;
-}
-
-.event-info a.school-name:hover{
-	text-decoration: none;
-	color: #00848b;
-}
-
-.event-info p.leads {
+.school-info p.leads {
 	color: #fff;
 	font-weight: 100;
 	padding-left: 17px;
-	padding-right: 17px;
-	margin-bottom: 20px;
+	padding-right: 85px;
+	margin-bottom: 25px;
 	font-size: 15px;
-	text-align: center;
 }
 
 .event-details {
-	padding: 15px 35px;
+	padding: 20px 45px;
+}
+
+.event-details .event-name{
+	font-size: 20px;
+	margin-top: 20px;
+	margin-bottom: 25px;
+	font-weight: 300;
+}
+
+.event-details .about-us{
+	font-size: 18px;
+	font-weight: 400;
+	margin-bottom: 20px;
+}
+.event-details .leads{
+	margin-left: 15px;
+	font-size: 15px;
+	font-weight: 400;
+	margin-right: 25px;
 }
 
 .event-details .title-col{
@@ -143,92 +162,29 @@ h2.title.center {
 	margin-bottom: 12px;
 }
 
-.event-details h2.contact.row {
+.event-details .date-row {
   font-size: 18px;
   margin-bottom: 15px;
   margin-top: 30px;
 }
 
-a.btn.btn-buy {
-    background: #00848b;
-    color: #fff;
-    font-weight: 100;
-    margin-left: auto;
-    margin-right: 20px;
-}
-
-
-/*School row*/
-.event-date{
-	color: #00848b;
-}
-.event-date h3.day {
-    font-size: 22px;
-    font-weight: 500;
-    margin-left: 7px;
-}
-.event-date h2.month {
-    font-size: 20px;
-}
-
-.contant .event-row{
-  padding: 25px 15px;
-  margin-bottom: 40px;
-}
-
-.event-row .event-desc{
-	min-height: 150px;
+.btn-ticket{
+	background: #66b5b9;
+	border-radius: 0;
+	margin-left: auto;
+	margin-right: 30px;
+	width: 150px;
+	color: #fff;
+	font-family: 'Roboto Mono', sans-serif;
 }
 
 
 
-.event-desc .title{
-	margin-top: 20px;
-	font-size: 18px;
-}
 
-.event-desc .leads strong{
-	font-size: 18px;
-	font-weight: 400;
-}
 
-.event-desc .leads{
-	font-size: 15px;
-  padding-right: 15px;
-}
 
-.event-desc a.hosted-by {
-  color: #222;
-  font-weight: 200;
-}
 
-.event-desc a.hosted-by:hover {
-  color: #00848b;
-	text-decoration: none;
-}
 
-.event-desc p.time-leads {
-  font-size: 15px;
-  font-weight: 400;
-  margin-top: auto;
-  margin-bottom: 0px;
-}
-
-.event-desc .event-footer{
-  margin-top: 30px;
-}
-
-.event-desc .btn-view {
-  height: 30px;
-  width: 130px;
-  margin-top: auto;
-  margin-right: 27px;
-  margin-left: auto;
-  padding: 0;
-  background: #00848b;
-  color: #fff;
-  font-weight: 100;  
-}
 
 
 

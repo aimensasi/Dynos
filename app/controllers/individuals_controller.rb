@@ -1,22 +1,8 @@
-# == Schema Information
-#
-# Table name: individuals
-#
-#  id         :integer          not null, primary key
-#  first_name :string
-#  last_name  :string
-#  location   :string
-#  avatar     :string
-#  user_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-
 class IndividualsController < ApplicationController
 
   before_action :require_login, :except => [:create, :new]
   before_action :require_individual, :except => [:create, :new]
-  
+
   def new
     @individual = Individual.new
   end
@@ -37,32 +23,39 @@ class IndividualsController < ApplicationController
   end
 
   def edit
+
     @individual = Individual.find_by_id(params[:id])
   end
-  
+
   def update
     @individual = Individual.find_by_id(params[:id])
-    if @individual.update_attributes individuals_params
-      flash.notice = "Updated Successfully"
-      redirect_to edit_individual_path @individual
+
+    if request.xhr?
+      byebug
     else
-      flash.notice = "Invalid Attributes"
-      redirect_to edit_individual_path @individual      
+      if @individual.update_attributes individuals_params
+        flash.notice = "Updated Successfully"
+        redirect_to edit_individual_path @individual
+      else
+        flash.notice = "Invalid Attributes"
+        redirect_to edit_individual_path @individual
+      end
     end
+    
   end
 
   def destroy
     @individual = Individual.find_by_id(params[:id])
     @individual.user.destroy
     log_out
-    
+
     redirect_to root_url
   end
 
-  
-  private 
+
+  private
   def individuals_params
-    params.require(:individual).permit(:first_name, :last_name, :location, :avatar)
+    params.require(:individual).permit(:first_name, :last_name, :location, :avatar, :bg_img)
   end
 
   def user_params

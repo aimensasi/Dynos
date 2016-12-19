@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="css/profile_school.css">
   </head>
   <body>
-    
+    <div class="fake-loader"></div>
+
     <div class="container-fluid flex flex-col">
       <div class="row header">
         <nav class="navbar navbar-light home-nav container">
@@ -135,23 +136,69 @@
               <div class="card">
                 <!-- Photos Card -->
                 <div class="card-block img-card">
-                  <div class="bg-img">
-                    <img src="http://placehold.it/1103x400" alt="" class="img-fluid img-thumbnail">
+                  <div class="bg-img" id="cover">
+                    <img src="http://placehold.it/1103x400" alt="" class="img-fluid img-thumbnail cover">
                     <form>
-                      <input type="file" name="bg-img" id="img-uploader" class="inputfile" data-parent="<%= user.id %>">
-                      <label for="img-uploader" class="btn btn-file">
+                      <input type="file" name="bg-img" id="bg-img" data-parent="cover" class="inputfile">
+                      <label for="bg-img" class="btn btn-file">
                         <i class="fa fa-camera" aria-hidden="true"></i>
+                        <span class="tooltips">Add Cover Image</span>
                       </label>
                     </form>
+                    <div class="loading-cover hide">
+                      <div class="fl spinner2">
+                        <div class="spinner-container container1">
+                          <div class="circle1"></div>
+                          <div class="circle2"></div>
+                          <div class="circle3"></div>
+                          <div class="circle4"></div>
+                        </div>
+                        <div class="spinner-container container2">
+                          <div class="circle1"></div>
+                          <div class="circle2"></div>
+                          <div class="circle3"></div>
+                          <div class="circle4"></div>
+                        </div>
+                        <div class="spinner-container container3">
+                          <div class="circle1"></div>
+                          <div class="circle2"></div>
+                          <div class="circle3"></div>
+                          <div class="circle4"></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="logo-img">
-                    <img src="http://placehold.it/240x150" alt="" class="img-thumbnail ">  
+                    <img src="http://placehold.it/240x150" alt="" class="img-thumbnail logo">  
                     <form>
-                      <input type="file" name="logo-img" id="img-uploader" class="inputfile" data-parent="<%= user.id %>">
-                      <label for="img-uploader" class="btn btn-file">
+                      <input type="file" name="logo-img" id="logo-img" data-parent="logo" class="inputfile">
+                      <label for="logo-img" class="btn btn-file">
                         <i class="fa fa-camera" aria-hidden="true"></i>
+                        <span class="tooltips tooltips-small">Add Logo</span>
                       </label>
                     </form>
+                    <div class="loading-logo hide">
+                      <div class="fl spinner2">
+                        <div class="spinner-container container1">
+                          <div class="circle1"></div>
+                          <div class="circle2"></div>
+                          <div class="circle3"></div>
+                          <div class="circle4"></div>
+                        </div>
+                        <div class="spinner-container container2">
+                          <div class="circle1"></div>
+                          <div class="circle2"></div>
+                          <div class="circle3"></div>
+                          <div class="circle4"></div>
+                        </div>
+                        <div class="spinner-container container3">
+                          <div class="circle1"></div>
+                          <div class="circle2"></div>
+                          <div class="circle3"></div>
+                          <div class="circle4"></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <!-- Photos Card -->
@@ -239,11 +286,15 @@
         </div>
       </div> <!-- Footer -->
     </div>
+
+    
+
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/0b77101dd2.js"></script>
+    <script src="js/image_uploader.js"></script>
   </body>
 </html>
 

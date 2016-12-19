@@ -1,42 +1,37 @@
-.contant .title.center{
-	margin-top: 60px;
-	margin-bottom: 50px;
-}
-
-.contant .school-row{
-  border: 1px solid #d7d7d7;
+.school-row{
   padding: 25px 15px;
-  box-shadow: 2px 4px 10px #d7d7d7;
   margin-bottom: 40px;
-}
-
-.school-row .school-desc{
-	height: 183px;
-}
-
-.school-desc .title{
-	margin-top: 20px;
-	margin-bottom: 20px;
-	font-size: 20px;
-}
-
-.school-desc .age h4{
-	font-size: 20px;
-	margin-bottom: 5px;
-	font-weight: 100;
-}
-
-.school-desc .age i{
-	font-size: 25px;
-  padding-right: 15px;
-}
-
-.school-desc .btn-view {
-    margin-top: auto;
-    margin-right: 27px;
-    width: 155px;
-    margin-left: auto;
-    background: #00848b;
-    color: #fff;
-    font-weight: 100;
+  .school-desc{
+    height: 183px;
+    .title{
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 20px;
+      text-align: left;
+    }
+    .age{
+      h4{
+        font-size: 20px;
+        margin-bottom: 5px;
+        font-weight: 100;
+      }
+      i{
+        font-size: 25px;
+        padding-right: 15px;
+      }
+    }
+    .btn-view {
+      margin-top: auto;
+      margin-right: 27px;
+      width: 155px;
+      margin-left: auto;
+      background: #66b5b9;
+      color: #fff;
+      font-weight: 100;
+      transition: background .5s;
+      &:hover{
+        background-color: #00848b;
+      }
+    }
+  }
 }

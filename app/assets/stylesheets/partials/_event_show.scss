@@ -1,0 +1,89 @@
+
+.event-show{
+	.card{
+		margin-bottom: 2.75rem;
+		.img-card{
+			padding: 0;
+			.bg-img{
+				position: relative;
+				.logo{
+					position: absolute;
+					z-index: 93883;
+					bottom: 10px;
+					left: 10px;
+				}
+			}
+			.event-details{
+				box-shadow: 2px 4px 10px #d7d7d7;
+				padding: 20px 45px;
+				.event-name{
+					font-size: 20px;
+					margin-top: 20px;
+					margin-bottom: 25px;
+					font-weight: 300;
+				}
+				.hosted-by{
+					margin-bottom: 20px;
+					margin-left: 15px;
+					.title{
+						font-size: 16px;
+						margin-right: 8px;
+						margin-bottom: 0 !important;
+						margin-top: 4px;
+					}
+					.school-name{
+						color: #222;
+						font-weight: 200;
+						&:hover{
+							color: #66b5b9;
+							text-decoration: none;
+							cursor: pointer;
+						}
+					}
+				}
+				.about-us{
+					font-size: 18px;
+					font-weight: 400;
+					margin-bottom: 20px;
+				}
+				.leads{
+					margin-left: 15px;
+					font-size: 15px;
+					font-weight: 400;
+					margin-right: 25px;
+				}
+			}
+			.details-row{
+				margin-bottom: 12px;
+			}
+			.date-row {
+			  font-size: 18px;
+			  margin-bottom: 15px;
+			  margin-top: 30px;
+			}
+			.btn-ticket{
+				background: #66b5b9;
+				border-radius: 0;
+				margin-left: auto;
+				margin-right: 30px;
+				width: 150px;
+				color: #fff;
+				font-family: 'Roboto Mono', sans-serif;
+				transition: background .5s;
+				&:hover{
+					background: #00848b;
+				}
+			}
+		}
+		
+	}
+}
+
+
+
+
+
+
+
+
+

@@ -11,3 +11,4 @@ Rails.application.config.assets.precompile += %w( dark_nav.css )
 # Rails.application.config.assets.precompile += %w( search.js )
 # Rails.application.config.assets.precompile += %w( anchor_handler.js )
 Rails.application.config.assets.precompile += %w( transactions.js )
+Rails.application.config.assets.precompile << /\.(?:svg|otf|eot|woff|ttf)$/

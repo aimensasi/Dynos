@@ -1,10 +1,8 @@
 <div class="container school-row">
   <div class="school-logo col-md-4">
-    <% if  school.avatar.file.nil? %>
-      <%= image_tag("http://placehold.it/300x190", :size => "300x190", :alt => "logo") %>
-    <% else %>
-      <%= image_tag(school.avatar.url, :size => "300x190", :alt => "logo") %>
-    <% end %>
+
+  <%= image_tag(school.logo_pic ? school.logo_pic : "http://placehold.it/300x190", 
+          :size => "300x190", :class => "img-thumbnail") %>
   </div>
   <div class="col-md-8">
     <div class="school-desc flex flex-col">
@@ -17,3 +15,4 @@
     </div>
   </div>
 </div>
+

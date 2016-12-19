@@ -1,49 +1,56 @@
-<nav class="navbar navbar-dark bg-inverse">
-  <ul class="nav navbar-nav container tabs" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link tab" data-name="your-events" data-toggle="tab" href="#your-events" role="tab">Your Events</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link tab active" data-name="profile" data-toggle="tab" href="#profile" role="tab">Profile</a>
-    </li>
-  </ul>
-</nav>
+<div class="profile-view">
+  
+  <nav class="navbar navbar-dark bg-inverse">
+    <ul class="nav navbar-nav container tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link tab" data-name="your-events" data-toggle="tab" href="#your-events" role="tab">Your Events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link tab active" data-name="profile" data-toggle="tab" href="#profile" role="tab">Profile</a>
+      </li>
+    </ul>
+  </nav>
 
-<!-- Tab panes -->
-<div class="tab-content">
-  <div class="tab-pane" id="your-events" role="tabpanel">
-  <!-- Event Tab -->
-    <div class="container">
-      <div class="col-md-2">
-      </div>
-      <div class="col-md-9 ml-3">
-        <% if @individual.events.empty? %>
-          <div class="empty-list">
-            <h2 class="title">
-              You Have No Upcomming Event, <%= link_to("Search For Event", events_path , :class => "btn btn-new-event") %>
-            </h2>
-          </div>
-        <% else %>
-          <% @individual.events.each do |event|%>  
-            <%= render :partial => "events/partials/event_row", :locals => {:event => event} %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane" id="your-events" role="tabpanel">
     <!-- Event Tab -->
-  </div>
-  <div class="tab-pane active" id="profile" role="tabpanel">
-    <!--  Profile Tab -->
-    <div class="col-md-10 offset-md-1">
-      
-      <!-- Profile Photo Partial -->
-      <%= render :partial => "individuals/partials/photo_row", :locals => {:individual => @individual} %>
-      <!-- Profile Photo Partial -->
-
-      <!-- Profile Info form Partial -->
-      <%= render :partial => "individuals/partials/form", :locals => {:individual => @individual} %>
-      <!-- Profile Info form Partial -->
+      <div class="container">
+        <div class="col-md-2">
+          <%= link_to("Search For Event", events_path , :class => "btn btn-new-event") %>
+        </div>
+        <div class="col-md-10 ">
+          <% if @individual.tickets.empty? %>
+            <div class="empty-list">
+              <h2 class="title">
+                You Have No Upcomming Event, <%= link_to("Search For Event", events_path , :class => "link-new-event") %>
+              </h2>
+            </div>
+          <% else %>
+            <% @individual.uniq_tickets.each do |ticket|%>  
+              <%= render :partial => "events/partials/event_row", :locals => {:event => ticket.event} %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <!-- Event Tab -->
     </div>
-    <!--  Profile Tab -->
+
+    <div class="tab-pane active" id="profile" role="tabpanel">
+      <!--  Profile Tab -->
+      <div class="col-md-10 offset-md-1">
+        
+        <!-- Profile Photo Partial -->
+        <%= render :partial => "individuals/partials/photo_row", :locals => {:individual => @individual} %>
+        <!-- Profile Photo Partial -->
+
+        <!-- Profile Info form Partial -->
+        <%= render :partial => "individuals/partials/form", :locals => {:individual => @individual} %>
+        <!-- Profile Info form Partial -->
+      </div>
+      <!--  Profile Tab -->
+    </div>
   </div>
+
+  
 </div>

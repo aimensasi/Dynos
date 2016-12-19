@@ -1,28 +1,35 @@
 <div class="card">
   <!-- Photos Card -->
   <div class="card-block img-card">
-    <div class="bg-img">
-      <%= image_tag("http://placehold.it/1103x400", :size => "1103x400", :class => "img-fluid img-thumbnail") %>
+    <div class="bg-img" id="cover">
+      <%= image_tag(school.profile_cover ? school.profile_cover : "http://placehold.it/1103x450", 
+          :size => "1103x450", :class => "img-thumbnail cover") %>
       <form>
-        <input type="file" name="bg-img" class="inputfile" data-parent="school">
-        <label for="img-uploader" class="btn btn-file">
+        <input type="file" name="bg-img" id="bg-img" data-parent="cover" class="inputfile">
+        <label for="bg-img" class="btn btn-file">
           <i class="fa fa-camera" aria-hidden="true"></i>
+          <span class="tooltips">Add Cover Image</span>
         </label>
       </form>
+      <div class="loading-cover hide">
+        <%= render :partial => "schools/partials/spinner" %>
+      </div>
     </div>
     <div class="logo-img">
-      <% if school.avatar.file.nil? %>
-        <%= image_tag(school.avatar.url, :size => "240x150", :class => "img-thumbnail") %>
-      <% else %>
-        <%= image_tag("http://placehold.it/240x150", :size => "240x150", :class => "img-thumbnail") %>
-      <% end %>
+      <%= image_tag(school.profile_pic ? school.profile_pic : "http://placehold.it/240x150", 
+          :size => "240x150", :class => "img-thumbnail logo") %>
       <form>
-        <input type="file" name="logo-img" class="inputfile" data-parent="school">
-        <label for="img-uploader" class="btn btn-file">
+        <input type="file" name="logo-img" id="logo-img" data-parent="logo" class="inputfile">
+        <label for="logo-img" class="btn btn-file">
           <i class="fa fa-camera" aria-hidden="true"></i>
+          <span class="tooltips tooltips-small">Add Logo</span>
         </label>
       </form>
+      <div class="loading-logo hide">
+        <%= render :partial => "schools/partials/spinner" %>
+      </div>
     </div>
   </div>
   <!-- Photos Card -->
 </div>
+

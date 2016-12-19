@@ -1,13 +1,20 @@
 // /*Lato*/
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
-// Cinzel Decorative
-@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700');
 
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text:600');
 
 @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:700|Roboto+Mono:400,700|Roboto:300,400,500');
+
+@font-face {
+  font-family: "Luxia-Semi-Bold";
+  src: font-url( asset-path("Luxia-Semi-Bold.otf") );
+}
+@font-face {
+  font-family: "Luxia-Semi-BoldDisplay";
+  src: font-url( asset-path("Luxia-Semi-BoldDisplay.otf") );
+}
 
 *{
 	outline: 0 !important;
@@ -43,7 +50,7 @@ body{
 .age-filter,
 .type-filter{
 	border: 1px solid #d7d7d7;
-	box-shadow: 2px 4px 10px #d7d7d7;
+	box-shadow: 2px 3px 10px #d7d7d7;
 }
 
 .center {
@@ -59,4 +66,34 @@ body{
 
 .ml-22 {
     margin-left: 22%;
+}
+.pl-0 {
+  padding-left: 0;
+}
+
+.hide{
+  opacity: 0;
+}
+
+.show{
+  opacity: 1;
+}
+
+.empty-list{
+	.title{
+		font-size: 1.4rem;
+		margin-top: 14px;
+	}
+}
+.contant .title.center{
+margin-top: 60px;
+margin-bottom: 50px;
+}
+
+// .hover-green:hover{
+// 	color: #00848b;
+// }
+
+.img-thumbnail {
+	transition: none !important;
 }

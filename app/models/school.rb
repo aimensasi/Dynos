@@ -4,20 +4,28 @@
 #
 #  id          :integer          not null, primary key
 #  name        :string
-#  description :string
+#  description :text
 #  location    :string
 #  category    :string
-#  avatar      :string
-#  reviews     :integer
+#  logo        :string
+#  reviews     :integer          default(0)
 #  min_age     :integer
 #  max_age     :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
+#  bg_img      :string
+#
+# Indexes
+#
+#  index_schools_on_user_id  (user_id)
 #
 
 class School < ActiveRecord::Base
 	include PgSearch
+  
+  mount_uploader :logo, AvatarUploader
+  mount_uploader :bg_img, AvatarUploader
 
   has_many :events, dependent: :destroy
   belongs_to :user
@@ -25,8 +33,9 @@ class School < ActiveRecord::Base
   validates :name, presence: true
   validates :category, :inclusion => {:in => ['Private', 'Public', 'International'], :allow_nil => true}
  
-  mount_uploader :avatar, SchoolAvatarUploader
-  # mount_uploader :cover, SchoolCoverUploader
+  
+
+  
 
   pg_search_scope :pg_address, :against => :location, using: { :tsearch => {:prefix => true, :any_word => true} }
 
@@ -34,12 +43,10 @@ class School < ActiveRecord::Base
   	return all unless query.present?
   	pg_address(query)
   }
-
   scope :by_age, -> (min_age, max_age){
   	return all unless min_age.present? && max_age.present?
   	where(:min_age => min_age..max_age, :max_age => min_age..max_age)
   }
-
   scope :by_category, -> (category){
   	return all unless category.present?
   	where(:category => category.downcase)
@@ -49,6 +56,38 @@ class School < ActiveRecord::Base
   	by_address(search_params[:location])
   	.by_age(search_params[:min_age], search_params[:max_age])
     .by_category(search_params[:category])
+  end
+
+  def profile_pic
+    if self.logo.file.present?
+      self[:logo].thumbnail.url
+    else  
+      nil  
+    end
+  end
+
+  def logo_pic
+    if self.logo.file.present?
+      self[:logo].thumbnail_saml.url
+    else  
+      nil  
+    end
+  end
+  
+  def profile_cover
+    if self.bg_img.file.present?
+      self[:bg_img].cover.url
+    else  
+      nil  
+    end
+  end
+
+  def age_range
+    "#{min_age} - #{max_age}"
+  end
+
+  def email
+    user.email
   end
 
 end

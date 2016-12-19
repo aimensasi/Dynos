@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+
 #using pg search for fuzzy search support
 gem 'pg_search'
 
@@ -40,6 +41,8 @@ gem 'pg_search'
 
 # Use carrierwave for photo uploading
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+#for image editing
+gem 'mini_magick'
 
 #Use braintree for payment
 gem 'braintree'
@@ -47,6 +50,9 @@ gem 'gon'
 
 #figaro
 gem "figaro"
+
+#pagination
+gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
