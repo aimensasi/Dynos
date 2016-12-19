@@ -16,6 +16,8 @@
 #  updated_at  :datetime         not null
 #  user_id     :integer
 #  bg_img      :string
+#  phone       :string
+#  website     :string
 #
 # Indexes
 #
@@ -24,7 +26,7 @@
 
 class School < ActiveRecord::Base
 	include PgSearch
-  
+
   mount_uploader :logo, AvatarUploader
   mount_uploader :bg_img, AvatarUploader
 
@@ -33,10 +35,11 @@ class School < ActiveRecord::Base
 
   validates :name, presence: true
   validates :category, :inclusion => {:in => ['Private', 'Public', 'International'], :allow_nil => true}
+
   validates_uniqueness_of :user
   
 
-  
+
 
   pg_search_scope :pg_address, :against => :location, using: { :tsearch => {:prefix => true, :any_word => true} }
 
@@ -46,11 +49,14 @@ class School < ActiveRecord::Base
   }
   scope :by_age, -> (min_age, max_age){
   	return all unless min_age.present? && max_age.present?
-  	where(:min_age => min_age..max_age, :max_age => min_age..max_age)
+  	# where(:min_age => "2"..min_age, :max_age => max_age.."19")
+
+    where("min_age between 2 and ? and max_age between ? and 19 or min_age <= ?",min_age,max_age,max_age)
+
   }
   scope :by_category, -> (category){
   	return all unless category.present?
-  	where(:category => category.downcase)
+  	where(:category => category.capitalize)
   }
 
   def self.filters search_params
@@ -61,25 +67,43 @@ class School < ActiveRecord::Base
 
   def profile_pic
     if self.logo.file.present?
+<<<<<<< HEAD
       self.logo.thumbnail.url
     else  
       nil  
+=======
+      self[:logo].thumbnail.url
+    else
+      nil
+>>>>>>> 6f7b22ec068a5344852847ff90610b0acfdab2e3
     end
   end
 
   def logo_pic
     if self.logo.file.present?
+<<<<<<< HEAD
       self.logo.thumbnail_saml.url
     else  
       nil  
+=======
+      self[:logo].thumbnail_saml.url
+    else
+      nil
+>>>>>>> 6f7b22ec068a5344852847ff90610b0acfdab2e3
     end
   end
-  
+
   def profile_cover
     if self.bg_img.file.present?
+<<<<<<< HEAD
       self.bg_img.cover.url
     else  
       nil  
+=======
+      self[:bg_img].cover.url
+    else
+      nil
+>>>>>>> 6f7b22ec068a5344852847ff90610b0acfdab2e3
     end
   end
 

@@ -1,7 +1,7 @@
 
 
 .search-bar{
-	height: 50px;
+	height: 60px;
 	margin-bottom: 45px;
 	margin-top: 33px;
 	padding: 10px 20px;
@@ -27,7 +27,7 @@
 	.title{
 		font-size: 22px;
 	}
-	.age-filter,	
+	.age-filter,
 	.type-filter{
 		padding: 18px;
 		.title{
@@ -71,7 +71,7 @@
 		    margin-left: 8px;
 		    margin-top: 5px;
 		    width: 21px;
-		    height: 17px;   
+		    height: 17px;
 			}
 		}
 	}
@@ -83,7 +83,7 @@
 	outline: 0 !important;
 }
 .custom-control-input:checked~.custom-control-indicator {
-  background-color: #66b5b9 !important;  
+  background-color: #66b5b9 !important;
 }
 
 /*Range Theme Style*/
@@ -98,7 +98,7 @@
 }
 .theme-green .back-bar .pointer {
   width: 21px;
-  height: 14px;	
+  height: 14px;
 }
 .theme-green .scale ins {
   color: #999;

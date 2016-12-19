@@ -9,7 +9,16 @@
         <h2 class="title"><%= truncate(event.name, :length => 60) %></h2>
         <p class="leads">
           <strong>Hosted By</strong>
-          <%= link_to(truncate(event.school.name, :length => 40), school_path(event.school), :class => "hosted-by") %>        
+          <%= link_to(truncate(event.school.name, :length => 40), school_path(event.school), :class => "hosted-by") %><br>
+          <strong>Location</strong>
+          <%= event.location %><br>
+          <% if current_user.individual && params[:action]=="edit"%>
+
+            <strong>Total Paid Fee:</strong>
+            RM<%= tickets_count * event.price %><br>
+             <strong>Total Purchased Tickets:</strong>
+            <%= tickets_count%><br>
+          <%end%>
         </p>
         <div class="event-footer flex">
           <p class="time-leads"><%= event.event_time %></p>
@@ -17,11 +26,12 @@
         </div>
       </div>
     </div>
+
     <% if owner(event.school) %>
       <%= link_to("X", event_path(event), :method => "delete", :class => "btn btn-remove") %>
       <%= link_to(edit_event_path(event), :class => "btn btn-edit") do %>
         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
       <% end %>
     <% end %>
-  </div>  
+  </div>
 </div>

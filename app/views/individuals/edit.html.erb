@@ -1,5 +1,5 @@
 <div class="profile-view">
-  
+
   <nav class="navbar navbar-dark bg-inverse">
     <ul class="nav navbar-nav container tabs" role="tablist">
       <li class="nav-item">
@@ -27,8 +27,10 @@
               </h2>
             </div>
           <% else %>
-            <% @individual.uniq_tickets.each do |ticket|%>  
-              <%= render :partial => "events/partials/event_row", :locals => {:event => ticket.event} %>
+
+            <% @individual.uniq_tickets.each do |ticket|%>
+
+              <%= render :partial => "events/partials/event_row", :locals => {:event => ticket.event , :tickets_count => @individual.tickets.where(event_id: ticket.event_id).count} %>
             <% end %>
           <% end %>
         </div>
@@ -39,7 +41,7 @@
     <div class="tab-pane active" id="profile" role="tabpanel">
       <!--  Profile Tab -->
       <div class="col-md-10 offset-md-1">
-        
+
         <!-- Profile Photo Partial -->
         <%= render :partial => "individuals/partials/photo_row", :locals => {:individual => @individual} %>
         <!-- Profile Photo Partial -->
@@ -52,5 +54,5 @@
     </div>
   </div>
 
-  
+
 </div>
