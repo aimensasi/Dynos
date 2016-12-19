@@ -36,7 +36,7 @@ class IndividualsController < ApplicationController
         if img_params[:bg_img]
           @individual.update(:bg_img => img_params[:bg_img]) 
         else
-          @individual.update(:logo => img_params[:avatar]) 
+          @individual.update(:avatar => img_params[:avatar]) 
         end
         @individual.reload
         format.json
