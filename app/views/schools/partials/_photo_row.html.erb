@@ -3,7 +3,7 @@
   <div class="card-block img-card">
     <div class="bg-img" id="cover">
       <%= image_tag(school.profile_cover ? school.profile_cover : "http://placehold.it/1103x450", 
-          :size => "1103x450", :class => "img-thumbnail cover") %>
+          :size => "1103x450", :class => "img-thumbnail img-fluid cover") %>
       <form>
         <input type="file" name="bg-img" id="bg-img" data-parent="cover" class="inputfile">
         <label for="bg-img" class="btn btn-file">
