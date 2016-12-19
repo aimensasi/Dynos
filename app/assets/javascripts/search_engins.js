@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	
+
 	var SCHOOL_URL = '/search_schools';
 	var EVENT_URL = '/search_events';
 
@@ -17,11 +17,11 @@ $(document).ready(function(){
 	$iconSearch.on('click', function(){
 		console.log($(this).next().serialize());
 		if ($(this).attr('data-parent') == 'school') {
-			sendAjaxRequest(SCHOOL_URL, $(this).next().serialize());	
+			sendAjaxRequest(SCHOOL_URL, $(this).next().serialize());
 		}else{
-			sendAjaxRequest(EVENT_URL, $(this).next().serialize());	
+			sendAjaxRequest(EVENT_URL, $(this).next().serialize());
 		}
-		
+
 	});
 	$schoolSearch.on('submit', function(e){
 		e.preventDefault()
@@ -46,13 +46,13 @@ $(document).ready(function(){
 	// Search For events Using Full Text Search
 
 
-	
+
 	function updateView(data){
 		$schoolResult.empty();
-		setTimeout(function(){ 
+		setTimeout(function(){
 			$schoolResult.html(data);
 		}, 1000);
-		
+
 	}
 
 	function sendAjaxRequest(url, data){
