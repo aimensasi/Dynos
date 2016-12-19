@@ -19,9 +19,9 @@ class TransactionsController < ApplicationController
       redirect_to edit_individual_path current_user.individual, :anchor => "your-events"
     else
       if @result.errors.first.nil?
-        flash.now.alert = "Unknown Error By Braintree, Please Try Again Later or "
+        flash.alert = "Unknown Error By Braintree, Please Try Again Later or "
       else
-        flash.now.alert =  @result.errors.first.message 
+        flash.alert =  @result.errors.first.message 
       end
       
       redirect_to new_transaction_path :transaction => {:event_id => transaction_params[:event_id]}

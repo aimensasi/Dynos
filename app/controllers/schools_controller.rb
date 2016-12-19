@@ -29,7 +29,7 @@ class SchoolsController < ApplicationController
       redirect_to edit_school_path @school
     else
 
-      flash.alert = "Invalid Email Or Password"
+      flash.now.alert = "Invalid Email Or Password"
       render 'new'
     end
   end
@@ -56,7 +56,7 @@ class SchoolsController < ApplicationController
           flash.notice = "Your Information Has Been Updated"
           format.html { redirect_to(edit_school_path(@school)) } 
         else
-          flash.alert = "Could not Updated Your Information"
+          flash.now.alert = "Could not Updated Your Information"
           format.html { render :edit }
         end
       end

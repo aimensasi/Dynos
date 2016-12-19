@@ -20,7 +20,7 @@ class EventsController < ApplicationController
       flash.notice = "New Event Has Been Create"
       redirect_to event_path @event
     else
-      flash.alert = "Invalid Attributes"
+      flash.now.alert = "Invalid Attributes"
       render :new
     end
 
@@ -36,7 +36,7 @@ class EventsController < ApplicationController
       flash.notice = "Updated Event successfully"
       redirect_to @event
     else
-      flash.alert = "Something Went Wrong, Could not updated your event"
+      flash.now.alert = "Something Went Wrong, Could not updated your event"
       render :edit
     end
   end

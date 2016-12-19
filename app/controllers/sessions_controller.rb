@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       log_in @user
       redirect_back_or @user
     else
-      flash.alert = "Invalid Email Or Password"
+      flash.now.alert = "Invalid Email Or Password"
       render "new"
     end
   end
