@@ -5,12 +5,13 @@ $(document).ready(function(){
 
 	var $schoolResult = $('.schools-result');
 	var $schoolSearch = $('#school-search');
-	var $iconSearch = $('.search-icon');
+	var $iconSearch = $('#school-icon');
 	var $ageRange = $('#age-range');
 	var $schoolType = $('.category');
 
 	var $eventSearch = $('#event-search');
-
+	var $eventResult = $('.event-results');
+	var $iconSearch = $('#event-icon');
 
 
 	// Search For School Using Full Text Search and Filters
@@ -39,23 +40,34 @@ $(document).ready(function(){
 
 	$schoolType.on('change', function(){
 		console.log("Changed" + $(this).serialize());
-		sendAjaxRequest(SCHOOL_URL, $(this).serialize());
+		sendAjaxRequest(SCHOOL_URL, $(this).serialize(), 'school-search');
 	});
 	// Search For School Using Full Text Search and Filters
 
 	// Search For events Using Full Text Search
+	$eventSearch.on('submit', function(e){
+		e.preventDefault();
+		sendAjaxRequest(EVENT_URL, $(this).serialize(), 'event-search');
+	});
 
 
-
-	function updateView(data){
-		$schoolResult.empty();
-		setTimeout(function(){
-			$schoolResult.html(data);
-		}, 1000);
+	function updateView(data, action){
+		if (action == "event-search") {
+			$eventResult.empty();
+			setTimeout(function(){
+				$eventResult.html(data);
+			}, 1000);
+		}else if (action == "school-search") {
+			$schoolResult.empty();
+			setTimeout(function(){
+				$schoolResult.html(data);
+			}, 1000);		
+		}
+		
 
 	}
 
-	function sendAjaxRequest(url, data){
+	function sendAjaxRequest(url, data, action){
 		$.ajax({
 			url: url,
 			type: 'GET',
@@ -63,9 +75,7 @@ $(document).ready(function(){
 			cache: false,
 			data: data,
 			success: function(data){
-				console.log("Success");
-				console.log(data);
-				updateView(data);
+				updateView(data, action);
 			},
 			error: function(err){
 				console.log("Error");

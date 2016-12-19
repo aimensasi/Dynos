@@ -1,7 +1,7 @@
 class SearchEnginsController < ApplicationController
   
   def search_school
-  	@schools = School.filters(params)
+  	@schools = School.filters(params).paginate(:page => params[:page])
   	if request.xhr?
   		# byebug
   		#accessed by ajax request
@@ -14,8 +14,17 @@ class SearchEnginsController < ApplicationController
   end
 
   def search_event
-  	@events = Event.by_address(params)
-  	render "create"
+
+  	@events = Event.by_address(params).paginate(:page => params[:page])
+    # byebug
+    if request.xhr?
+      # byebug
+      #accessed by ajax request
+      render(:partial => 'events/partials/events', :layout => false, :locals => {:events => @events})
+    else
+      # accessed by html request
+      render :template => "events/index"
+    end
   end
 
   private

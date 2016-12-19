@@ -54,7 +54,8 @@ body{
 .search-bar,
 .filters,
 .age-filter,
-.type-filter{
+.type-filter,
+.empty-list{
 	border: 1px solid #d7d7d7;
 	box-shadow: 2px 3px 10px #d7d7d7;
 }
@@ -86,8 +87,10 @@ body{
 }
 
 .empty-list{
+  text-align: center;
+  margin: 30px auto;
 	.title{
-		font-size: 1.4rem;
+		font-size: 1rem;
 		margin-top: 14px;
 	}
 }
