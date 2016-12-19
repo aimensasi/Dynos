@@ -55,7 +55,7 @@ class School < ActiveRecord::Base
   }
   scope :by_category, -> (category){
   	return all unless category.present?
-  	where(:category => category.downcase)
+  	where(:category => category.capitalize)
   }
 
   def self.filters search_params
