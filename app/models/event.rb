@@ -17,6 +17,8 @@
 #  updated_at  :datetime         not null
 #  bg_img      :string
 #  seats       :integer          default(0), not null
+#  latitude    :float
+#  longitude   :float
 #
 # Indexes
 #
