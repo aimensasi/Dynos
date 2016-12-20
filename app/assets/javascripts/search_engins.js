@@ -17,7 +17,7 @@ $(document).ready(function(){
 	var $eventResult = $('.event-results');
 	var $iconSearch = $('#event-icon');
 	var $resultCover = $('.result-cover');
-	
+	var $markerEvent = $('#marker-event');
 
 
 
@@ -65,7 +65,7 @@ $(document).ready(function(){
 	});
 
 
-	
+
 	if (!navigator.geolocation) {
 		$markerSchool.addClass('hide');
 		return;	
@@ -74,29 +74,40 @@ $(document).ready(function(){
 	$markerSchool.on('click', function(){
 		$resultCover.removeClass('hide');
 		$schoolResult.empty();
-		getLocation(function(position){
+		getLocation(SCHOOL_TYPE, function(position){
 			sendAjaxRequest(SCHOOL_URL, position, SCHOOL_TYPE);
 		});
 	});
 
-	function getLocation(fn){
+	$markerEvent.on('click', function(){
+		console.log("Event Done");
+		$resultCover.removeClass('hide');
+		$eventResult.empty();
+		getLocation(EVENT_TYPE, function(position){
+			console.log("Done");
+			sendAjaxRequest(EVENT_URL, position, EVENT_TYPE);
+		});
+	});
+
+	function getLocation(action, fn){
 		navigator.geolocation.getCurrentPosition(function(position) {
 			var lat = position.coords.latitude;
 			var long = position.coords.longitude;
-			// lat = 34.140813
-  		// long = -118.10
+			// lat = 32.4287025
+  	// 	long = -110.9917576
+  		// , longitude: 
 			fn({lat: lat, long: long});
 		}, function(err){
-			sendAjaxRequest(SCHOOL_URL, {}, SCHOOL_TYPE);
+			console.log(err);
+			if (action == SCHOOL_TYPE) {
+				console.log('Hello');
+				sendAjaxRequest(SCHOOL_URL, {}, SCHOOL_TYPE);
+			}else{
+				console.log('NIce');
+				sendAjaxRequest(EVENT_URL, {}, EVENT_TYPE);
+			}		
 		});
 	}
-			
-
-
-
-
-
-
 
 
 	function updateView(data, action){

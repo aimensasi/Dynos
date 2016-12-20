@@ -16,8 +16,8 @@ class SearchEnginsController < ApplicationController
   end
 
   def search_event
-
-  	@events = Event.by_address(params).paginate(:page => params[:page])
+    # byebug
+  	@events = Event.filters(params).paginate(:page => params[:page])
     # byebug
     if request.xhr?
       # byebug

@@ -17,6 +17,8 @@
 #  updated_at  :datetime         not null
 #  bg_img      :string
 #  seats       :integer          default(0), not null
+#  latitude    :float
+#  longitude   :float
 #
 # Indexes
 #
@@ -37,7 +39,23 @@ class Event < ActiveRecord::Base
   
   validates_presence_of :name, :description, :date, :location, :start_time, :end_time, :min_age, :max_age, :price, :school_id
 
-  pg_search_scope :by_address, :against => :location, using: { :tsearch => {:prefix => true, :any_word => true} }
+  pg_search_scope :pg_address, :against => :location, using: { :tsearch => {:prefix => true, :any_word => true} }
+  
+  geocoded_by :location  
+  after_validation :geocode 
+
+  scope :by_location, -> (lat, long){
+    return all unless lat.present? && long.present?
+    near([lat.to_f, long.to_f], 100)
+  }
+  scope :by_address, -> (address){
+    return all unless address.present?
+    pg_address(address)
+  }
+  def self.filters search_params
+    by_address(search_params[:location])
+    .by_location(search_params[:lat], search_params[:long])
+  end
 
   def event_time
   	"#{start_time.strftime("%I:%M%p")} - #{end_time.strftime("%I:%M%p")}"
