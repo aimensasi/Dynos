@@ -7,6 +7,8 @@ $(document).ready(function(){
 		}
 
 	$markerSchool.on('click', function(){
+		
+
 		getLocation('school',function(position){
 			var lat = position["lat"]
 			var long = position["long"]	
@@ -15,7 +17,13 @@ $(document).ready(function(){
 		    success : function( data, textStatus ) {
 		      console.log( textStatus, data );
 		      console.log( textStatus, data.results[0].formatted_address );
-		      $('#school-location').val(data.results[0].formatted_address);
+		      
+		      if ($markerSchool.attr('data-parent') == 'school') {
+		      	$('#school-location').val(data.results[0].formatted_address);
+		      }else if ($markerSchool.attr('data-parent') == "individual") {
+		      	$('#individual-location').val(data.results[0].formatted_address);
+		      	
+		      }
 		    },
 		    error: function(err){
 		    	console.log( err );
@@ -36,3 +44,4 @@ $(document).ready(function(){
 	}
 
 });
+
