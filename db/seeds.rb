@@ -1,29 +1,29 @@
-# 50.times do |n|  
-# 	User.create(
-# 		:email => "jorden#{n}@gmail.com",
-# 		:password => "1234567#{n}",
-# 		:role => "school"
-# 	)
-# end
+50.times do |n|  
+	User.create(
+		:email => "jorden#{n}@gmail.com",
+		:password => "1234567#{n}",
+		:role => "school"
+	)
+end
 
-# user_ids = User.ids
+user_ids = User.ids
 
-# 40.times do 
-# 	school = School.new(
-# 		:name => Faker::University.name,
-# 		:description => Faker::Lorem.paragraph(2),
-# 		:location => Faker::Address.street_address,
-# 		:category => ['Private', 'Public', 'International'].sample,
-# 		:min_age => [2, 3, 1].sample,
-# 		:max_age => [16, 17, 18, 19].sample,
-# 		:user_id => user_ids.sample
-# 	)
-# 	if school.save
-# 		puts "Created School with name of #{school.name}"
-# 	else
-# 		puts "Ops Error: #{school.errors.full_messages}"
-# 	end
-# end
+40.times do 
+	school = School.new(
+		:name => Faker::University.name,
+		:description => Faker::Lorem.paragraph(2),
+		:location => Faker::Address.street_address,
+		:category => ['Private', 'Public', 'International'].sample,
+		:min_age => [2, 3, 1].sample,
+		:max_age => [16, 17, 18, 19].sample,
+		:user_id => user_ids.sample
+	)
+	if school.save
+		puts "Created School with name of #{school.name}"
+	else
+		puts "Ops Error: #{school.errors.full_messages}"
+	end
+end
 
 
 # 10.times do |n|  
