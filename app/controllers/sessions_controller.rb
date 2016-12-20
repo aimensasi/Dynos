@@ -10,7 +10,15 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(session_params[:password])
       log_in @user
-      redirect_back_or @user
+      if @user.school
+        redirect_back_or(edit_school_path(@user.school))
+      elsif @user.individual
+        redirect_back_or(edit_individual_path(@user.individual))
+      else
+        redirect_to root_path
+      end
+          
+      
     else
       flash.now.alert = "Invalid Email Or Password"
       render "new"
