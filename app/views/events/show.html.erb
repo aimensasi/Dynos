@@ -40,12 +40,12 @@
             <div class="col-md-7"><%= number_to_currency(@event.price, :unit => "RM") %></div>
           </div>
 
-          <% if is_individual_or_new? %>
+          <% if !owner?(@event.school) %>
           <div class="row flex">
             <%= link_to("Get Tickets", new_transaction_path(:transaction => {:event_id => @event.id}),
                 :class => "btn btn-ticket") %>
           </div>
-          <% end -%>
+          <% end %>
         </div>
       </div>
       <!-- Photos Card -->

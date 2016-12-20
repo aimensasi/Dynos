@@ -18,7 +18,7 @@ module SessionsHelper
     User.find_by_id(session[:user_id])
   end
 
-  def owner school
+  def owner? school
     if current_user == school.user
       return true
     else
