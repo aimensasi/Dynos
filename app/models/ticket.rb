@@ -4,6 +4,7 @@
 #
 #  event_id      :integer          not null
 #  individual_id :integer          not null
+#  id            :integer          not null, primary key
 #
 # Indexes
 #

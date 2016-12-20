@@ -18,6 +18,8 @@
 #  bg_img      :string
 #  phone       :string
 #  website     :string
+#  latitude    :float
+#  longitude   :float
 #
 # Indexes
 #
