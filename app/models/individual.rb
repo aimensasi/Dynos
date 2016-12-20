@@ -49,6 +49,13 @@ class Individual < ActiveRecord::Base
 	end
 
 	def uniq_tickets
-		tickets.group(:individual_id, :event_id)
+		events = []
+		event_ids = tickets.pluck(:event_id).uniq
+		event_ids.each do |id|
+			events << Event.find_by_id(id)
+		end
+		events
 	end
+
+
 end

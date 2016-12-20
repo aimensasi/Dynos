@@ -28,9 +28,9 @@
             </div>
           <% else %>
 
-            <% @individual.uniq_tickets.each do |ticket|%>
+            <% @individual.uniq_tickets.each do |event|%>
 
-              <%= render :partial => "events/partials/event_row", :locals => {:event => ticket.event , :tickets_count => @individual.tickets.where(event_id: ticket.event_id).count} %>
+              <%= render :partial => "events/partials/event_row", :locals => {:event => event} %>
             <% end %>
           <% end %>
         </div>
