@@ -2,6 +2,7 @@ class SearchEnginsController < ApplicationController
   
   def search_school
     # byebug
+    puts "PARAMS #{params}"
   	@schools = School.filters(params).paginate(:page => params[:page])
   	if request.xhr?
   		# byebug

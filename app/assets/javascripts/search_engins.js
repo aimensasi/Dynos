@@ -10,12 +10,23 @@ $(document).ready(function(){
 	var $iconSearch = $('#school-icon');
 	var $ageRange = $('#age-range');
 	var $schoolType = $('.category');
+	var $markerSchool = $('#marker-school');
+
 
 	var $eventSearch = $('#event-search');
 	var $eventResult = $('.event-results');
 	var $iconSearch = $('#event-icon');
 	var $resultCover = $('.result-cover');
+	
 
+
+
+	
+
+	$('.marker-icon').tooltip({
+		animation: true,
+		trigger: 'hover'
+	});
 
 	// Search For School Using Full Text Search and Filters
 	$iconSearch.on('click', function(){
@@ -54,6 +65,40 @@ $(document).ready(function(){
 	});
 
 
+	
+	if (!navigator.geolocation) {
+		$markerSchool.addClass('hide');
+		return;	
+	}
+
+	$markerSchool.on('click', function(){
+		$resultCover.removeClass('hide');
+		$schoolResult.empty();
+		getLocation(function(position){
+			sendAjaxRequest(SCHOOL_URL, position, SCHOOL_TYPE);
+		});
+	});
+
+	function getLocation(fn){
+		navigator.geolocation.getCurrentPosition(function(position) {
+			var lat = position.coords.latitude;
+			var long = position.coords.longitude;
+			// lat = 34.140813
+  		// long = -118.10
+			fn({lat: lat, long: long});
+		}, function(err){
+			sendAjaxRequest(SCHOOL_URL, {}, SCHOOL_TYPE);
+		});
+	}
+			
+
+
+
+
+
+
+
+
 	function updateView(data, action){
 		setTimeout(function(){
 			console.log("In");
@@ -89,5 +134,7 @@ $(document).ready(function(){
 			}
 		});
 	} //AjaxFunction
+
+
 
 });

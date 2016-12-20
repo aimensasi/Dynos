@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
 
   def index
   	if request.xhr?
-  		@schools = School.by_location(params[:lat], params[:long])
+  		@schools = School.by_location(params[:lat], params[:long]).limit(10)
   		if !@schools.empty?
   			render(:partial => 'schools/partials/schools', :layout => false, :locals => {:schools => @schools})
   		else
@@ -14,7 +14,7 @@ class WelcomeController < ApplicationController
   			render :json => @schools
   		end
   	else
-  		@schools = School.paginate(:page => params[:page])	
+  		@schools = School.limit(10)
   	end
    	
   end
