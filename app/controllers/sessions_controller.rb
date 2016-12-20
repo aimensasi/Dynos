@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  before_action :store_prev_page
+  before_action :store_prev_page, :only => [:new]
+  
   def new
     @user = User.new
   end

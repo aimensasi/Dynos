@@ -31,6 +31,13 @@
 					font-weight: 400;
 					margin-right: 25px;
 				}
+				a{
+					color: #222;
+					text-decoration: none;
+					&:hover{
+						color: #66b5b9;
+					}
+				}
 			}
 			h2.contact.row {
 			  font-size: 18px;
