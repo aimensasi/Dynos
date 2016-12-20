@@ -14,7 +14,8 @@ class WelcomeController < ApplicationController
   			render :json => @schools
   		end
   	else
-  		@schools = School.limit(10)
+      # byebug
+  		@schools = School.paginate(:page => params[:page])
   	end
    	
   end

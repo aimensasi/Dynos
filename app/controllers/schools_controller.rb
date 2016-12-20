@@ -3,7 +3,7 @@ class SchoolsController < ApplicationController
   before_action :must_be_school, except: [:create, :new, :index, :show]
 
   def index
-    @schools = School.by_review().paginate(:page => params[:page])
+    @schools = School.paginate(:page => params[:page])
   end
 
   def show
