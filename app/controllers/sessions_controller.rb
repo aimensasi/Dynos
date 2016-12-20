@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_action :store_prev_page, :only => [:new]
-  
+
   def new
     @user = User.new
   end
@@ -10,7 +10,14 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(session_params[:password])
       log_in @user
-      redirect_back_or @user
+      if @user.individual
+        redirect_back_or @user.individual
+      elsif @user.school
+        redirect_back_or @user.school
+      else
+        redirect_back_or
+      end
+
     else
       flash.now.alert = "Invalid Email Or Password"
       render "new"
