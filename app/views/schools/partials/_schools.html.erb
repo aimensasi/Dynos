@@ -3,7 +3,12 @@
 		<p class="title">Sorry, We Could Not Find What Your Asking For</p>
 	</div>
 <% else %>
-	<% schools.each do |school| %>	 
+	<% schools.each do |school| %>
 		<%= render partial: "schools/partials/school_row", :locals => {:school => school} %>
 	<% end %>
+
+    <div class="pagination-well flex flex-col">
+      <%= will_paginate schools %>
+    </div>
 <% end %>
+
