@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="logo-img">
-      <%= image_tag(school.profile_pic ? school.profile_pic : "default_small", 
+      <%= image_tag(school.profile_pic ? school.profile_pic : "default_small.png", 
           :size => "240x150", :class => "img-thumbnail logo", :id => "logo") %>
       
       <%= form_for(school, :method => "PATCH", remote: true, 
