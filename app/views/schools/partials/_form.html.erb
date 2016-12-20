@@ -63,7 +63,7 @@
         </div>
       </div>
       <div class="form-group row flex btns-group">
-        <%= link_to("Delete Account", school_path(school), :method => "DELETE", :class => "btn btn-remove-account") %>
+        <%= link_to("Delete Account", "/schools/#{school.id}", :method => "delete", :class => "btn btn-remove-account") %>
         <%= f.submit "Save Changes", :class => "btn btn-update" %>
       </div>
       <!-- Form For School Update  -->
