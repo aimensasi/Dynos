@@ -6,6 +6,9 @@ $(document).ready(function(){
 	  navigator.geolocation.getCurrentPosition(function(position) {
 	  	var lat = position.coords.latitude;
 	  	var long = position.coords.longitude;
+	  	// (34.140813, -118.10)
+	  	lat = 34.140813
+	  	long = -118.10
 	  	console.log(lat, long);
 
 	  	$.ajax({

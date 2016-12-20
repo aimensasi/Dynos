@@ -1,13 +1,14 @@
-# 10.times do |n|  
+# 50.times do |n|  
 # 	User.create(
-# 		:email => "adam#{n}@gmail.com",
+# 		:email => "jorden#{n}@gmail.com",
 # 		:password => "1234567#{n}",
 # 		:role => "school"
 # 	)
 # end
 
 # user_ids = User.ids
-# 20.times do 
+
+# 40.times do 
 # 	school = School.new(
 # 		:name => Faker::University.name,
 # 		:description => Faker::Lorem.paragraph(2),

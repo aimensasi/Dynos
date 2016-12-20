@@ -66,9 +66,10 @@ class School < ActiveRecord::Base
   	where(:category => category.capitalize)
   }
   scope :by_review, -> { order(reviews: :desc) }
+
   scope :by_location, -> (lat, long){
     return all unless lat.present? && long.present?
-    near([lat, long], 20)
+    near([lat.to_f, long.to_f], 100)
   }
   def self.filters search_params
   	by_address(search_params[:location])
