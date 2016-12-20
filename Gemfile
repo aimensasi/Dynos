@@ -32,6 +32,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+#geolocation gem
+gem "geocoder"
+
 #FILE UPLOADER
 gem 'remotipart', '~> 1.2'
 

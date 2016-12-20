@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219104857) do
+ActiveRecord::Schema.define(version: 20161219231950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(version: 20161219104857) do
     t.string   "bg_img"
     t.string   "phone"
     t.string   "website"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "schools", ["user_id"], name: "index_schools_on_user_id", unique: true, using: :btree
