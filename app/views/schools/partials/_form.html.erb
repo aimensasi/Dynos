@@ -58,12 +58,14 @@
       </div>
       <div class="form-group row">
         <%= f.label :location, "Address", :class => "col-sm-2 col-form-label" %>
-        <div class="col-sm-8">
-          <%= f.text_field :location, :class => "form-control", :placeholder => "Address..." %>
+        <div class="col-sm-8 location">
+          <%= f.text_field :location, :class => "form-control", :placeholder => "Address...", :id => "school-location" %>
+          <i class="fa fa-map-marker marker-icon" aria-hidden="true" id="school-address" data-parent="event"
+             data-toggle="tooltip" data-placement="top" title="Let Us Get Your Location"></i>
         </div>
       </div>
       <div class="form-group row flex btns-group">
-        <%= link_to("Delete Account", school_path(school), :method => "DELETE", :class => "btn btn-remove-account") %>
+        <%= link_to("Delete Account", "/schools/#{school.id}", :method => "DELETE", :class => "btn btn-remove-account") %>
         <%= f.submit "Save Changes", :class => "btn btn-update" %>
       </div>
       <!-- Form For School Update  -->
