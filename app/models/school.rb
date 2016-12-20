@@ -69,7 +69,7 @@ class School < ActiveRecord::Base
 
   scope :by_location, -> (lat, long){
     return all unless lat.present? && long.present?
-    near([lat.to_f, long.to_f], 100)
+    near([lat.to_f, long.to_f], 20)
   }
   def self.filters search_params
   	by_address(search_params[:location])
