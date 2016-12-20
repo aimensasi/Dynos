@@ -29,7 +29,7 @@
 
 class Event < ActiveRecord::Base
 	include PgSearch
-
+  mount_uploader :bg_img, AvatarUploader
   self.per_page = 10
 
   belongs_to :school
