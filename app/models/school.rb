@@ -44,8 +44,6 @@ class School < ActiveRecord::Base
   
   geocoded_by :location  
   after_validation :geocode 
-  # after_update :geocode
-  # before_validation_on_update :geocode
 
 
 
@@ -57,10 +55,12 @@ class School < ActiveRecord::Base
   }
   scope :by_age, -> (min_age, max_age){
   	return all unless min_age.present? && max_age.present?
-  	where(:min_age => min_age..max_age, :max_age => min_age..max_age)
-    # where("min_age between 2 and ? and max_age between ? and 19 or min_age <= ?",min_age,max_age,max_age)
+  	where.or(:min_age => min_age..max_age, :max_age => min_age..max_age)
+    # where("(min_age between 2 and ? and max_age between ? and 19) ",min_age,max_age,min_age,max_age,max_age,min_age,max_age)
+    # where("(min_age between 2 and ? and max_age between ? and 19) or (min_age between ? and ?)",min_age,max_age,min_age,max_age)
+
   }
-  
+
   scope :by_category, -> (category){
   	return all unless category.present?
   	where(:category => category.capitalize)
@@ -81,24 +81,24 @@ class School < ActiveRecord::Base
   def profile_pic
     if self.logo.file.present?
       self.logo.thumbnail.url
-    else  
-      nil  
+    else
+      nil
     end
   end
 
   def logo_pic
     if self.logo.file.present?
       self.logo.thumbnail_saml.url
-    else  
-      nil  
+    else
+      nil
     end
   end
 
   def profile_cover
     if self.bg_img.file.present?
       self.bg_img.cover.url
-    else  
-      nil  
+    else
+      nil
     end
   end
 

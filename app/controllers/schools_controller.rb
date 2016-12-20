@@ -66,6 +66,7 @@ class SchoolsController < ApplicationController
 
   def destroy
     @school = School.find_by_id(params[:id])
+    # byebug
     @school.user.destroy
     log_out
     redirect_to root_path

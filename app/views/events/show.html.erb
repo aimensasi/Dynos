@@ -4,6 +4,7 @@
       <!-- Photos Card -->
       <div class="card-block img-card">
         <div class="bg-img">
+
           <%= image_tag(@event.profile_cover ? @event.profile_cover : "http://placehold.it/1108x450",
           :size => "1108x450", :class => "img-fluid cover") %>
         </div>
@@ -39,12 +40,12 @@
             <div class="col-md-7"><%= number_to_currency(@event.price, :unit => "RM") %></div>
           </div>
 
-          <% if is_individual_or_new? %>
+          <% if !owner_or(@event.school) %>
           <div class="row flex">
             <%= link_to("Get Tickets", new_transaction_path(:transaction => {:event_id => @event.id}),
                 :class => "btn btn-ticket") %>
           </div>
-          <% end -%>
+          <% end %>
         </div>
       </div>
       <!-- Photos Card -->

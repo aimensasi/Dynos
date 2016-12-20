@@ -1,7 +1,11 @@
 <h2 class="title center">Popular Schools In Your Area</h2>
 
-<div class="school-index">
-	<% @schools.each do |school| %>
-		<%= render partial: "schools/partials/school_row", :locals => {:school => school} %>	
-	<% end %>
-</div>
+  <% if @schools.empty? %>
+  <%else%>
+    <% @schools.each do |school| %>
+      <%= render partial: "schools/partials/school_row", :locals => {:school => school} %>
+      <% end %>
+    <div class="pagination-well flex flex-col">
+      <%= will_paginate @schools %>
+    </div>
+  <%end%>
