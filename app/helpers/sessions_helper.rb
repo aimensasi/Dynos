@@ -79,10 +79,9 @@ module SessionsHelper
   end
 
   def redirect_back_or(default = root_url)
-    if session[:pre_page].present? and session[:pre_page] != root_url
+
+    if session[:pre_page].present? and session[:pre_page] != request.env["REQUEST_URI"]
       redirect_to session[:pre_page]
-    elsif request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"] and request.env["HTTP_REFERER"] != root_url
-      redirect_to :back
     else
       redirect_to default
     end
