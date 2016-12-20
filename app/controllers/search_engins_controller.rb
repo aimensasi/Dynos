@@ -1,6 +1,8 @@
 class SearchEnginsController < ApplicationController
   
   def search_school
+    # byebug
+    puts "PARAMS #{params}"
   	@schools = School.filters(params).paginate(:page => params[:page])
   	if request.xhr?
   		# byebug
@@ -14,8 +16,8 @@ class SearchEnginsController < ApplicationController
   end
 
   def search_event
-
-  	@events = Event.by_address(params).paginate(:page => params[:page])
+    # byebug
+  	@events = Event.filters(params).paginate(:page => params[:page])
     # byebug
     if request.xhr?
       # byebug

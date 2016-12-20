@@ -33,6 +33,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'rails_12factor'
 
+#geolocation gem
+gem "geocoder"
+
 #FILE UPLOADER
 gem 'remotipart', '~> 1.2'
 

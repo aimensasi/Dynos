@@ -340,3 +340,22 @@
     } 
   }
 } // Form Buttons
+
+
+.profile-view{
+
+  .location{
+    position: relative;
+    i.marker-icon {
+      font-size: 30px;
+      color: #66b5b9;
+      margin-right: 33px;
+      margin-top: 4px;
+      cursor: pointer;
+      position: absolute;
+      z-index: 9999;
+      top: 0;
+      right: 0;
+    }
+  }
+}

@@ -41,7 +41,9 @@ class School < ActiveRecord::Base
   validates :category, :inclusion => {:in => ['Private', 'Public', 'International'], :allow_nil => true}
 
   validates_uniqueness_of :user
-
+  
+  geocoded_by :location  
+  after_validation :geocode 
 
 
 
@@ -65,10 +67,15 @@ class School < ActiveRecord::Base
   }
   scope :by_review, -> { order(reviews: :desc) }
 
+  scope :by_location, -> (lat, long){
+    return all unless lat.present? && long.present?
+    near([lat.to_f, long.to_f], 100)
+  }
   def self.filters search_params
   	by_address(search_params[:location])
   	.by_age(search_params[:min_age], search_params[:max_age])
     .by_category(search_params[:category])
+    .by_location(search_params[:lat], search_params[:long])
   end
 
   def profile_pic

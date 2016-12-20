@@ -5,7 +5,18 @@ class WelcomeController < ApplicationController
 	layout "welcome_layout"
 
   def index
-   @schools= School.paginate(:page => params[:page])
+  	if request.xhr?
+  		@schools = School.by_location(params[:lat], params[:long]).limit(10)
+  		if !@schools.empty?
+  			render(:partial => 'schools/partials/schools', :layout => false, :locals => {:schools => @schools})
+  		else
+        # byebug
+  			render :json => @schools
+  		end
+  	else
+  		@schools = School.limit(10)
+  	end
+   	
   end
 
 end
