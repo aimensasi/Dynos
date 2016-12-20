@@ -34,7 +34,7 @@ class Event < ActiveRecord::Base
 
   belongs_to :school
   has_many :tickets, :dependent => :destroy
-  
+
   validates_presence_of :name, :description, :date, :location, :start_time, :end_time, :min_age, :max_age, :price, :school_id
 
   pg_search_scope :by_address, :against => :location, using: { :tsearch => {:prefix => true, :any_word => true} }
@@ -62,9 +62,9 @@ class Event < ActiveRecord::Base
   def profile_cover
     return nil if self.bg_img.nil?
     if self.bg_img.file.present?
-      self[:bg_img].cover.url
-    else  
-      nil  
+      self.bg_img.cover.url
+    else
+      nil
     end
   end
 end
