@@ -2,9 +2,7 @@
   <% events.each do |event| %>
     <%= render :partial => "events/partials/event_row", :locals => {:event => event}%>
   <% end %>
-    <div class="pagination-well flex flex-col">
-      <%= will_paginate events %>
-    </div>
+
 <% else %>
   <div class="empty-list">
   	<p class="title">Sorry, We Could Not Find What Your Asking For</p>
