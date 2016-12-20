@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_action :store_prev_page, :only => [:new]
-  
+
   def new
     @user = User.new
   end
@@ -17,8 +17,6 @@ class SessionsController < ApplicationController
       else
         redirect_to root_path
       end
-          
-      
     else
       flash.now.alert = "Invalid Email Or Password"
       render "new"
