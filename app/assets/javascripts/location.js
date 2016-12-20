@@ -22,7 +22,6 @@ $(document).ready(function(){
 		      	$('#school-location').val(data.results[0].formatted_address);
 		      }else if ($markerSchool.attr('data-parent') == "individual") {
 		      	$('#individual-location').val(data.results[0].formatted_address);
-		      	
 		      }
 		    },
 		    error: function(err){
