@@ -27,10 +27,9 @@
               </h2>
             </div>
           <% else %>
-
             <% @individual.uniq_tickets.each do |event|%>
 
-              <%= render :partial => "events/partials/event_row", :locals => {:event => event} %>
+              <%= render :partial => "events/partials/event_row", :locals => {:event => event, :tickets_count => @individual.ticket_count(event.id,@individual.id)} %>
             <% end %>
           <% end %>
         </div>
