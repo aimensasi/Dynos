@@ -18,6 +18,8 @@
 #  bg_img      :string
 #  phone       :string
 #  website     :string
+#  latitude    :float
+#  longitude   :float
 #
 # Indexes
 #
@@ -40,6 +42,8 @@ class School < ActiveRecord::Base
 
   validates_uniqueness_of :user
   
+  geocoded_by :location  
+  after_validation :geocode 
 
 
 
@@ -51,43 +55,50 @@ class School < ActiveRecord::Base
   }
   scope :by_age, -> (min_age, max_age){
   	return all unless min_age.present? && max_age.present?
-  	where(:min_age => min_age..max_age, :max_age => min_age..max_age)
-    # where("min_age between 2 and ? and max_age between ? and 19 or min_age <= ?",min_age,max_age,max_age)
+  	where.or(:min_age => min_age..max_age, :max_age => min_age..max_age)
+    # where("(min_age between 2 and ? and max_age between ? and 19) ",min_age,max_age,min_age,max_age,max_age,min_age,max_age)
+    # where("(min_age between 2 and ? and max_age between ? and 19) or (min_age between ? and ?)",min_age,max_age,min_age,max_age)
+
   }
-  
+
   scope :by_category, -> (category){
   	return all unless category.present?
   	where(:category => category.capitalize)
   }
   scope :by_review, -> { order(reviews: :desc) }
 
+  scope :by_location, -> (lat, long){
+    return all unless lat.present? && long.present?
+    near([lat.to_f, long.to_f], 20)
+  }
   def self.filters search_params
   	by_address(search_params[:location])
   	.by_age(search_params[:min_age], search_params[:max_age])
     .by_category(search_params[:category])
+    .by_location(search_params[:lat], search_params[:long])
   end
 
   def profile_pic
     if self.logo.file.present?
       self.logo.thumbnail.url
-    else  
-      nil  
+    else
+      nil
     end
   end
 
   def logo_pic
     if self.logo.file.present?
       self.logo.thumbnail_saml.url
-    else  
-      nil  
+    else
+      nil
     end
   end
 
   def profile_cover
     if self.bg_img.file.present?
       self.bg_img.cover.url
-    else  
-      nil  
+    else
+      nil
     end
   end
 

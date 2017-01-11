@@ -37,6 +37,14 @@ gem 'remotipart', '~> 1.2'
 
 gem 'rails_12factor'
 
+gem 'unicorn'
+gem 'rails_12factor'
+
+#geolocation gem
+gem "geocoder"
+
+#FILE UPLOADER
+
 #using pg search for fuzzy search support
 gem 'pg_search'
 

@@ -24,8 +24,14 @@ module SessionsHelper
     else
       return nil
     end
+  end
 
-
+  def owner_or school
+    if current_user == school.user || current_user.school
+      return true
+    else
+      return nil
+    end
   end
 
   def require_login
@@ -79,10 +85,9 @@ module SessionsHelper
   end
 
   def redirect_back_or(default = root_url)
-    if session[:pre_page].present? and session[:pre_page] != root_url
+
+    if session[:pre_page].present? and session[:pre_page] != request.env["REQUEST_URI"]
       redirect_to session[:pre_page]
-    elsif request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"] and request.env["HTTP_REFERER"] != root_url
-      redirect_to :back
     else
       redirect_to default
     end
@@ -92,5 +97,6 @@ module SessionsHelper
   def log_out
      session[:user_id] = nil
      session[:pre_page] = nil
+
   end
 end

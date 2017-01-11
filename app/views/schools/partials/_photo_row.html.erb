@@ -2,8 +2,7 @@
   <!-- Photos Card -->
   <div class="card-block img-card">
     <div class="bg-img" >
-      <%= image_tag(school.profile_cover ? school.profile_cover : "http://placehold.it/1103x450", 
-
+      <%= image_tag(school.profile_cover ? school.profile_cover : "default_big.png", 
           :size => "1103x450", :class => "img-thumbnail cover", :id => "cover") %>
 
       <%= form_for(school, :method => "PATCH", remote: true, 
@@ -23,7 +22,7 @@
       </div>
     </div>
     <div class="logo-img">
-      <%= image_tag(school.profile_pic ? school.profile_pic : "http://placehold.it/240x150", 
+      <%= image_tag(school.profile_pic ? school.profile_pic : "default_small.png", 
           :size => "240x150", :class => "img-thumbnail logo", :id => "logo") %>
       
       <%= form_for(school, :method => "PATCH", remote: true, 

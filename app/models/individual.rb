@@ -27,28 +27,41 @@ class Individual < ActiveRecord::Base
 	validates_presence_of :first_name, :last_name
 	validates_uniqueness_of :user
 
-	
-	def name 
+
+	def name
 		"#{first_name} #{last_name}".camelize
 	end
 
 	def profile_pic
 		if self.avatar.file.present?
 		  self.avatar.thumbnail.url
-		else  
-		  nil  
+		else
+		  nil
 		end
 	end
 
 	def profile_cover
 	  if self.bg_img.file.present?
 	    self.bg_img.cover.url
-	  else  
-	    nil  
+	  else
+	    nil
 	  end
 	end
 
 	def uniq_tickets
-		tickets.group(:individual_id, :event_id)
+		events = []
+		event_ids = tickets.pluck(:event_id).uniq
+		event_ids.each do |id|
+			events << Event.find_by_id(id)
+		end
+		events
 	end
+
+	def ticket_count(event_id,individual_id)
+
+
+		Ticket.where(event_id: event_id , individual_id: individual_id).count
+	end
+
+
 end

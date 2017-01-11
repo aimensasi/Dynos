@@ -51,6 +51,15 @@
     <%= f.text_field :price, :class => "form-control", :placeholder => "Price Per Ticket..." %>
   </div>
 </div>
+
+<div class="form-group row">
+  <%= f.label :bg_img, "Event Photo", :class => "col-sm-2 col-form-label" %>
+  <div class="col-sm-8">
+    <%= f.file_field :bg_img, accept: 'image/png,image/jpg,image/jpeg',
+                         :class => "inputfile", "data-parent" => "cover" %>
+  </div>
+</div>
+
 <div class="form-group row flex btns-group">
   <%= f.submit btn, :class => "btn btn-update" %>
 </div>

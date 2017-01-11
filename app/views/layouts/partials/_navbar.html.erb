@@ -9,15 +9,15 @@
   <li class="nav-item">
     <%= link_to("Events", events_path , :class => "nav-link") %>
   </li>
-  <%# byebug %>
+
   <% if logged_in? %>
-    <li class="nav-item dropdown">                                
+    <li class="nav-item dropdown">
       <% if current_user.school %>
 
         <% school = current_user.school %>
         <a class="nav-link dropdown-toggle" href="#" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= truncate(school.name, :length => 17, :end_string => '') %>
-        </a>                
+        </a>
         <div class="dropdown-menu" aria-labelledby="user_menu">
           <%= link_to("Profile", edit_school_path(school), :class => "dropdown-item") %>
           <%= link_to("Your Events", edit_school_path(school, :anchor => "your-events"), :class => "dropdown-item") %>
@@ -25,10 +25,9 @@
         </div>
       <% else %>
         <% individual = current_user.individual %>
-        <% #byebug %>
         <a class="nav-link dropdown-toggle" href="http://example.com" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= individual.name %>
-        </a>                
+        </a>
         <div class="dropdown-menu" aria-labelledby="user_menu">
           <%= link_to("Profile", edit_individual_path(individual), :class => "dropdown-item") %>
           <%= link_to("Your Events", edit_individual_path(individual, :anchor => "your-events"), :class => "dropdown-item") %>
@@ -39,6 +38,15 @@
   <% else %>
     <li class="nav-item">
       <%= link_to("Sign In", sign_in_path , :class => "nav-link") %>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="http://example.com" id="sign-up-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sign Up
+      </a>                
+      <div class="dropdown-menu" aria-labelledby="sign-up-menu">
+        <%= link_to("For Schools", new_school_path, :class => "dropdown-item") %>
+        <%= link_to("For Individuals", new_individual_path, :class => "dropdown-item") %>
+      </div>    
     </li>
   <% end %>
 </ul>

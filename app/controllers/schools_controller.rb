@@ -3,7 +3,7 @@ class SchoolsController < ApplicationController
   before_action :must_be_school, except: [:create, :new, :index, :show]
 
   def index
-    @schools = School.by_review().paginate(:page => params[:page])
+    @schools = School.paginate(:page => params[:page])
   end
 
   def show
@@ -52,7 +52,8 @@ class SchoolsController < ApplicationController
         @school.reload
         format.json
       else
-        if @school.update_attributes school_params
+        if @school.update school_params
+          # byebug
           flash.notice = "Your Information Has Been Updated"
           format.html { redirect_to(edit_school_path(@school)) } 
         else
@@ -65,6 +66,7 @@ class SchoolsController < ApplicationController
 
   def destroy
     @school = School.find_by_id(params[:id])
+    # byebug
     @school.user.destroy
     log_out
     redirect_to root_path

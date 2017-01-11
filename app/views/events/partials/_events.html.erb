@@ -2,10 +2,14 @@
   <% events.each do |event| %>
     <%= render :partial => "events/partials/event_row", :locals => {:event => event}%>
   <% end %>
+
 <% else %>
   <div class="empty-list">
   	<p class="title">Sorry, We Could Not Find What Your Asking For</p>
   </div>
+
 <% end %>
+
+
 
 

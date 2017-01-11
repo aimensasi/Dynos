@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :require_login, except: [:show, :index]
   before_action :must_be_school, except: [:index, :show]
+  
   def index
     @events = Event.paginate(:page => params[:page])
   end
@@ -58,7 +59,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :description, :date, :location, :start_time, :end_time, :min_age, :max_age, :price)
+      params.require(:event).permit(:name, :description, :date, :location, :start_time, :end_time, :min_age, :max_age, :price, :bg_img)
     end
 
 

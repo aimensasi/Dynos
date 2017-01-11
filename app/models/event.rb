@@ -17,6 +17,8 @@
 #  updated_at  :datetime         not null
 #  bg_img      :string
 #  seats       :integer          default(0), not null
+#  latitude    :float
+#  longitude   :float
 #
 # Indexes
 #
@@ -29,15 +31,31 @@
 
 class Event < ActiveRecord::Base
 	include PgSearch
-
+  mount_uploader :bg_img, AvatarUploader
   self.per_page = 10
 
   belongs_to :school
   has_many :tickets, :dependent => :destroy
-  
+
   validates_presence_of :name, :description, :date, :location, :start_time, :end_time, :min_age, :max_age, :price, :school_id
 
-  pg_search_scope :by_address, :against => :location, using: { :tsearch => {:prefix => true, :any_word => true} }
+  pg_search_scope :pg_address, :against => :location, using: { :tsearch => {:prefix => true, :any_word => true} }
+  
+  geocoded_by :location  
+  after_validation :geocode 
+
+  scope :by_location, -> (lat, long){
+    return all unless lat.present? && long.present?
+    near([lat.to_f, long.to_f], 20)
+  }
+  scope :by_address, -> (address){
+    return all unless address.present?
+    pg_address(address)
+  }
+  def self.filters search_params
+    by_address(search_params[:location])
+    .by_location(search_params[:lat], search_params[:long])
+  end
 
   def event_time
   	"#{start_time.strftime("%I:%M%p")} - #{end_time.strftime("%I:%M%p")}"
@@ -62,9 +80,9 @@ class Event < ActiveRecord::Base
   def profile_cover
     return nil if self.bg_img.nil?
     if self.bg_img.file.present?
-      self[:bg_img].cover.url
-    else  
-      nil  
+      self.bg_img.cover.url
+    else
+      nil
     end
   end
 end
