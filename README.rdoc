@@ -20,7 +20,7 @@ Rails version : 4.2.6
 bundle version : 1.13.5
 
 
-App Url: ......
+App Url: https://dynos-cream.herokuapp.com/
 
 
 Please feel free to use a different markup language if you do not plan to run
